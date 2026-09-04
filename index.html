@@ -760,9 +760,9 @@ h1,h2,h3,h4,p{margin:0}
 
     <!-- ══ Pestañas ═══════════════════════════════════════ -->
     <nav class="tabs" role="tablist" aria-label="Tableros del comité">
-      <button class="tab is-on" role="tab" aria-selected="true" data-go="pl">Planejamento Estratégico</button>
+      <button class="tab" role="tab" aria-selected="false" data-go="pl">Planejamento Estratégico</button>
       <button class="tab" role="tab" aria-selected="false" data-go="rd">Roadmap Estratégicoo</button>
-      <button class="tab" role="tab" aria-selected="false" data-go="ok">OKRs</button>
+      <button class="tab is-on" role="tab" aria-selected="true" data-go="ok">OKRs</button>
       <button class="tab" role="tab" aria-selected="false" data-go="kp">KPIs<span class="tab__badge">1 nuevo</span></button>
       <button class="tab" role="tab" aria-selected="false" data-go="bl">Backlog</button>
       <button class="tab" role="tab" aria-selected="false" data-go="rp">Reportes</button>
@@ -774,7 +774,7 @@ h1,h2,h3,h4,p{margin:0}
     <div class="stage">
 
       <!-- ─── 1 · PLANEAMIENTO ESTRATÉGICO ─────────────── -->
-      <section class="panel is-on" id="pl" role="tabpanel" aria-label="Planeamiento Estratégico">
+      <section class="panel" id="pl" role="tabpanel" aria-label="Planeamiento Estratégico">
         <div class="pl__head">
           <h2>Planeamiento Estratégico</h2>
           <span class="top__grow"></span>
@@ -946,7 +946,7 @@ h1,h2,h3,h4,p{margin:0}
       </section>
 
       <!-- ─── 3 · OKRs ─────────────────────────────────── -->
-      <section class="panel" id="ok" role="tabpanel" aria-label="OKRs">
+      <section class="panel is-on" id="ok" role="tabpanel" aria-label="OKRs">
         <div id="okrIniciativaAlert"></div>
         <div id="okrInfoAlert"></div>
         <div id="okrRoadmapInviteAlert"></div>
@@ -2069,8 +2069,7 @@ h1,h2,h3,h4,p{margin:0}
     }
   };
 
-  go('pl');
-  showHome();
+  showBoards('ok');
 })();
 </script>
 </body>
