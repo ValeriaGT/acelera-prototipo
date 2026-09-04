@@ -1,0 +1,2653 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Acelera · Comité de Gerencia — Presentación Final</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+<style>
+:root{
+  --primary-purple:#a62ef2;
+  --primary-purple-bold:#3c1159;
+  --acelera-dark:#7d00cc;
+  --acelera-light:#f0deff;
+  --acelera-2-light:#e9c8ff;
+  --bg-menu:#f2edff;
+  --gray-1:#3a3d42;
+  --gray-2:#717273;
+  --gray-3:#aeb0b2;
+  --gray-4:#c9cbcc;
+  --gray-5:#f3f4f4;
+  --positive:#31c42c;
+  --warning:#f3cd55;
+  --negative:#f80304;
+  --line:#e2e2e2;
+  --line-soft:#efefef;
+  --ink:#141413;
+  --white:#fff;
+  --banner:linear-gradient(90deg,#a62ef2 0%,#c44ff5 55%,#d868f7 100%);
+  --r:12px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;background:var(--white);color:var(--ink);
+  font-family:"Heebo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased;
+}
+.ico{font-family:"Material Symbols Outlined";font-weight:400;font-style:normal;font-size:20px;line-height:1;display:inline-block;vertical-align:-4px;font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24}
+h1,h2,h3,h4,p,ul,ol{margin:0}
+a{color:inherit}
+.wrap{max-width:980px;margin:0 auto;padding:0 28px}
+
+/* ── nav ── */
+.nav{
+  position:sticky;top:0;z-index:20;background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+}
+.nav__in{max-width:980px;margin:0 auto;padding:0 28px;display:flex;align-items:center;gap:22px;height:56px;overflow-x:auto}
+.nav__brand{font-weight:800;color:var(--acelera-dark);flex:none;letter-spacing:-.01em}
+.nav__links{display:flex;gap:18px;flex:1;min-width:0}
+.nav__links a{font-size:13.5px;color:var(--gray-2);white-space:nowrap;font-weight:500;transition:color .15s}
+.nav__links a:hover{color:var(--primary-purple)}
+.nav__cta{
+  flex:none;background:var(--primary-purple);color:#fff;font-size:13px;font-weight:700;
+  padding:8px 14px;border-radius:99px;white-space:nowrap;display:inline-flex;align-items:center;gap:5px;
+  transition:background .15s;
+}
+.nav__cta:hover{background:#8f1fd8}
+
+/* ── hero ── */
+.hero{
+  background:radial-gradient(120% 140% at 15% -10%,#f7ecff 0%,#fff 55%),var(--white);
+  padding:72px 0 56px;border-bottom:1px solid var(--line);
+}
+.hero__kicker{
+  display:inline-flex;align-items:center;gap:7px;background:var(--acelera-light);color:var(--acelera-dark);
+  font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;
+  padding:6px 13px;border-radius:99px;margin-bottom:22px;
+}
+.hero h1{font-size:44px;font-weight:800;letter-spacing:-.03em;line-height:1.08;max-width:760px}
+.hero h1 em{font-style:normal;color:var(--primary-purple)}
+.hero p{font-size:17px;color:var(--gray-2);margin-top:16px;max-width:620px}
+.hero__ctas{display:flex;gap:12px;margin-top:30px;flex-wrap:wrap}
+.btn-1{
+  background:var(--primary-purple);color:#fff;font-size:14.5px;font-weight:700;
+  padding:13px 22px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;
+  transition:background .15s,transform .15s;text-decoration:none;
+}
+.btn-1:hover{background:#8f1fd8;transform:translateY(-1px)}
+.btn-2{
+  background:#fff;border:1px solid var(--gray-4);color:var(--gray-1);font-size:14.5px;font-weight:700;
+  padding:13px 22px;border-radius:8px;display:inline-flex;align-items:center;gap:8px;text-decoration:none;
+  transition:border-color .15s,color .15s;
+}
+.btn-2:hover{border-color:var(--primary-purple);color:var(--primary-purple)}
+
+/* ── secciones ── */
+section{padding:64px 0}
+section + section{border-top:1px solid var(--line-soft)}
+.sec__eyebrow{
+  display:inline-flex;align-items:center;gap:8px;font-size:12.5px;font-weight:700;letter-spacing:.09em;
+  text-transform:uppercase;color:var(--primary-purple);margin-bottom:10px;
+}
+.sec__eyebrow .n{
+  width:22px;height:22px;border-radius:50%;background:var(--primary-purple);color:#fff;
+  display:inline-grid;place-items:center;font-size:11.5px;
+}
+.sec h2{font-size:30px;font-weight:800;letter-spacing:-.02em;max-width:640px}
+.sec__lead{font-size:15.5px;color:var(--gray-2);margin-top:10px;max-width:640px}
+
+/* bloques reutilizables */
+.quote{
+  background:var(--bg-menu);border-left:4px solid var(--primary-purple);border-radius:0 var(--r) var(--r) 0;
+  padding:20px 24px;font-size:16px;color:var(--primary-purple-bold);margin-top:26px;line-height:1.5;
+}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:20px 22px}
+.grid{display:grid;gap:16px}
+.grid--2{grid-template-columns:1fr 1fr}
+.grid--3{grid-template-columns:repeat(3,1fr)}
+.grid--4{grid-template-columns:repeat(4,1fr)}
+
+.stat{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px 18px;text-align:center}
+.stat__n{font-size:34px;font-weight:800;color:var(--primary-purple);line-height:1.05}
+.stat__l{font-size:12.5px;color:var(--gray-2);margin-top:6px;line-height:1.4}
+.stat--bad .stat__n{color:var(--negative)}
+.stat--ok .stat__n{color:var(--positive)}
+
+/* funnel */
+.funnel{margin-top:28px;display:flex;flex-direction:column;gap:0}
+.funnel__step{
+  display:grid;grid-template-columns:34px 1fr auto;align-items:center;gap:14px;
+  padding:16px 0;border-bottom:1px solid var(--line-soft);
+}
+.funnel__step:last-child{border-bottom:0}
+.funnel__num{
+  width:30px;height:30px;border-radius:50%;background:var(--acelera-light);color:var(--acelera-dark);
+  display:grid;place-items:center;font-weight:700;font-size:13px;
+}
+.funnel__t{font-size:15px;font-weight:600}
+.funnel__d{font-size:13px;color:var(--gray-2);margin-top:3px}
+.funnel__v{font-size:20px;font-weight:800;color:var(--primary-purple-bold);white-space:nowrap;text-align:right}
+.funnel__drop{
+  margin:2px 0 2px 44px;font-size:12.5px;color:var(--negative);font-weight:600;
+  display:flex;align-items:center;gap:5px;
+}
+
+/* tabla */
+table{width:100%;border-collapse:collapse;margin-top:18px;font-size:13.5px}
+th,td{text-align:left;padding:10px 12px;border-bottom:1px solid var(--line-soft)}
+th{color:var(--gray-2);font-weight:600;font-size:12px;text-transform:uppercase;letter-spacing:.03em}
+td b{color:var(--primary-purple-bold)}
+tr:last-child td{border-bottom:none;font-weight:700}
+
+/* matriz priorización */
+.matrix{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-top:26px}
+.mcell{border-radius:var(--r);padding:18px 20px;border:1px solid var(--line)}
+.mcell h4{font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:10px}
+.mcell ul{padding-left:18px;font-size:13.5px;color:var(--gray-1);line-height:1.6}
+.mcell--max{background:#f3fbf5;border-color:#bfe6cf}
+.mcell--max h4{color:#0f6b45}
+.mcell--med{background:#fffaec;border-color:#f0dfae}
+.mcell--med h4{color:#8a5a06}
+.mcell--low{background:#f4f8fd;border-color:#c9d8ea}
+.mcell--low h4{color:#1f4d7a}
+.mcell--min{background:#fdf1f0;border-color:#f6cecb}
+.mcell--min h4{color:#b3271e}
+
+/* experimentos */
+.exp{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:22px;margin-top:16px}
+.exp__h{display:flex;align-items:center;gap:12px;margin-bottom:12px}
+.exp__badge{
+  width:32px;height:32px;border-radius:9px;background:var(--primary-purple);color:#fff;
+  display:grid;place-items:center;font-weight:800;font-size:14px;flex:none;
+}
+.exp__t{font-size:16.5px;font-weight:700}
+.exp__row{margin-top:10px;font-size:13.5px;color:var(--gray-1);line-height:1.55}
+.exp__row b{color:var(--primary-purple-bold);font-weight:600}
+.exp__metric{
+  margin-top:12px;background:var(--acelera-light);border-radius:8px;padding:10px 14px;
+  font-size:13px;color:var(--primary-purple-bold);display:flex;align-items:center;gap:8px;
+}
+
+/* solución / prototipo */
+.proto{
+  background:linear-gradient(135deg,#1a0630,#3c1159 55%,#5c1c8f);color:#fff;
+  border-radius:20px;padding:44px 40px;margin-top:28px;position:relative;overflow:hidden;
+}
+.proto::before{
+  content:"";position:absolute;inset:0;background:radial-gradient(60% 90% at 90% 0%,rgba(255,255,255,.14),transparent 60%);
+}
+.proto__in{position:relative}
+.proto h3{font-size:24px;font-weight:800;letter-spacing:-.01em}
+.proto p{font-size:14.5px;color:#e8d6fb;margin-top:10px;max-width:560px;line-height:1.6}
+.proto__feats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.pf{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);border-radius:10px;padding:14px 16px}
+.pf .ico{color:#d8a8ff;font-size:20px}
+.pf__t{font-size:13.5px;font-weight:700;margin-top:8px}
+.pf__d{font-size:12px;color:#d8c2f0;margin-top:4px;line-height:1.5}
+.proto .btn-1{background:#fff;color:var(--primary-purple-bold);margin-top:26px}
+.proto .btn-1:hover{background:#f2e2ff}
+
+/* timeline despliegue */
+.timeline{margin-top:26px;position:relative;padding-left:26px}
+.timeline::before{content:"";position:absolute;left:8px;top:6px;bottom:6px;width:2px;background:var(--line)}
+.tl{position:relative;padding-bottom:26px}
+.tl:last-child{padding-bottom:0}
+.tl::before{
+  content:"";position:absolute;left:-26px;top:2px;width:16px;height:16px;border-radius:50%;
+  background:var(--primary-purple);border:3px solid #fff;box-shadow:0 0 0 2px var(--primary-purple);
+}
+.tl__t{font-size:14.5px;font-weight:700}
+.tl__d{font-size:13px;color:var(--gray-2);margin-top:3px;line-height:1.5}
+
+/* siguientes pasos */
+.metric-list{display:flex;flex-direction:column;gap:10px;margin-top:24px}
+.ml{
+  display:flex;align-items:flex-start;gap:14px;background:#fff;border:1px solid var(--line);
+  border-radius:var(--r);padding:14px 16px;
+}
+.ml .ico{color:var(--primary-purple);flex:none;margin-top:2px}
+.ml__t{font-size:14px;font-weight:600}
+.ml__d{font-size:12.5px;color:var(--gray-2);margin-top:2px}
+
+/* conclusiones */
+.concl{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:26px}
+.ccard{border:1px solid var(--line);border-radius:var(--r);padding:20px}
+.ccard h4{font-size:14px;font-weight:700;color:var(--primary-purple-bold);display:flex;align-items:center;gap:8px}
+.ccard p{font-size:13.5px;color:var(--gray-1);margin-top:10px;line-height:1.6}
+.backlog{margin-top:14px}
+.backlog li{font-size:13px;color:var(--gray-1);padding:8px 0;border-bottom:1px solid var(--line-soft);display:flex;gap:8px}
+.backlog li:last-child{border-bottom:0}
+.backlog .tag{
+  flex:none;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.04em;
+  padding:2px 8px;border-radius:99px;height:fit-content;
+}
+.tag--med{background:#fffaec;color:#8a5a06}
+.tag--low{background:#f4f8fd;color:#1f4d7a}
+.tag--min{background:#fdf1f0;color:#b3271e}
+
+/* footer */
+footer{
+  padding:36px 0 60px;text-align:center;
+}
+footer .btn-1{margin:0 auto}
+footer .foot-note{font-size:12.5px;color:var(--gray-3);margin-top:18px}
+
+.viewer{margin-top:28px;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;background:#fff}
+.viewer__bar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 14px;background:var(--gray-5);border-bottom:1px solid var(--line)}
+.viewer__t{font-size:12.5px;color:var(--gray-2);display:flex;align-items:center;gap:7px}
+.viewer__t .ico{color:var(--primary-purple)}
+.viewer__frame{display:block;width:100%;height:720px;border:0}
+
+@media (max-width:760px){
+  .hero h1{font-size:32px}
+  .grid--2,.grid--3,.grid--4,.matrix,.concl,.proto__feats{grid-template-columns:1fr}
+  .nav__links{display:none}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav__in">
+    <span class="nav__brand">ACELERA</span>
+    <div class="nav__links">
+      <a href="#reto">Objetivos y reto</a>
+      <a href="#propuesta">La propuesta</a>
+      <a href="#solucion">La solución</a>
+      <a href="#siguientes">Siguientes pasos</a>
+      <a href="#conclusiones">Conclusiones</a>
+    </div>
+    <a class="nav__cta" href="https://valeriagt.github.io/acelera-prototipo/" target="_blank" rel="noopener">
+      Ver prototipo <span class="ico">arrow_forward</span>
+    </a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <span class="hero__kicker"><span class="ico" style="font-size:15px;vertical-align:-2px">groups</span>Comité de Gerencia</span>
+    <h1>De completar OKRs a <em>usar toda la plataforma</em>: la propuesta para Acelera</h1>
+    <p>Presentación final del reto de diseño: por qué el 88% de los usuarios con licencia no vuelve cada mes, y qué proponemos para cerrar esa brecha en los próximos 3 meses.</p>
+    <div class="hero__ctas">
+      <a class="btn-1" href="https://valeriagt.github.io/acelera-prototipo/" target="_blank" rel="noopener">
+        <span class="ico">rocket_launch</span> Abrir el prototipo interactivo
+      </a>
+      <a class="btn-2" href="#reto"><span class="ico">arrow_downward</span> Ver la presentación</a>
+    </div>
+  </div>
+</header>
+
+<!-- ═══ 1 · OBJETIVOS Y EL RETO DE DISEÑO ═══ -->
+<section id="reto">
+  <div class="wrap">
+    <span class="sec__eyebrow"><span class="n">1</span>Objetivos y el reto de diseño</span>
+    <h2>Reto de negocio</h2>
+    <div class="quote">
+      Lograr que Acelera sea una plataforma de <b>uso constante</b>: que los usuarios pasen de la sección de OKRs
+      e integren las demás funcionalidades en sus actividades diarias. Adopción no significa iniciar sesión a diario,
+      sino integrar la plataforma al flujo de trabajo.
+    </div>
+
+    <h2 style="margin-top:48px">Información de negocio de valor</h2>
+    <p class="sec__lead">El sustento del problema: de los usuarios con licencia activa, solo 1 de cada 9 vuelve mes a mes.</p>
+    <div class="grid grid--4" style="margin-top:22px">
+      <div class="stat"><p class="stat__n">1,715</p><p class="stat__l">Usuarios base no read-only (licencia activa)</p></div>
+      <div class="stat stat--ok"><p class="stat__n">200</p><p class="stat__l">Usuarios activos mensuales (MAU)</p></div>
+      <div class="stat stat--bad"><p class="stat__n">11.66%</p><p class="stat__l">MAU / usuarios base</p></div>
+      <div class="stat stat--bad"><p class="stat__n">88.33%</p><p class="stat__l">Usuarios perdidos o dormidos</p></div>
+    </div>
+
+    <h2 style="margin-top:48px">OKRs y métricas propuestas</h2>
+    <p class="sec__lead">Funnel de conversión: dónde se cae el usuario entre el onboarding y volverse recurrente.</p>
+    <div class="funnel">
+      <div class="funnel__step">
+        <span class="funnel__num">1</span>
+        <div><p class="funnel__t">Registro / acceso a la plataforma</p><p class="funnel__d">Usuarios con licencia este mes</p></div>
+        <span class="funnel__v">4,149</span>
+      </div>
+      <div class="funnel__step">
+        <span class="funnel__num">2</span>
+        <div><p class="funnel__t">Onboarding / capacitación guiada</p><p class="funnel__d">98% completado en 14 días (44 de 45 nuevos usuarios)</p></div>
+        <span class="funnel__v">98%</span>
+      </div>
+      <div class="funnel__step">
+        <span class="funnel__num">3</span>
+        <div><p class="funnel__t">Primer elemento propio · OKR con Sync</p><p class="funnel__d">Configura su primer objetivo real</p></div>
+        <span class="funnel__v">73.1%</span>
+      </div>
+      <div class="funnel__drop"><span class="ico" style="font-size:15px">south</span>Caída de más del 90% entre el primer OKR y explorar otro módulo</div>
+      <div class="funnel__step">
+        <span class="funnel__num">4</span>
+        <div><p class="funnel__t">Explora un segundo módulo</p><p class="funnel__d">KPIs 5.0% · Plan 4.6% · Roadmap 4.6% · Backlog 1.9% de las sesiones</p></div>
+        <span class="funnel__v">5.0%</span>
+      </div>
+      <div class="funnel__step">
+        <span class="funnel__num">5</span>
+        <div><p class="funnel__t">Usuario activo recurrente</p><p class="funnel__d">DAU 17 · WAU 49 · MAU 195 — stickiness 8.7%</p></div>
+        <span class="funnel__v">200</span>
+      </div>
+    </div>
+
+    <table>
+      <thead><tr><th>OKR</th><th>Resultado clave (KR)</th></tr></thead>
+      <tbody>
+        <tr><td>Lograr que los usuarios recién incorporados se conviertan en usuarios activos integrando funcionalidades de valor a su flujo de trabajo.</td>
+          <td>Aumentar el MAU de usuarios no read-only del <b>11.6% (200)</b> al <b>15% (230)</b> al cierre del tercer mes.</td></tr>
+        <tr><td>Diversificar el uso de la plataforma más allá de OKRs.</td>
+          <td>Aumentar sesiones en funcionalidades distintas a OKRs del <b>26.9%</b> al <b>40%</b>.</td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:48px">Principal hipótesis</h2>
+    <div class="quote">
+      Si agregamos un <b>acompañamiento más práctico</b> a los usuarios que ya pasaron por el onboarding y crearon sus OKR,
+      entonces estarán más interesados en incorporar otros módulos en sus actividades mensuales y percibirán mayor valor
+      en los próximos 3 meses — porque hoy deben aprender por sí solos cómo funcionan las demás secciones.
+    </div>
+
+    <h2 style="margin-top:48px">Insights</h2>
+    <p class="sec__lead">Acelera asume que, tras el onboarding, los usuarios pueden manejar la plataforma por sí mismos — pero el onboarding solo entrena en OKRs. Al no existir guía contextual para el resto de módulos, los usuarios activos se quedan ahí.</p>
+    <div class="grid grid--2" style="margin-top:20px">
+      <div class="stat"><p class="stat__n">73.1%</p><p class="stat__l">de las sesiones ocurren en OKRs</p></div>
+      <div class="stat stat--bad"><p class="stat__n">5.0%</p><p class="stat__l">de las sesiones ocurren en KPIs</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 2 · LA PROPUESTA ═══ -->
+<section id="propuesta">
+  <div class="wrap">
+    <span class="sec__eyebrow"><span class="n">2</span>La propuesta</span>
+    <h2>Matriz de priorización</h2>
+    <p class="sec__lead">Impacto frente a esfuerzo, para decidir qué construir primero.</p>
+    <div class="matrix">
+      <div class="mcell mcell--max">
+        <h4><span class="ico" style="font-size:15px">bolt</span> Prioridad máxima — alto impacto / bajo esfuerzo</h4>
+        <ul>
+          <li>Comunicar visualmente cómo interconectar una actividad con otros módulos.</li>
+          <li>Gamificación con prueba social e impresibilidad (cuánto falta para el siguiente paso).</li>
+          <li>Tooltips o mensajes instructivos para entender "Nivel de logro".</li>
+        </ul>
+      </div>
+      <div class="mcell mcell--med">
+        <h4><span class="ico" style="font-size:15px">hourglass_top</span> Prioridad media — alto impacto / alto esfuerzo</h4>
+        <ul>
+          <li>Onboarding guiado reutilizable, con iluminación paso a paso, disponible más de una vez.</li>
+        </ul>
+      </div>
+      <div class="mcell mcell--low">
+        <h4><span class="ico" style="font-size:15px">low_priority</span> Prioridad baja — bajo impacto / bajo esfuerzo</h4>
+        <ul>
+          <li>Mayor orientación para entender las etiquetas de OKR.</li>
+        </ul>
+      </div>
+      <div class="mcell mcell--min">
+        <h4><span class="ico" style="font-size:15px">schedule</span> Prioridad mínima — bajo impacto / alto esfuerzo</h4>
+        <ul>
+          <li>Sesión de acompañamiento en el 1er/2do mes para monitorear fricciones.</li>
+          <li>Chatbot que oriente paso a paso la creación de módulos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <h2 style="margin-top:52px">Experimentos propuestos</h2>
+    <p class="sec__lead">Cada pieza no solo informa el siguiente paso: está diseñada con un driver de Octalysis detrás, para generar motivación real de completar la acción.</p>
+
+    <div class="exp">
+      <div class="exp__h"><span class="exp__badge">1</span><span class="exp__t">El puente justo después del primer OKR</span></div>
+      <p class="exp__row"><b>Mecánica —</b> al guardar su primer OKR/KR, aparece un banner: "Este objetivo podría necesitar un KPI para monitorearlo en el tiempo. ¿Quieres crear uno?"</p>
+      <p class="exp__row"><b>Por qué ataca el insight —</b> interviene justo donde hoy el usuario termina su interacción con OKRs, sin ningún puente hacia el siguiente módulo.</p>
+      <div class="exp__metric"><span class="ico" style="font-size:16px">insights</span> % de usuarios que crean un KPI en los 7 días siguientes a su primer OKR (referencia actual: 5% de sesiones)</div>
+    </div>
+
+    <div class="exp">
+      <div class="exp__h"><span class="exp__badge">2</span><span class="exp__t">Checklist "Explora tu plataforma completa"</span></div>
+      <p class="exp__row"><b>Mecánica —</b> al terminar el training de OKRs, se abre un checklist persistente en el Home con 3 ítems (Crear un KPI, Agregar algo al Backlog, Ver el Roadmap), visible hasta completarse o descartarse.</p>
+      <p class="exp__row"><b>Por qué ataca el insight —</b> convierte la asunción implícita de Acelera ("ya sabes usar todo") en una guía explícita.</p>
+      <div class="exp__metric"><span class="ico" style="font-size:16px">insights</span> % de usuarios nuevos que tocan al menos 2 módulos distintos a OKRs en sus primeros 14 días</div>
+    </div>
+
+    <div class="exp">
+      <div class="exp__h"><span class="exp__badge">3</span><span class="exp__t">Micro-reto guiado de KPI</span></div>
+      <p class="exp__row"><b>Mecánica —</b> agregar un "Reto 3" de 5 minutos al final de la capacitación existente, con el mismo formato de micro-reto que ya funciona (98% de completitud), enfocado en crear y configurar un KPI.</p>
+      <p class="exp__row"><b>Por qué ataca el insight —</b> ataca la causa raíz en la fuente: el training hoy no enseña KPIs, Backlog ni Roadmap.</p>
+      <div class="exp__metric"><span class="ico" style="font-size:16px">insights</span> % de sesiones en KPIs, cohorte con Reto 3 vs. cohorte sin él (A/B por fecha de capacitación)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 3 · LA SOLUCIÓN ═══ -->
+<section id="solucion">
+  <div class="wrap">
+    <span class="sec__eyebrow"><span class="n">3</span>La solución</span>
+    <h2>Propuesta de solución en diseño final</h2>
+    <p class="sec__lead">El prototipo aplica el framework <b>Descubrir · Guiar · Reforzar</b> directamente sobre el tablero real del Comité de Gerencia.</p>
+
+    <div class="proto">
+      <div class="proto__in">
+        <h3>Prototipo interactivo — Comité de Gerencia</h3>
+        <p>Seis tableros (Planeamiento, Roadmap, OKRs, KPIs, Backlog, Reportes) con los mecanismos de descubrimiento y acompañamiento aplicados sobre datos reales del tablero.</p>
+        <div class="proto__feats">
+          <div class="pf"><span class="ico">auto_awesome</span><p class="pf__t">Biblioteca de alertas</p><p class="pf__d">14 tarjetas en Inicio que conectan OKRs con Roadmap, KPIs, Backlog y Planeamiento — constancia, riesgo y refuerzo positivo.</p></div>
+          <div class="pf"><span class="ico">checklist</span><p class="pf__t">Checklist "Explora tu plataforma"</p><p class="pf__d">3 pasos persistentes en el Home con medidor de progreso y micro-celebración al completarlos.</p></div>
+          <div class="pf"><span class="ico">help</span><p class="pf__t">Descubrimiento guiado</p><p class="pf__d">Badge "1 nuevo" en la pestaña KPIs y tooltip explicativo en la columna "Nivel de logro".</p></div>
+        </div>
+        <a class="btn-1" href="https://valeriagt.github.io/acelera-prototipo/" target="_blank" rel="noopener">
+          <span class="ico">open_in_new</span> Abrir el prototipo interactivo
+        </a>
+      </div>
+    </div>
+
+    <div class="viewer">
+      <div class="viewer__bar">
+        <span class="viewer__t"><span class="ico" style="font-size:16px">visibility</span> Prototipo embebido — funciona sin conexión, viaja dentro de este mismo archivo</span>
+        <button class="btn-2" id="openProtoFull"><span class="ico" style="font-size:16px">open_in_full</span> Pantalla completa</button>
+      </div>
+      <iframe id="protoFrame" class="viewer__frame" title="Prototipo interactivo — Comité de Gerencia" srcdoc="<!doctype html>
+<html lang=&quot;es&quot;>
+<head>
+<meta charset=&quot;utf-8&quot;>
+<meta name=&quot;viewport&quot; content=&quot;width=device-width,initial-scale=1&quot;>
+<title>Comité de Gerencia</title>
+<link rel=&quot;preconnect&quot; href=&quot;https://fonts.googleapis.com&quot;>
+<link rel=&quot;preconnect&quot; href=&quot;https://fonts.gstatic.com&quot; crossorigin>
+<link rel=&quot;stylesheet&quot; href=&quot;https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&amp;family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&amp;display=swap&quot;>
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   ACELERA · Comité de Gerencia — prototipo de 6 tableros
+   Tokens extraídos del CSS real de app.acelera.io
+   ═══════════════════════════════════════════════════════════════ */
+
+:root{
+  /* tokens reales de la app */
+  --primary-purple:#a62ef2;
+  --primary-purple-bold:#3c1159;
+  --primary-purple-l1:rgba(166,46,242,.37);
+  --primary-purple-l2:rgba(194,169,255,.69);
+  --bg-menu:#f2edff;
+  --acelera-dark:#7d00cc;
+  --acelera-light:#f0deff;
+  --acelera-2-light:#e9c8ff;
+  --gray-1:#3a3d42;
+  --gray-2:#717273;
+  --gray-3:#aeb0b2;
+  --gray-4:#c9cbcc;
+  --gray-5:#f3f4f4;
+  --positive:#31c42c;
+  --warning:#f3cd55;
+  --negative:#f80304;
+  --sec-red:#ff7171;
+  --sec-yellow:#ffed47;
+  --sec-green:#6aff67;
+  --sec-stop:#e7e7e7;
+
+  /* derivados para el prototipo */
+  --ink:#000;
+  --line:#e2e2e2;
+  --line-soft:#efefef;
+  --fill:#f2f2f2;
+  --white:#fff;
+  --banner:linear-gradient(90deg,#a62ef2 0%,#c44ff5 55%,#d868f7 100%);
+  --r:8px;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{
+  margin:0;background:var(--white);color:var(--ink);
+  font-family:&quot;Heebo&quot;,-apple-system,BlinkMacSystemFont,&quot;Segoe UI&quot;,Roboto,Helvetica,Arial,sans-serif;
+  font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;
+}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+:focus-visible{outline:2px solid var(--primary-purple);outline-offset:2px}
+.ico{
+  font-family:&quot;Material Symbols Outlined&quot;;font-weight:400;font-style:normal;
+  font-size:20px;line-height:1;letter-spacing:normal;text-transform:none;
+  display:inline-block;white-space:nowrap;direction:ltr;
+  -webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;
+  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ── Shell ─────────────────────────────────────────────────── */
+.app{display:grid;grid-template-columns:60px minmax(0,1fr);height:100dvh;background:var(--white)}
+
+.rail{
+  border-right:1px solid var(--line);background:var(--white);
+  display:flex;flex-direction:column;align-items:center;
+  padding:12px 0 14px;gap:2px;overflow:hidden;
+}
+.rail__logo{width:38px;height:34px;display:grid;place-items:center;color:var(--primary-purple);margin-bottom:6px}
+.rail__btn{
+  width:38px;height:36px;border-radius:6px;display:grid;place-items:center;
+  color:var(--gray-2);position:relative;transition:background .13s,color .13s;
+}
+.rail__btn:hover{background:var(--gray-5);color:var(--gray-1)}
+.rail__btn.is-on{color:var(--primary-purple)}
+.rail__sep{width:32px;height:1px;background:var(--line);margin:8px 0}
+.rail__grow{flex:1}
+.rail__badge{
+  position:absolute;top:1px;right:2px;min-width:16px;height:16px;padding:0 4px;
+  border-radius:8px;background:var(--negative);color:#fff;
+  font-size:9.5px;font-weight:600;line-height:16px;text-align:center;border:1.5px solid #fff;
+}
+.rail__me{width:28px;height:28px;border-radius:50%;background:linear-gradient(150deg,#8d6bd8,#3f3160);margin-top:6px;
+  display:grid;place-items:center;color:#fff;font-size:10px;font-weight:600}
+
+.shell{display:flex;flex-direction:column;min-width:0;overflow:hidden}
+
+/* ── Encabezado ────────────────────────────────────────────── */
+.top{display:flex;align-items:center;gap:14px;padding:16px 24px 0}
+.top__team{display:flex;align-items:center;gap:5px;font-size:21px;font-weight:700;letter-spacing:-.01em}
+.top__team .ico{font-size:22px;color:var(--gray-1)}
+.top__pipe{color:var(--gray-3);font-size:21px;font-weight:300}
+.top__sec{font-size:21px;font-weight:700;letter-spacing:-.01em}
+.top__grow{flex:1}
+.pill-pct{
+  background:var(--acelera-2-light);color:var(--primary-purple-bold);
+  border-radius:99px;padding:4px 26px;font-size:14px;font-weight:700;
+}
+.pill-lock{
+  background:#fff;border:1px solid var(--sec-red);color:#c93b3b;
+  border-radius:var(--r);padding:5px 12px;font-size:13px;font-weight:500;
+}
+.faces{display:flex}
+.faces span{
+  width:26px;height:26px;border-radius:50%;border:2px solid #fff;margin-left:-8px;
+  background:linear-gradient(150deg,#b39ae0,#4b3a72);
+  display:grid;place-items:center;color:#fff;font-size:9px;font-weight:600;
+}
+.faces span:first-child{margin-left:0}
+.faces .more{background:var(--primary-purple)}
+.selectish{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--gray-4);border-radius:var(--r);
+  padding:5px 10px;font-size:13.5px;color:var(--gray-1);background:#fff;
+}
+.planner{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--gray-4);border-radius:99px;padding:3px 5px;background:#fff;font-size:13.5px;
+}
+.planner b{font-weight:500;padding:0 4px}
+.planner .rnd{width:22px;height:22px;border-radius:50%;border:1px solid var(--gray-4);
+  display:grid;place-items:center;color:var(--gray-2)}
+.planner .rnd .ico{font-size:15px}
+
+/* ── Pestañas ──────────────────────────────────────────────── */
+.tabs{display:flex;align-items:center;gap:4px;padding:6px 24px 0;border-bottom:1px solid var(--line)}
+.tab{
+  padding:9px 12px 11px;font-size:14.5px;color:var(--gray-2);
+  border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;
+  transition:color .13s,border-color .13s;
+}
+.tab:hover{color:var(--gray-1)}
+.tab.is-on{color:var(--ink);font-weight:500;border-bottom-color:var(--gray-1)}
+.tab__badge{margin-left:6px;background:var(--negative);color:#fff;font-size:9.5px;font-weight:700;border-radius:99px;padding:2px 7px;vertical-align:2px}
+.tabs__grow{flex:1}
+.tabs__tools{display:flex;align-items:center;gap:2px;padding-bottom:4px}
+.tool{width:32px;height:32px;border-radius:6px;display:grid;place-items:center;color:var(--gray-1);transition:background .13s}
+.tool:hover{background:var(--gray-5)}
+.tool .ico{font-size:19px}
+.tool--ia{width:auto;gap:6px;display:flex;align-items:center;padding:0 6px;font-size:13.5px}
+.switch{width:32px;height:18px;border-radius:99px;background:var(--gray-4);position:relative;transition:background .15s}
+.switch::after{content:&quot;&quot;;position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .15s}
+.switch.is-on{background:var(--primary-purple)}
+.switch.is-on::after{transform:translateX(14px)}
+
+/* ── Área de contenido ─────────────────────────────────────── */
+.stage{flex:1;overflow:auto;padding:24px}
+.panel{display:none}
+.panel.is-on{display:block}
+
+/* ═══ 1 · PLANEAMIENTO ═════════════════════════════════════ */
+.pl__head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.pl__head h2{font-size:22px;font-weight:400}
+.btn-pdf{background:var(--primary-purple);color:#fff;border-radius:6px;padding:7px 14px;font-size:13.5px;font-weight:600}
+.edit-lock{display:flex;align-items:center;gap:7px;color:var(--gray-1);font-size:14px}
+
+.banner{
+  background:var(--banner);color:#fff;border-radius:var(--r);
+  padding:12px;text-align:center;font-size:15px;font-weight:700;margin:12px 0 10px;
+}
+.rowline{display:grid;grid-template-columns:134px 1fr;gap:8px;margin-bottom:10px;align-items:stretch}
+.rowline__k{
+  background:var(--line);border-radius:var(--r);
+  display:grid;place-items:center;text-align:center;
+  font-size:14px;color:var(--gray-1);padding:12px 10px;
+}
+.rowline__v{
+  background:var(--fill);border-radius:var(--r);
+  padding:16px 22px;text-align:center;font-size:15px;color:var(--gray-1);
+  display:grid;place-items:center;
+}
+.rowline__v--cards{background:none;padding:0;place-items:stretch}
+.cardgrid{display:grid;gap:10px;width:100%}
+.cardgrid--4{grid-template-columns:repeat(4,1fr)}
+.cardgrid--3{grid-template-columns:repeat(3,1fr)}
+.cardgrid--5{grid-template-columns:repeat(5,1fr)}
+.vcard{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 15px;text-align:left;font-size:13px;color:var(--gray-1);line-height:1.5;
+}
+.vcard h4{font-size:13.5px;font-weight:500;margin-bottom:7px;display:flex;align-items:center;gap:7px}
+.vcard ul{list-style:disc;padding-left:16px}
+.vcard em{font-style:italic}
+.mcard{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:14px;text-align:center;
+}
+.mcard__t{font-size:14px;color:var(--gray-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mcard__v{font-size:26px;font-weight:400;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px}
+.mcard__v .dot{width:11px;height:11px;border-radius:50%;flex:none}
+.dot--ok{background:var(--positive)}
+.dot--bad{background:var(--sec-red)}
+.dot--warn{background:var(--warning)}
+.mcard__m{font-size:11px;color:var(--gray-2);margin-top:2px}
+
+.subhead{display:flex;align-items:center;gap:10px;margin:22px 0 8px}
+.subhead h3{font-size:18px;font-weight:400}
+.subhead .plan{font-size:18px;font-weight:400;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;width:100%}
+.foco-chip{
+  display:inline-flex;align-items:center;gap:7px;background:#fff;
+  border:1px solid var(--line);border-radius:var(--r);padding:9px 14px;font-size:13.5px;
+}
+.planbox{border:1px solid var(--line);border-radius:var(--r);margin-top:16px;overflow:hidden}
+.planbox__h{background:var(--acelera-light);padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:14.5px}
+.planbox__h b{font-weight:700;text-transform:uppercase}
+.planbox__h .tagr{margin-left:auto;background:#fff;border-radius:99px;padding:5px 12px;font-size:12.5px}
+.planbox__b{padding:14px 16px}
+.planbox__b-h{display:flex;align-items:center;margin-bottom:12px;font-size:14px}
+.btn-foco{margin-left:auto;background:var(--primary-purple);color:#fff;border-radius:6px;padding:6px 12px;font-size:12.5px;font-weight:600}
+.focorow{display:grid;grid-template-columns:38px 130px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:8px}
+.focorow__tag{background:var(--primary-purple);color:#fff;display:grid;place-items:center;font-size:12px;writing-mode:vertical-rl;transform:rotate(180deg);padding:8px 0}
+.focorow__n{background:#fff;display:grid;place-items:center;text-align:center;padding:12px 8px;font-size:13.5px;border-right:1px solid var(--line)}
+.focorow__c{background:#fff;display:grid;place-items:center;padding:16px;color:var(--gray-2);font-size:14px}
+
+/* OKR sin iniciativa (OKRs) — resaltado (solo el trazo) */
+.okrgroup{border-radius:calc(var(--r) + 1px)}
+.okrgroup--warn{border:2px solid #d99a0b;padding:2px;transition:box-shadow .3s ease;margin-bottom:2px}
+.okrgroup--warn.is-pinged{box-shadow:0 0 0 4px rgba(217,154,11,.25)}
+.itemrow{transition:background .3s ease}
+.itemrow.is-pinged{background:#faf4ff}
+
+/* Alerta superior: OKR sin iniciativa */
+.okrgap{
+  border:1px solid #f0dfae;border-radius:12px;
+  background:linear-gradient(180deg,#fffaec,#fffdf7 60%,#fff);
+  margin-bottom:16px;overflow:hidden;
+}
+.okrgap__head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px}
+.okrgap__icon{
+  width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:#fff;border:1px solid #f0dfae;color:#d99a0b;
+}
+.okrgap__copy{flex:1;min-width:0}
+.okrgap__title{font-size:15.5px;font-weight:700;color:#8a5a06}
+.okrgap__row{display:flex;align-items:center;gap:14px;margin-top:4px}
+.okrgap__desc{flex:1;min-width:0;font-size:13.5px;color:var(--gray-2);line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.okrgap__list{flex:none;display:flex;gap:8px}
+.okrgap__go{
+  flex:none;display:inline-flex;align-items:center;gap:5px;background:#fff;border:1px solid #d99a0b;
+  color:#8a5a06;border-radius:7px;padding:6px 12px;font-size:12.5px;font-weight:600;white-space:nowrap;
+}
+.okrgap__go:hover{background:#fffaec}
+.okrgap__go .ico{font-size:16px}
+
+/* Alerta informativa: qué falta para llegar al 100% (violeta) */
+.okrinfo{
+  border:1px solid #ddc0f8;border-radius:12px;
+  background:linear-gradient(180deg,#faf4ff,#fdfbff 60%,#fff);
+  margin-bottom:16px;overflow:hidden;
+}
+.okrinfo__head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px}
+.okrinfo__icon{
+  width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:#fff;border:1px solid #ddc0f8;color:var(--acelera-dark);
+}
+.okrinfo__copy{flex:1;min-width:0}
+.okrinfo__title{font-size:15.5px;font-weight:700;color:var(--acelera-dark)}
+.okrinfo__desc{font-size:13.5px;color:var(--gray-2);margin-top:4px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.okrinfo__chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px;font-size:12.5px;color:var(--gray-2)}
+.okrinfo__chain b{color:var(--gray-1);font-weight:600}
+.okrinfo__chain .ico{font-size:15px;color:var(--gray-3)}
+.okrinfo__list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+
+/* Fila compartida: texto ocupa el ancho disponible, botón compacto al lado */
+.gaprow{display:flex;align-items:center;gap:12px;background:#fff;border-radius:8px;padding:9px 10px 9px 14px}
+.gaprow__text{flex:1;min-width:0;font-size:13px;color:var(--gray-1);line-height:1.4}
+.gaprow__text b{font-weight:700}
+.gaprow__go{
+  flex:none;display:inline-flex;align-items:center;gap:5px;border-radius:7px;
+  padding:6px 11px;font-size:12.5px;font-weight:600;white-space:nowrap;background:#fff;
+}
+.gaprow__go .ico{font-size:16px}
+.okrgap .gaprow{border:1px solid #f6e5b8}
+.okrgap .gaprow__go{border:1px solid #d99a0b;color:#8a5a06}
+.okrgap .gaprow__go:hover{background:#fffaec}
+.okrinfo .gaprow{border:1px solid #ecdcfb}
+.okrinfo .gaprow__go{border:1px solid #ddc0f8;color:var(--acelera-dark)}
+.okrinfo .gaprow__go:hover{background:#faf4ff}
+
+/* Alerta de invitación: crear proyecto en Roadmap (verde) */
+.okrinvite{
+  border:1px solid #bfe6cf;border-radius:12px;
+  background:linear-gradient(180deg,#eef9f2,#fbfefc 60%,#fff);
+  margin-bottom:16px;overflow:hidden;
+}
+.okrinvite__head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px}
+.okrinvite__icon{
+  width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:#fff;border:1px solid #bfe6cf;color:var(--positive);
+}
+.okrinvite__copy{flex:1;min-width:0}
+.okrinvite__title{font-size:15.5px;font-weight:700;color:#0f6b45}
+.okrinvite__row{display:flex;align-items:center;gap:14px;margin-top:4px}
+.okrinvite__desc{flex:1;min-width:0;font-size:13.5px;color:var(--gray-2);line-height:1.5}
+.okrinvite__go{
+  flex:none;display:inline-flex;align-items:center;gap:6px;background:var(--positive);border:1px solid var(--positive);
+  color:#fff;border-radius:7px;padding:8px 14px;font-size:13px;font-weight:600;white-space:nowrap;
+}
+.okrinvite__go:hover{background:#29a825}
+.okrinvite__go .ico{font-size:16px}
+
+/* ═══ Tablas de tablero (Roadmap · OKRs · KPIs) ════════════ */
+.board{min-width:1180px}
+.board__head{
+  display:grid;align-items:end;gap:0;padding:0 0 10px;
+  font-size:14px;color:var(--gray-1);
+}
+.board__head span{text-align:center}
+.grid-road{grid-template-columns:44px 1fr 130px 120px 190px 70px 190px 400px}
+.grid-okr{grid-template-columns:44px 1fr 130px 120px 190px 70px 190px 190px}
+.grid-kpi{grid-template-columns:44px 1fr 130px 120px 190px 450px}
+
+.timehead{background:var(--banner);color:#fff;border-radius:var(--r);overflow:hidden}
+.timehead__y{display:flex;align-items:center;justify-content:center;gap:16px;padding:6px;font-size:14px;font-weight:500}
+.timehead__q{display:grid;grid-template-columns:repeat(4,1fr);font-size:13px}
+.timehead__q span{padding:5px 0;text-align:center}
+.timehead__m{display:grid;grid-template-columns:repeat(6,1fr);font-size:13px}
+.timehead__m span{padding:5px 0;text-align:center}
+.timehead--light{background:var(--acelera-light);color:var(--primary-purple-bold)}
+
+.grouprow{
+  background:var(--bg-menu);border-radius:var(--r);
+  display:flex;align-items:center;gap:10px;padding:10px 14px;margin:14px 0 4px;
+}
+.grouprow .ico{color:var(--gray-1);font-size:19px}
+.grouprow__id{font-weight:700;font-size:14px}
+.grouprow__t{font-weight:700;font-size:14px;text-transform:uppercase}
+.grouprow__t--n{text-transform:none}
+.grouprow__grow{flex:1}
+.grouprow__tag{background:#fff;border-radius:6px;padding:5px 11px;font-size:12px;display:flex;align-items:center;gap:6px}
+.grouprow__pct{font-size:17px;font-weight:500;min-width:56px;text-align:right}
+
+.itemrow{display:grid;align-items:center;border-bottom:1px solid var(--line-soft);padding:14px 0;min-height:96px}
+.itemrow:last-child{border-bottom:0}
+.itemrow__x{display:grid;place-items:center;color:var(--gray-3)}
+.itemrow__d{padding-right:16px;display:flex;gap:11px;align-items:flex-start}
+.badge-i{
+  width:28px;height:28px;border-radius:6px;background:var(--acelera-light);
+  display:grid;place-items:center;color:var(--primary-purple);flex:none;margin-top:1px;
+}
+.badge-i .ico{font-size:17px}
+.itemrow__code{font-size:11px;font-weight:700;color:var(--primary-purple);letter-spacing:.02em;margin-top:6px}
+.itemrow__name{font-size:14px;color:var(--gray-1);line-height:1.35}
+.metas{display:flex;gap:12px;margin-top:7px;color:var(--gray-2);font-size:11.5px;align-items:center}
+.metas span{display:inline-flex;align-items:center;gap:3px}
+.metas .ico{font-size:14px}
+
+.who{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--gray-1)}
+.who__f{width:28px;height:28px;border-radius:50%;background:linear-gradient(150deg,#b39ae0,#4b3a72);
+  display:grid;place-items:center;color:#fff;font-size:10px;font-weight:600}
+.who--none{color:var(--gray-3);font-size:13px}
+.team{display:flex;justify-content:center}
+.team span{width:26px;height:26px;border-radius:50%;border:2px solid #fff;margin-left:-8px;
+  background:linear-gradient(150deg,#c0a8e8,#5b4780);display:grid;place-items:center;color:#fff;font-size:9px;font-weight:600}
+.team span:first-child{margin-left:0}
+.team .more{background:var(--primary-purple)}
+
+.gauge{padding:0 14px;text-align:center}
+.gauge__v{font-size:13px;color:var(--gray-1);margin-bottom:3px}
+.gauge__bar{height:4px;border-radius:99px;background:var(--gray-4);position:relative;margin:9px 0 6px}
+.gauge__fill{position:absolute;left:0;top:0;height:100%;border-radius:99px;background:var(--gray-1)}
+.gauge__knob{
+  position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:var(--primary-purple);
+  transform:translate(-50%,-50%);display:grid;place-items:center;color:#fff;
+}
+.gauge__knob .ico{font-size:13px}
+.gauge__lim{font-size:10.5px;color:var(--gray-2)}
+.pct{font-size:16px;text-align:center;font-weight:400}
+
+.aligned{display:flex;flex-direction:column;gap:4px;padding:0 12px;position:relative}
+.aligned__st{position:absolute;top:-22px;left:50%;transform:translateX(-50%)}
+.aligned__st .ico{font-size:16px}
+.st-ok{color:var(--positive)}
+.st-bad{color:var(--sec-red)}
+.tagchip{
+  background:var(--acelera-light);border-radius:4px;padding:3px 8px;font-size:11px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--gray-1);
+}
+.tagchip--out{background:#fff;border:1px solid var(--line);display:flex;align-items:center;gap:5px}
+.tagchip--out.is-clickable{cursor:pointer;transition:border-color .13s,color .13s}
+.tagchip--out.is-clickable:hover{border-color:var(--primary-purple);color:var(--primary-purple)}
+
+/* ═══ Modal: Alineado a ══════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(20,10,30,.45);display:flex;align-items:center;justify-content:center;
+  z-index:1000;opacity:0;pointer-events:none;transition:opacity .16s ease;padding:24px;
+}
+.modal-overlay.is-on{opacity:1;pointer-events:auto}
+.modal-card{
+  background:#fff;border-radius:12px;width:660px;max-width:100%;max-height:86vh;overflow:auto;
+  padding:26px 28px 22px;box-shadow:0 24px 60px rgba(30,10,50,.28);
+}
+.modal-card h3{font-size:17px;font-weight:700;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.modal-empty{background:var(--gray-5);border-radius:6px;padding:16px;text-align:center;color:var(--gray-2);font-size:14px;margin-bottom:18px}
+.modal-current{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.modal-align-row{display:flex;align-items:center;gap:16px;margin-bottom:18px;font-size:13.5px;color:var(--gray-1);flex-wrap:wrap}
+.modal-align-row b{font-weight:700}
+.modal-align-row select{border:1px solid var(--gray-4);border-radius:6px;padding:6px 10px;font-size:13px;color:var(--gray-1);background:#fff;margin-left:6px}
+.modal-hint{display:flex;align-items:flex-start;gap:8px;background:#faf4ff;border:1px solid #ddc0f8;border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--acelera-dark);margin-bottom:16px;line-height:1.4}
+.modal-search{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:4px}
+.modal-search .ico{color:var(--gray-3);font-size:20px}
+.modal-search input{border:0;outline:0;font-size:14px;flex:1;font-family:inherit;color:var(--gray-1)}
+.modal-list{max-height:280px;overflow:auto;margin:4px 0 20px}
+.modal-item{display:flex;align-items:center;gap:12px;padding:9px 4px;font-size:14px;color:var(--gray-1);cursor:pointer;border-radius:6px}
+.modal-item:hover{background:var(--gray-5)}
+.modal-item input[type=checkbox]{width:17px;height:17px;accent-color:var(--primary-purple)}
+.modal-empty-list{padding:14px 4px;color:var(--gray-3);font-size:13.5px;text-align:center}
+.modal-foot{display:flex;justify-content:flex-end;padding-top:6px;border-top:1px solid var(--line)}
+.btn-modal-close{background:var(--gray-5);border-radius:6px;padding:8px 18px;font-size:13.5px;font-weight:600;color:var(--gray-1)}
+.btn-modal-close:hover{background:var(--gray-4)}
+.btn-modal-save{background:var(--primary-purple);border-radius:6px;padding:8px 18px;font-size:13.5px;font-weight:600;color:#fff;margin-left:10px}
+.btn-modal-save:hover{background:#8f1fd8}
+
+/* Modal: selector de colaboradores */
+.who.is-clickable,.team.is-clickable{cursor:pointer;border-radius:6px;transition:background .13s}
+.who.is-clickable:hover,.team.is-clickable:hover{background:var(--gray-5)}
+.who--none.is-clickable:hover{color:var(--primary-purple)}
+.collab-item{
+  display:flex;align-items:center;gap:12px;padding:10px 8px;font-size:14.5px;color:var(--gray-1);
+  cursor:pointer;border-radius:8px;
+}
+.collab-item:hover{background:var(--gray-5)}
+.collab-item.is-on{background:var(--acelera-light)}
+.collab-item__av{
+  width:34px;height:34px;border-radius:50%;flex:none;background:linear-gradient(150deg,#b39ae0,#4b3a72);
+  display:grid;place-items:center;color:#fff;font-size:12px;font-weight:600;
+}
+.modal-addlabel{font-size:13px;color:var(--gray-1);margin:14px 0 6px}
+.modal-addinput{
+  width:100%;border:1px solid var(--gray-4);border-radius:6px;padding:9px 12px;font-size:13.5px;
+  font-family:inherit;color:var(--gray-1);margin-bottom:6px;
+}
+
+/* ═══ Onboarding: recorrido guiado ══════════════════════ */
+.tour-spot{
+  position:fixed;border-radius:10px;z-index:1195;pointer-events:auto;
+  box-shadow:0 0 0 9999px rgba(15,10,26,.62);
+  transition:top .25s ease,left .25s ease,width .25s ease,height .25s ease;
+}
+.tour-tip{
+  position:fixed;z-index:1197;background:#fff;border-radius:12px;width:300px;
+  padding:16px 18px;box-shadow:0 16px 40px rgba(20,10,35,.3);
+  transition:top .25s ease,left .25s ease;
+}
+.tour-tip__step{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-purple)}
+.tour-tip__title{font-size:15.5px;font-weight:700;color:var(--gray-1);margin-top:5px;line-height:1.3}
+.tour-tip__desc{font-size:13px;color:var(--gray-2);margin-top:6px;line-height:1.5}
+.tour-tip__foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.tour-skip{font-size:12.5px;color:var(--gray-3);font-weight:600}
+.tour-skip:hover{color:var(--gray-1)}
+.tour-next{background:var(--primary-purple);color:#fff;border-radius:7px;padding:8px 16px;font-size:13px;font-weight:600}
+.tour-next:hover{background:#8f1fd8}
+
+.rd-tourbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.tour-restart{
+  display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:8px;
+  padding:6px 12px;font-size:13px;color:var(--gray-1);background:#fff;
+}
+.tour-restart:hover{border-color:var(--primary-purple);color:var(--primary-purple)}
+.tour-restart .ico{font-size:17px}
+
+/* Gantt */
+.gantt{position:relative;height:60px;border-left:1px solid var(--line)}
+.gantt__grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.gantt__grid i{border-right:1px dashed var(--gray-4)}
+.gantt__today{position:absolute;top:0;bottom:0;width:0;border-left:1.5px dashed var(--sec-red)}
+.gantt__track{position:absolute;top:50%;transform:translateY(-50%);height:20px;border-radius:3px;background:var(--acelera-light)}
+.gantt__done{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--acelera-dark)}
+
+/* Sesiones OKR */
+.sess{display:flex;justify-content:center;gap:8px;border-left:1px solid var(--line);height:100%;align-items:center}
+.sess button{
+  width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  font-size:12px;color:var(--gray-1);background:#fff;transition:border-color .13s,color .13s;
+}
+.sess button:hover{border-color:var(--primary-purple);color:var(--primary-purple)}
+
+/* Celdas de meta KPI */
+.kpicells{display:grid;grid-template-columns:repeat(6,1fr);border-left:1px solid var(--line)}
+.kpicells div{border-right:1px solid var(--line);text-align:center;font-size:13px;color:var(--gray-1)}
+.kpicells .r1{padding:8px 0;border-bottom:1px solid var(--line);color:var(--gray-3)}
+.kpicells .r2{padding:8px 0}
+
+/* ═══ 5 · BACKLOG ══════════════════════════════════════════ */
+.bl__bar{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.bl__bar .grow{flex:1}
+.chip-late{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:var(--r);padding:6px 12px;font-size:13.5px}
+.chip-late i{width:11px;height:11px;border-radius:50%;background:var(--sec-red);display:block}
+.datebox{border:1px solid var(--line);border-radius:var(--r);padding:6px 12px;font-size:12px;color:var(--gray-1);line-height:1.25;text-align:center}
+
+.kanban{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:16px;align-items:start}
+.col{background:var(--gray-5);border-radius:10px;padding:14px 12px 10px;min-height:200px}
+.col--done{background:var(--acelera-light)}
+.col__h{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.col__h h3{font-size:19px;font-weight:400}
+.col__h .ico{color:var(--gray-2)}
+.col__h .chk{color:var(--primary-purple)}
+.col__grow{flex:1}
+.tk{background:#fff;border-radius:var(--r);padding:10px 12px 11px;margin-bottom:10px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.tk__h{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--gray-2);
+  padding-bottom:7px;border-bottom:1px solid var(--line-soft);margin-bottom:9px}
+.tk__al{background:var(--acelera-light);border-radius:4px;padding:2px 7px;color:var(--gray-1);font-weight:500}
+.tk__t{font-size:13.5px;color:var(--gray-1);line-height:1.35}
+.tk__f{display:flex;align-items:center;gap:8px;margin-top:9px}
+.tk__f .who__f{width:22px;height:22px;font-size:8.5px}
+.tk__due{margin-left:auto;font-size:11.5px;color:var(--sec-red);display:inline-flex;align-items:center;gap:4px}
+.tk__due .ico{font-size:14px}
+.tk__due--ok{color:var(--gray-3)}
+.col__add{display:flex;align-items:center;gap:7px;color:var(--gray-2);font-size:13.5px;padding:4px 2px}
+
+/* ═══ 6 · REPORTES ═════════════════════════════════════════ */
+.rp__top{display:grid;grid-template-columns:1.5fr 1fr 1.1fr;gap:18px;margin-bottom:18px}
+.rcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.rcard h3{font-size:17px;font-weight:400;text-align:center;margin-bottom:14px}
+.rcard__note{font-size:12.5px;color:var(--gray-1);text-align:center;margin-top:12px;line-height:1.4}
+.donut{display:grid;place-items:center;padding:6px 0}
+.legend{border-radius:6px;overflow:hidden}
+.legend__h{background:var(--acelera-light);text-align:center;padding:6px;font-size:13.5px;color:var(--primary-purple-bold)}
+.legend__r{display:flex;align-items:center;gap:9px;padding:8px 6px;border-bottom:1px solid var(--line-soft);font-size:13px}
+.legend__r:last-child{border-bottom:0}
+.legend__r i{width:13px;height:13px;border-radius:50%;flex:none}
+.legend__r b{margin-left:auto;font-weight:400;font-variant-numeric:tabular-nums;color:var(--gray-1)}
+.rp__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:18px}
+.kcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:center}
+.kcard h4{font-size:16px;font-weight:400;margin-bottom:10px}
+.kcard__n{font-size:46px;font-weight:400;line-height:1.05}
+.kcard__d{font-size:12.5px;color:var(--gray-1);margin-top:10px;line-height:1.4}
+.n-ok{color:var(--positive)}.n-bad{color:var(--sec-red)}.n-warn{color:#f0c800}.n-mid{color:var(--primary-purple)}
+
+
+/* ═══ 0 · INICIO ═══════════════════════════════════════════ */
+.view{display:flex;flex-direction:column;flex:1;min-height:0}
+.home{display:grid;grid-template-columns:minmax(0,1fr) 460px;flex:1;min-height:0}
+.home__main{overflow-y:auto;padding:32px 36px 64px}
+.home__aside{
+  border-left:1px solid var(--line);background:var(--gray-5);
+  padding:22px 20px 28px;overflow-y:auto;display:flex;flex-direction:column;gap:16px;
+}
+
+.hello{display:flex;align-items:flex-start;gap:18px}
+.hello__avatar{
+  width:70px;height:70px;border-radius:50%;flex:none;
+  background:linear-gradient(155deg,#b98ff0,#3c1159);
+  display:grid;place-items:center;color:#fff;font-size:21px;font-weight:600;
+  box-shadow:0 0 0 3px #fff,0 0 0 4px var(--line);
+}
+.hello h1{font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.hello__sub{color:var(--gray-2);font-size:15px;margin-top:4px}
+
+/* alerta personalizada */
+.focus{
+  margin-top:20px;border:1px solid #f0dfae;border-radius:12px;
+  background:linear-gradient(180deg,#fffaec,#fffdf7 58%,#fff);
+  overflow:hidden;transition:opacity .22s ease,transform .22s ease;
+}
+.focus.is-leaving{opacity:0;transform:translateY(-6px)}
+.focus.is-clear{border-color:#bfe6cf;background:linear-gradient(180deg,#eef9f2,#fbfefc 60%,#fff)}
+.focus__head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px 14px}
+.focus__icon{
+  width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:#fff;border:1px solid #f0dfae;color:#d99a0b;
+}
+.focus.is-clear .focus__icon{border-color:#bfe6cf;color:var(--positive)}
+.focus__copy{flex:1;min-width:0}
+.focus__title{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.focus__title b{color:#8a5a06;font-weight:700}
+.focus.is-clear .focus__title b{color:#0f6b45}
+.focus__desc{font-size:13.5px;color:var(--gray-2);margin-top:3px;max-width:68ch}
+.focus__close{width:28px;height:28px;flex:none;border-radius:7px;color:var(--gray-3);display:grid;place-items:center}
+.focus__close:hover{background:rgba(0,0,0,.06);color:var(--gray-1)}
+.focus__list{background:#fff;border-top:1px solid #f0dfae;border-bottom:1px solid var(--line)}
+.focus.is-clear .focus__list{border-top-color:#bfe6cf}
+
+.focus__foot{display:flex;align-items:center;gap:16px;padding:12px 18px 14px}
+.meter{flex:1;min-width:0}
+.meter__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.meter__l{font-size:12.5px;color:var(--gray-2)}
+.meter__c{font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.meter__track{height:6px;border-radius:99px;background:var(--line);margin-top:7px;overflow:hidden}
+.meter__fill{height:100%;border-radius:99px;background:var(--primary-purple);transition:width .35s cubic-bezier(.2,.7,.3,1)}
+.focus.is-clear .meter__fill{background:var(--positive)}
+.btn-go{flex:none;height:36px;padding:0 16px;border-radius:6px;background:var(--primary-purple);color:#fff;font-size:13.5px;font-weight:600}
+.btn-go:hover{background:#8f1fd8}
+
+/* secciones del inicio */
+.hsec{margin-top:34px}
+.hsec__t{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:700;letter-spacing:-.015em;margin-bottom:14px}
+.hsec__t .ico{color:var(--gray-2);transition:transform .18s}
+.hsec.is-shut .hsec__t .ico{transform:rotate(-90deg)}
+.hsec.is-shut .hsec__b{display:none}
+.strip{display:flex;gap:20px;overflow-x:auto;padding-bottom:6px}
+.strip::-webkit-scrollbar{height:8px}
+.strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+
+.tile{
+  flex:none;width:258px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:13px;
+  text-align:left;transition:box-shadow .16s,transform .16s;
+}
+.tile:hover{box-shadow:0 8px 22px -8px rgba(60,17,89,.22);transform:translateY(-2px)}
+.tile__th{height:128px;border-radius:6px;background:var(--acelera-light);display:grid;place-items:center;color:var(--primary-purple)}
+.tile__l{margin-top:12px;font-size:14.5px;color:var(--gray-2)}
+.tile__l b{color:var(--gray-1);font-weight:700}
+
+.lesson{flex:none;width:322px;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden;text-align:left;transition:box-shadow .16s,transform .16s}
+.lesson:hover{box-shadow:0 8px 22px -8px rgba(60,17,89,.22);transform:translateY(-2px)}
+.lesson__art{height:190px;padding:20px 18px 0;background:linear-gradient(125deg,#fbf4fd,#f2e7fe 55%,#efe4fb);display:flex;gap:14px}
+.lesson__k{font-size:18px;font-weight:600;letter-spacing:-.02em;line-height:1.15;border-left:2.5px solid var(--gray-1);padding-left:10px;flex:none;width:114px}
+.mock{flex:1;min-width:0;align-self:flex-end}
+.mock__s{border:3px solid #3a3d42;border-radius:6px 6px 2px 2px;background:#fff;padding:5px;height:114px;overflow:hidden}
+.mock__b{height:7px;border-radius:2px;background:var(--primary-purple);opacity:.85;margin-bottom:4px}
+.mock__g{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.mock__g i{display:block;height:9px;border-radius:1.5px;background:#f0e6fd}
+.mock__g i:nth-child(4n+1){background:var(--acelera-light)}
+.mock__r{margin-top:4px;display:grid;gap:3px}
+.mock__r i{display:block;height:6px;border-radius:1.5px;background:#f1f0f4}
+.mock__r i:nth-child(2){width:78%}
+.mock__r i:nth-child(3){width:62%}
+.mock__base{height:7px;border-radius:0 0 5px 5px;background:linear-gradient(180deg,#d3d4dc,#b9bac5);margin:0 -14px;position:relative}
+.mock__base::after{content:&quot;&quot;;position:absolute;left:50%;top:0;transform:translateX(-50%);width:26px;height:2px;border-radius:0 0 3px 3px;background:#a6a7b4}
+.lesson__c{padding:14px 16px 16px;font-size:14.5px;color:var(--gray-2);text-align:center}
+
+.news{
+  flex:none;width:322px;height:206px;border-radius:10px;border:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:space-between;padding:18px;text-align:left;
+  transition:box-shadow .16s,transform .16s;
+}
+.news:hover{box-shadow:0 8px 22px -8px rgba(60,17,89,.22);transform:translateY(-2px)}
+.news--a{background:linear-gradient(150deg,#f7f0fe,#eee0fd)}
+.news--b{background:linear-gradient(150deg,#ebdcfe,#dbc4fb)}
+.news--c{background:linear-gradient(150deg,#f4eefe,#e7f0fb)}
+.news__tag{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--acelera-dark)}
+.news__t{font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.news__t em{font-style:normal;color:var(--primary-purple)}
+.news__f{font-size:12.5px;color:var(--gray-2)}
+
+/* panel derecho del inicio */
+.hpanel{background:#fff;border:1px solid var(--line);border-radius:12px}
+.hpanel--cmt{flex:1;min-height:320px;display:flex;flex-direction:column}
+.hpanel__h{display:grid;grid-template-columns:1fr auto;padding:15px 18px 12px;font-size:15px;font-weight:700;color:var(--primary-purple)}
+.cmt{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:11px 18px;border-top:1px solid var(--line-soft)}
+.cmt:hover{background:#fcfaff}
+.cmt__box{
+  appearance:none;-webkit-appearance:none;width:17px;height:17px;border-radius:4px;
+  border:1.5px solid var(--gray-4);background:#fff;display:grid;place-items:center;cursor:pointer;
+}
+.cmt__box:checked{background:var(--primary-purple);border-color:var(--primary-purple)}
+.cmt__box:checked::after{content:&quot;&quot;;width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translateY(-1px)}
+.cmt__n{font-size:13.5px;cursor:pointer}
+.cmt__box:checked + .cmt__n{color:var(--gray-3);text-decoration:line-through}
+.cmt__d{font-size:12.5px;color:var(--gray-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cmt__d.late{color:#b3271e;font-weight:600}
+.cmt--g{display:block;padding:13px 18px 7px;border-top:1px solid var(--line-soft);font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.hpanel--idea{padding:17px 18px 19px}
+.hpanel__t{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700}
+.hpanel__t .ico{color:var(--primary-purple)}
+.hpanel__b{font-size:13.5px;color:var(--gray-2);margin-top:7px}
+.hpanel--idea .btn-go{margin-top:14px}
+
+/* checklist &quot;Explora tu plataforma completa&quot; */
+.hpanel--check{transition:background .3s ease}
+.hpanel--check.is-complete{background:linear-gradient(180deg,#eef9f2,#fff 65%)}
+.pcheck__sub{font-size:12.5px;color:var(--gray-2);padding:0 18px 12px;margin-top:-4px}
+.pcheck__list{border-top:1px solid var(--line-soft)}
+.pcheck__item{display:flex;align-items:center;gap:10px;padding:11px 18px;border-bottom:1px solid var(--line-soft);cursor:pointer;transition:background .14s}
+.pcheck__item:hover{background:#fcfaff}
+.pcheck__chk{color:var(--gray-4);display:grid;place-items:center;flex:none;transition:color .14s}
+.pcheck__chk:hover{color:var(--primary-purple)}
+.pcheck__t{flex:1;font-size:13.5px;color:var(--gray-1)}
+.pcheck__go{color:var(--gray-3);font-size:18px;flex:none}
+.pcheck__item.is-done .pcheck__chk{color:var(--positive)}
+.pcheck__item.is-done .pcheck__t{color:var(--gray-3);text-decoration:line-through}
+.pcheck__item.is-pop .pcheck__chk{animation:pcheckPop .45s ease}
+@keyframes pcheckPop{0%{transform:scale(1)}40%{transform:scale(1.4) rotate(-8deg)}100%{transform:scale(1)}}
+.pcheck__meter{padding:14px 18px 17px}
+
+/* tooltip informativo en encabezados de tabla */
+.info-tip{font-size:14px;color:var(--gray-3);vertical-align:-2px;cursor:help;margin-left:3px}
+.info-tip:hover{color:var(--primary-purple)}
+
+@media (max-width:1080px){
+  .home{grid-template-columns:1fr}
+  .home__aside{border-left:0;border-top:1px solid var(--line)}
+}
+
+@media (max-width:1000px){
+  .rp__top{grid-template-columns:1fr}
+  .rp__grid{grid-template-columns:repeat(2,1fr)}
+  .kanban{grid-template-columns:repeat(2,minmax(220px,1fr))}
+  .cardgrid--4,.cardgrid--5{grid-template-columns:repeat(2,1fr)}
+  .cardgrid--3{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class=&quot;app&quot;>
+
+  <!-- ══ Riel ══════════════════════════════════════════════ -->
+  <nav class=&quot;rail&quot; aria-label=&quot;Navegación principal&quot;>
+    <div class=&quot;rail__logo&quot; aria-label=&quot;Acelera&quot;>
+      <svg width=&quot;30&quot; height=&quot;26&quot; viewBox=&quot;0 0 30 26&quot; fill=&quot;currentColor&quot; aria-hidden=&quot;true&quot;>
+        <path d=&quot;M0 25 9.4 1h4L6.4 17.6h5.9L7.8 25H3.9l4.2-7.8H3.4L0 25Z&quot;/>
+        <path d=&quot;M15.6 25 25.6 1h4.2L19.7 25Z&quot; opacity=&quot;.5&quot;/>
+      </svg>
+    </div>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Expandir menú&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>keyboard_double_arrow_right</span></button>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Administrar usuarios&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>manage_accounts</span></button>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Configuración&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>settings</span></button>
+    <div class=&quot;rail__sep&quot;></div>
+    <button class=&quot;rail__btn&quot; id=&quot;goHome&quot; aria-label=&quot;Inicio&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>home</span></button>
+    <button class=&quot;rail__btn is-on&quot; id=&quot;goBoards&quot; aria-label=&quot;Estrategia organizacional&quot; aria-current=&quot;page&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>account_tree</span></button>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Tableros&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>space_dashboard</span></button>
+    <div class=&quot;rail__sep&quot;></div>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Organización&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>location_city</span></button>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Equipos&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>groups</span></button>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Mi perfil&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>person_outline</span></button>
+    <div class=&quot;rail__grow&quot;></div>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Mis compromisos&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>check_box</span></button>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Notificaciones: 13 sin leer&quot;>
+      <span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>notifications</span><span class=&quot;rail__badge&quot;>13</span>
+    </button>
+    <button class=&quot;rail__btn&quot; aria-label=&quot;Soporte&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>headset_mic</span></button>
+    <div class=&quot;rail__me&quot; aria-hidden=&quot;true&quot;>JM</div>
+  </nav>
+
+  <div class=&quot;shell&quot;>
+  <div class=&quot;view&quot; id=&quot;viewBoards&quot;>
+
+    <!-- ══ Encabezado ═════════════════════════════════════ -->
+    <header class=&quot;top&quot;>
+      <span class=&quot;top__team&quot;>Comité de Gerencia <span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span></span>
+      <span class=&quot;top__pipe&quot;>|</span>
+      <span class=&quot;top__sec&quot; id=&quot;secName&quot;>Planeamiento Estratégico</span>
+
+      <span class=&quot;pill-pct&quot; id=&quot;hPct&quot; hidden>62%</span>
+      <span class=&quot;pill-lock&quot; id=&quot;hLock&quot; hidden>La edición está bloqueada para este tablero</span>
+
+      <span class=&quot;top__grow&quot;></span>
+
+      <div class=&quot;faces&quot; id=&quot;hFaces&quot; hidden aria-label=&quot;Miembros del equipo&quot;>
+        <span>LP</span><span>AV</span><span>JD</span><span>LC</span><span>MR</span><span class=&quot;more&quot;>+5</span>
+      </div>
+      <span class=&quot;selectish&quot; id=&quot;hFreq&quot; hidden>Trimestral <span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span></span>
+      <span class=&quot;planner&quot; id=&quot;hPlan&quot; hidden>
+        <span class=&quot;rnd&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>chevron_left</span></span>
+        <b>Plan OKRs 2025 Q4</b>
+        <span class=&quot;rnd&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>chevron_right</span></span>
+      </span>
+    </header>
+
+    <!-- ══ Pestañas ═══════════════════════════════════════ -->
+    <nav class=&quot;tabs&quot; role=&quot;tablist&quot; aria-label=&quot;Tableros del comité&quot;>
+      <button class=&quot;tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; data-go=&quot;pl&quot;>Planejamento Estratégico</button>
+      <button class=&quot;tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; data-go=&quot;rd&quot;>Roadmap Estratégicoo</button>
+      <button class=&quot;tab is-on&quot; role=&quot;tab&quot; aria-selected=&quot;true&quot; data-go=&quot;ok&quot;>OKRs</button>
+      <button class=&quot;tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; data-go=&quot;kp&quot;>KPIs<span class=&quot;tab__badge&quot;>1 nuevo</span></button>
+      <button class=&quot;tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; data-go=&quot;bl&quot;>Backlog</button>
+      <button class=&quot;tab&quot; role=&quot;tab&quot; aria-selected=&quot;false&quot; data-go=&quot;rp&quot;>Reportes</button>
+      <span class=&quot;tabs__grow&quot;></span>
+      <div class=&quot;tabs__tools&quot; id=&quot;tools&quot;></div>
+    </nav>
+
+    <!-- ══ Contenido ══════════════════════════════════════ -->
+    <div class=&quot;stage&quot;>
+
+      <!-- ─── 1 · PLANEAMIENTO ESTRATÉGICO ─────────────── -->
+      <section class=&quot;panel&quot; id=&quot;pl&quot; role=&quot;tabpanel&quot; aria-label=&quot;Planeamiento Estratégico&quot;>
+        <div class=&quot;pl__head&quot;>
+          <h2>Planeamiento Estratégico</h2>
+          <span class=&quot;top__grow&quot;></span>
+          <span class=&quot;edit-lock&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>lock</span>Editar <span class=&quot;switch&quot;></span></span>
+          <button class=&quot;btn-pdf&quot;>Descargar PDF</button>
+        </div>
+
+        <div class=&quot;banner&quot;>Propósito</div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;>Propósito</div>
+          <div class=&quot;rowline__v&quot;>Creemos que la tecnología potencia al ser humano a construir un mejor futuro para todos.</div>
+        </div>
+
+        <div class=&quot;banner&quot;>Nuestra Cultura</div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;>Misión</div>
+          <div class=&quot;rowline__v&quot;>Crear productos y servicios innovadores, de alta calidad y fáciles de usar que mejoren la vida de las personas y les permitan conectarse, comunicarse y trabajar de manera más eficiente</div>
+        </div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;>Visión</div>
+          <div class=&quot;rowline__v&quot;>Ser líder en la industria de la tecnología y la innovación a nivel mundial.</div>
+        </div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;>Valores</div>
+          <div class=&quot;rowline__v rowline__v--cards&quot;>
+            <div class=&quot;cardgrid cardgrid--4&quot;>
+              <div class=&quot;vcard&quot;>
+                <h4>🏅 Simplicidad</h4>
+                <p>&quot;La simplicidad es la máxima sofisticación&quot;. Leonardo Da Vinci. Se pone un gran énfasis en la calidad, la atención al detalle y la experiencia del usuario, desde el diseño de hardware hasta la interfaz de software.</p>
+              </div>
+              <div class=&quot;vcard&quot;>
+                <h4>💡 Innovación</h4>
+                <ul>
+                  <li><em>Valoramos la innovación en el diseño de nuestros productos y servicios.</em></li>
+                  <li>Buscamos constantemente crear dispositivos y soluciones tecnológicas que sean revolucionarios y disruptivos en el mercado.</li>
+                </ul>
+              </div>
+              <div class=&quot;vcard&quot;>
+                <h4>💙 Adaptabilidad</h4>
+                <p>Por encima de cualquier plan está el resultado. Nuestra adaptabilidad es extrema, ágil y llena de ingenio para lograr siempre, no importan los obstáculo o barreras, el logro esperado.</p>
+              </div>
+              <div class=&quot;vcard&quot;>
+                <h4>👥 Privacidad y seguridad</h4>
+                <p>Nos esforzamos por garantizar que nuestros productos y servicios protejan la información personal de sus clientes y les permitan controlar cómo se utiliza y comparte su información.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;>Indicadores<br>(Conectados)</div>
+          <div class=&quot;rowline__v rowline__v--cards&quot;>
+            <div class=&quot;cardgrid cardgrid--4&quot;>
+              <div class=&quot;mcard&quot;><p class=&quot;mcard__t&quot;>Venta facturada Acumulada</p><p class=&quot;mcard__v&quot;><i class=&quot;dot dot--ok&quot;></i>$ 2.43B</p><p class=&quot;mcard__m&quot;>Meta: ≥ $ 2M</p></div>
+              <div class=&quot;mcard&quot;><p class=&quot;mcard__t&quot;>EBITDA</p><p class=&quot;mcard__v&quot;><i class=&quot;dot dot--ok&quot;></i>30 %</p><p class=&quot;mcard__m&quot;>Meta: ≥ 30 %</p></div>
+              <div class=&quot;mcard&quot;><p class=&quot;mcard__t&quot;>Margen Operativo</p><p class=&quot;mcard__v&quot;><i class=&quot;dot dot--ok&quot;></i>70 %</p><p class=&quot;mcard__m&quot;>Meta: ≥ 60 %</p></div>
+              <div class=&quot;mcard&quot;><p class=&quot;mcard__t&quot;>% de LEADs Ganados</p><p class=&quot;mcard__v&quot;><i class=&quot;dot dot--bad&quot;></i>0</p><p class=&quot;mcard__m&quot;>Meta: ≥ 100</p></div>
+            </div>
+          </div>
+        </div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;></div>
+          <div class=&quot;rowline__v rowline__v--cards&quot;>
+            <div class=&quot;mcard&quot;><p class=&quot;mcard__t&quot;>Emisiones de carbono</p><p class=&quot;mcard__v&quot;><i class=&quot;dot dot--ok&quot;></i>- 2 MMTN</p><p class=&quot;mcard__m&quot;>Meta: ≤ - 3 MMTN</p></div>
+          </div>
+        </div>
+
+        <div class=&quot;subhead&quot;>
+          <h3>Objetivos estratégicos</h3>
+          <span class=&quot;plan&quot;>Planeamiento 2026 / 2030 <span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span></span>
+          <span class=&quot;ico&quot; aria-hidden=&quot;true&quot; style=&quot;color:var(--gray-2)&quot;>settings</span>
+        </div>
+
+        <div class=&quot;banner&quot;>Aspiración ganadora</div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;></div>
+          <div class=&quot;rowline__v&quot;>Ser los referentes en el sector tecnológico de América Latina</div>
+        </div>
+
+        <div class=&quot;banner&quot;>Where to play</div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;></div>
+          <div class=&quot;rowline__v&quot;><span><b>América Latina</b>, con enfoque inicial en los mercados con mayor tamaño y potencial de adopción tecnológica (Chile, Brasil, Colombia, México).</span></div>
+        </div>
+
+        <div class=&quot;banner&quot;>How to Wins</div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;></div>
+          <div class=&quot;rowline__v rowline__v--cards&quot;>
+            <div class=&quot;cardgrid cardgrid--3&quot;>
+              <div class=&quot;vcard&quot;>
+                <h4>💡 Activando Eficiencia y Modelo Operativo Ágil</h4>
+                <p>Enfocarse en la excelencia operativa y la entrega de valor rápida. Esto implica adoptar metodologías Lean/Agile en toda la organización, simplificar la toma de decisiones y construir un modelo de negocio que pueda replicarse con bajos costos marginales en los diferentes países de Latam.</p>
+              </div>
+              <div class=&quot;vcard&quot;>
+                <h4>💡 Activando Customer Centricity</h4>
+                <p>No solo tener productos fáciles de usar, sino también ofrecer una experiencia de cliente integral (CX) de clase mundial, desde la incorporación (onboarding) hasta el soporte continuo. Esto significa usar los propios datos para anticipar las necesidades del cliente y ofrecer personalización a escala.</p>
+              </div>
+              <div class=&quot;vcard&quot;>
+                <h4>💡 Activando Talento Transformacional</h4>
+                <p>Ser el lugar de trabajo preferido para el talento tecnológico y de negocio en América Latina. Esto implica no solo atraer a los mejores ingenieros, sino también a líderes con mentalidad de crecimiento, ofreciendo desarrollo constante y una cultura que abrace la innovación, el riesgo calculado y el foco en el propósito.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class=&quot;banner&quot;>Focos estratégicos</div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;></div>
+          <div class=&quot;rowline__v rowline__v--cards&quot;>
+            <div class=&quot;chips&quot;>
+              <span class=&quot;foco-chip&quot;>💡 Escalamiento de Negocio</span>
+              <span class=&quot;foco-chip&quot;>💡 Eficiencia y Modelo Operativo Ágil</span>
+              <span class=&quot;foco-chip&quot;>💡 Customer Centricity</span>
+              <span class=&quot;foco-chip&quot;>💡 Nuevos Servicios</span>
+              <span class=&quot;foco-chip&quot;>💡 Talento transformacional</span>
+            </div>
+          </div>
+        </div>
+
+        <div class=&quot;subhead&quot;>
+          <h3>Objetivos estratégicos</h3>
+          <span class=&quot;plan&quot;>Plan OKRs 2026 <span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span></span>
+        </div>
+        <div class=&quot;banner&quot;>Planeamiento Estratégico 2026</div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;>Éxito del año</div>
+          <div class=&quot;rowline__v&quot;>Retomar el camino del liderazgo y consolidar nuestra capacidad de estrategia y ejecución</div>
+        </div>
+        <div class=&quot;rowline&quot;>
+          <div class=&quot;rowline__k&quot;>Metas<br>Organizacionales</div>
+          <div class=&quot;rowline__v rowline__v--cards&quot;>
+            <div class=&quot;cardgrid cardgrid--4&quot;>
+              <div class=&quot;mcard&quot;><p class=&quot;mcard__t&quot;>Ingresos Recurrentes Anuales</p><p class=&quot;mcard__v&quot;>30%</p></div>
+              <div class=&quot;mcard&quot;><p class=&quot;mcard__t&quot;>NPS</p><p class=&quot;mcard__v&quot;>+60</p></div>
+              <div class=&quot;mcard&quot;><p class=&quot;mcard__t&quot;>Margen Bruto</p><p class=&quot;mcard__v&quot;>75%</p></div>
+              <div class=&quot;mcard&quot;><p class=&quot;mcard__t&quot;>eNPS</p><p class=&quot;mcard__v&quot;>+50</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class=&quot;planbox&quot;>
+          <div class=&quot;planbox__h&quot;>
+            <span><b>Plan OKRs 2025 Q4</b> | Comité de Gerencia | Líder: Lisha Centini</span>
+            <span class=&quot;tagr&quot;>Plan OKRs 2025 Q4</span>
+          </div>
+          <div class=&quot;planbox__b&quot;>
+            <div class=&quot;planbox__b-h&quot;>Plan de OKRs por foco <button class=&quot;btn-foco&quot;>Gestionar foco</button></div>
+            <div id=&quot;focoRows&quot;></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── 2 · ROADMAP ESTRATÉGICO ──────────────────── -->
+      <section class=&quot;panel&quot; id=&quot;rd&quot; role=&quot;tabpanel&quot; aria-label=&quot;Roadmap Estratégico&quot;>
+        <div class=&quot;rd-tourbar&quot;>
+          <button class=&quot;tour-restart&quot; id=&quot;tourRestartRd&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>school</span>Ver recorrido</button>
+        </div>
+        <div class=&quot;board&quot;>
+          <div class=&quot;board__head grid-road&quot;>
+            <span></span><span>Descripción</span><span>Responsable</span><span>Equipo</span><span>Nivel de logro<span class=&quot;ico info-tip&quot; aria-hidden=&quot;true&quot; title=&quot;Compara el valor actual con el rango entre el punto de inicio y la meta. El punto morado marca dónde estás hoy en ese rango.&quot;>help</span></span><span></span><span>Alineado a</span>
+            <div class=&quot;timehead&quot;>
+              <div class=&quot;timehead__y&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>chevron_left</span>2026<span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>chevron_right</span></div>
+              <div class=&quot;timehead__q&quot;><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span></div>
+            </div>
+          </div>
+          <div id=&quot;rdBody&quot;></div>
+        </div>
+      </section>
+
+      <!-- ─── 3 · OKRs ─────────────────────────────────── -->
+      <section class=&quot;panel is-on&quot; id=&quot;ok&quot; role=&quot;tabpanel&quot; aria-label=&quot;OKRs&quot;>
+        <div id=&quot;okrIniciativaAlert&quot;></div>
+        <div id=&quot;okrInfoAlert&quot;></div>
+        <div id=&quot;okrRoadmapInviteAlert&quot;></div>
+        <div class=&quot;board&quot;>
+          <div class=&quot;board__head grid-okr&quot;>
+            <span></span><span>Descripción</span><span>Responsable</span><span>Equipo</span><span>Nivel de logro<span class=&quot;ico info-tip&quot; aria-hidden=&quot;true&quot; title=&quot;Compara el valor actual con el rango entre el punto de inicio y la meta. El punto morado marca dónde estás hoy en ese rango.&quot;>help</span></span><span></span><span>Alineado a</span>
+            <div class=&quot;timehead timehead--light&quot;>
+              <div class=&quot;timehead__y&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>chevron_left</span>2025 - Dic<span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>chevron_right</span></div>
+              <div class=&quot;timehead__q&quot; style=&quot;grid-template-columns:repeat(2,1fr)&quot;><span>S 1</span><span>S 2</span></div>
+            </div>
+          </div>
+          <div id=&quot;okBody&quot;></div>
+        </div>
+      </section>
+
+      <!-- ─── 4 · KPIs ─────────────────────────────────── -->
+      <section class=&quot;panel&quot; id=&quot;kp&quot; role=&quot;tabpanel&quot; aria-label=&quot;KPIs&quot;>
+        <div class=&quot;board&quot;>
+          <div class=&quot;board__head grid-kpi&quot;>
+            <span></span><span></span><span>Responsable</span><span>Equipo</span><span>Alineado a</span>
+            <div class=&quot;timehead&quot;>
+              <div class=&quot;timehead__y&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>chevron_left</span>2026<span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>chevron_right</span></div>
+              <div class=&quot;timehead__m&quot;><span>Jul</span><span>Ago</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dic</span></div>
+            </div>
+          </div>
+          <div id=&quot;kpBody&quot;></div>
+        </div>
+      </section>
+
+      <!-- ─── 5 · BACKLOG ──────────────────────────────── -->
+      <section class=&quot;panel&quot; id=&quot;bl&quot; role=&quot;tabpanel&quot; aria-label=&quot;Backlog&quot;>
+        <div class=&quot;bl__bar&quot;>
+          <span class=&quot;top__grow grow&quot;></span>
+          <span class=&quot;chip-late&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot; style=&quot;font-size:17px&quot;>filter_alt</span>Filtrar</span>
+          <span class=&quot;chip-late&quot;><i></i>Atrasado</span>
+          <span class=&quot;datebox&quot;>Creado desde -<br>hasta -</span>
+          <button class=&quot;tool&quot; aria-label=&quot;Historial&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>restore</span></button>
+          <button class=&quot;tool&quot; aria-label=&quot;Descargar&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>file_download</span></button>
+        </div>
+        <div class=&quot;kanban&quot; id=&quot;blBody&quot;></div>
+      </section>
+
+      <!-- ─── 6 · REPORTES ─────────────────────────────── -->
+      <section class=&quot;panel&quot; id=&quot;rp&quot; role=&quot;tabpanel&quot; aria-label=&quot;Reportes&quot;>
+        <div class=&quot;rp__top&quot;>
+          <div class=&quot;rcard&quot;>
+            <h3>Nivel de logro</h3>
+            <svg viewBox=&quot;0 0 620 250&quot; width=&quot;100%&quot; height=&quot;230&quot; role=&quot;img&quot; aria-label=&quot;Avance real frente a la línea esperada, de octubre S1 a diciembre S2&quot;>
+              <line x1=&quot;60&quot; y1=&quot;40&quot;  x2=&quot;600&quot; y2=&quot;40&quot;  stroke=&quot;#e2e2e2&quot;/>
+              <line x1=&quot;60&quot; y1=&quot;105&quot; x2=&quot;600&quot; y2=&quot;105&quot; stroke=&quot;#e2e2e2&quot;/>
+              <line x1=&quot;60&quot; y1=&quot;170&quot; x2=&quot;600&quot; y2=&quot;170&quot; stroke=&quot;#e2e2e2&quot;/>
+              <text x=&quot;48&quot; y=&quot;45&quot;  text-anchor=&quot;end&quot; font-size=&quot;13&quot; fill=&quot;#717273&quot;>100%</text>
+              <text x=&quot;48&quot; y=&quot;110&quot; text-anchor=&quot;end&quot; font-size=&quot;13&quot; fill=&quot;#717273&quot;>50%</text>
+              <text x=&quot;48&quot; y=&quot;175&quot; text-anchor=&quot;end&quot; font-size=&quot;13&quot; fill=&quot;#717273&quot;>0%</text>
+              <line x1=&quot;82&quot; y1=&quot;163&quot; x2=&quot;578&quot; y2=&quot;40&quot; stroke=&quot;#aeb0b2&quot; stroke-width=&quot;1.5&quot; stroke-dasharray=&quot;4 4&quot;/>
+              <polyline points=&quot;82,159 181,151 280,135 379,118 478,102 578,92&quot;
+                        fill=&quot;none&quot; stroke=&quot;#a62ef2&quot; stroke-width=&quot;2.5&quot;/>
+              <g fill=&quot;#a62ef2&quot;>
+                <circle cx=&quot;82&quot;  cy=&quot;159&quot; r=&quot;4&quot;/><circle cx=&quot;181&quot; cy=&quot;151&quot; r=&quot;4&quot;/>
+                <circle cx=&quot;280&quot; cy=&quot;135&quot; r=&quot;4&quot;/><circle cx=&quot;379&quot; cy=&quot;118&quot; r=&quot;4&quot;/>
+                <circle cx=&quot;478&quot; cy=&quot;102&quot; r=&quot;4&quot;/><circle cx=&quot;578&quot; cy=&quot;92&quot;  r=&quot;4&quot;/>
+              </g>
+              <g font-size=&quot;13&quot; fill=&quot;#3a3d42&quot; text-anchor=&quot;middle&quot;>
+                <text x=&quot;82&quot;  y=&quot;200&quot;>Oct S1</text><text x=&quot;181&quot; y=&quot;200&quot;>Oct S2</text>
+                <text x=&quot;280&quot; y=&quot;200&quot;>Nov S1</text><text x=&quot;379&quot; y=&quot;200&quot;>Nov S2</text>
+                <text x=&quot;478&quot; y=&quot;200&quot;>Dic S1</text><text x=&quot;578&quot; y=&quot;200&quot;>Dic S2</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class=&quot;rcard&quot;>
+            <h3>Nivel de logro</h3>
+            <div class=&quot;donut&quot;>
+              <svg width=&quot;180&quot; height=&quot;180&quot; viewBox=&quot;0 0 180 180&quot; role=&quot;img&quot; aria-label=&quot;Nivel de logro promedio: 60 por ciento&quot;>
+                <circle cx=&quot;90&quot; cy=&quot;90&quot; r=&quot;68&quot; fill=&quot;none&quot; stroke=&quot;#e9c8ff&quot; stroke-width=&quot;26&quot;/>
+                <circle cx=&quot;90&quot; cy=&quot;90&quot; r=&quot;68&quot; fill=&quot;none&quot; stroke=&quot;#a62ef2&quot; stroke-width=&quot;26&quot;
+                        stroke-dasharray=&quot;256 171&quot; stroke-linecap=&quot;butt&quot; transform=&quot;rotate(-90 90 90)&quot;/>
+                <text x=&quot;90&quot; y=&quot;99&quot; text-anchor=&quot;middle&quot; font-size=&quot;30&quot; font-family=&quot;Heebo, sans-serif&quot; fill=&quot;#3a3d42&quot;>60%</text>
+              </svg>
+            </div>
+            <p class=&quot;rcard__note&quot;>En promedio de todos los OKRs habiendo pasado el 62% del tiempo</p>
+          </div>
+
+          <div class=&quot;rcard&quot;>
+            <h3>Estado de KRs según confiabilidad</h3>
+            <div class=&quot;legend&quot;>
+              <div class=&quot;legend__h&quot;>Estado</div>
+              <div class=&quot;legend__r&quot;><i style=&quot;background:#ff7171&quot;></i>Crítico <b>01</b></div>
+              <div class=&quot;legend__r&quot;><i style=&quot;background:#ffed47&quot;></i>Con riesgo <b>03</b></div>
+              <div class=&quot;legend__r&quot;><i style=&quot;background:#6aff67&quot;></i>Por lograr <b>05</b></div>
+              <div class=&quot;legend__r&quot;><i style=&quot;background:#3a3d42&quot;></i>Logrados <b>02</b></div>
+              <div class=&quot;legend__r&quot;><i style=&quot;background:#c9cbcc&quot;></i>El KR aún no tiene plan o no ha comenzado su ejecución (en cero). <b>00</b></div>
+              <div class=&quot;legend__r&quot;><i style=&quot;background:#5a5a5a&quot;></i>Sin datos <b>00</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class=&quot;rp__grid&quot;>
+          <div class=&quot;kcard&quot;><h4>KRs logrados</h4><p class=&quot;kcard__n n-ok&quot;>2</p><p class=&quot;kcard__d&quot;>Total de KRs logrados a la fecha. ¡Felicitaciones!</p></div>
+          <div class=&quot;kcard&quot;><h4>KRs desactualizados</h4><p class=&quot;kcard__n n-bad&quot;>1</p><p class=&quot;kcard__d&quot;>KRs con resultados atrasados según la frecuencia comprometida</p></div>
+          <div class=&quot;kcard&quot;><h4>Días para la fecha fin</h4><p class=&quot;kcard__n n-warn&quot;>34</p><p class=&quot;kcard__d&quot;>La fecha fin del plan es el 31 de Diciembre del 2025</p></div>
+          <div class=&quot;kcard&quot;><h4>KRs en riesgo</h4><p class=&quot;kcard__n n-bad&quot;>3</p><p class=&quot;kcard__d&quot;>Total de KRs con alto riesgo de fracaso según índice de éxito</p></div>
+        </div>
+        <div class=&quot;rp__grid&quot;>
+          <div class=&quot;kcard&quot;><h4>Compromisos registrados</h4><p class=&quot;kcard__n n-ok&quot;>31</p><p class=&quot;kcard__d&quot;>Total de compromisos generados por el equipo</p></div>
+          <div class=&quot;kcard&quot;><h4>Compromisos pendientes</h4><p class=&quot;kcard__n n-mid&quot;>12</p><p class=&quot;kcard__d&quot;>Total de compromisos pendientes aún no vencidos</p></div>
+          <div class=&quot;kcard&quot;><h4>Compromisos atrasados</h4><p class=&quot;kcard__n n-bad&quot;>8</p><p class=&quot;kcard__d&quot;>Total de compromisos pendientes con fecha vencida</p></div>
+          <div class=&quot;kcard&quot;><h4>Compromisos completados</h4><p class=&quot;kcard__n n-ok&quot;>11</p><p class=&quot;kcard__d&quot;>Total de compromisos completados a la fecha ¡Felicitaciones!</p></div>
+        </div>
+      </section>
+
+    </div>
+
+  </div><!-- /viewBoards -->
+
+  <!-- ══ Vista Inicio ═══════════════════════════════════════ -->
+  <div class=&quot;view&quot; id=&quot;viewHome&quot; hidden>
+    <div class=&quot;home&quot;>
+      <main class=&quot;home__main&quot;>
+
+        <header class=&quot;hello&quot;>
+          <div class=&quot;hello__avatar&quot; aria-hidden=&quot;true&quot;>JM</div>
+          <div>
+            <h1>¡Hola James!</h1>
+            <p class=&quot;hello__sub&quot;>Accede rápidamente a tus tableros recientes, el buzón y los espacios de trabajo</p>
+          </div>
+        </header>
+
+        <!-- visitados recientemente -->
+        <section class=&quot;hsec&quot; data-hsec>
+          <button class=&quot;hsec__t&quot; data-hshut aria-expanded=&quot;true&quot;>
+            <span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span>Visitados recientemente
+          </button>
+          <div class=&quot;hsec__b&quot;>
+            <div class=&quot;strip&quot;>
+              <button class=&quot;tile&quot; data-open=&quot;rd&quot;>
+                <div class=&quot;tile__th&quot; aria-hidden=&quot;true&quot;>
+                  <svg width=&quot;118&quot; height=&quot;64&quot; viewBox=&quot;0 0 118 64&quot; fill=&quot;none&quot;><rect x=&quot;9&quot; y=&quot;13&quot; width=&quot;100&quot; height=&quot;15&quot; rx=&quot;4&quot; fill=&quot;#a62ef2&quot;/><rect x=&quot;9&quot; y=&quot;36&quot; width=&quot;26&quot; height=&quot;15&quot; rx=&quot;4&quot; fill=&quot;#a62ef2&quot;/><rect x=&quot;37&quot; y=&quot;36&quot; width=&quot;72&quot; height=&quot;15&quot; rx=&quot;4&quot; fill=&quot;#fff&quot;/></svg>
+                </div>
+                <p class=&quot;tile__l&quot;><b>Roadmap</b> - Comité de Gerencia</p>
+              </button>
+              <button class=&quot;tile&quot; data-open=&quot;ok&quot;>
+                <div class=&quot;tile__th&quot; aria-hidden=&quot;true&quot;>
+                  <svg width=&quot;64&quot; height=&quot;64&quot; viewBox=&quot;0 0 64 64&quot; fill=&quot;none&quot;><circle cx=&quot;32&quot; cy=&quot;32&quot; r=&quot;24&quot; stroke=&quot;#a62ef2&quot; stroke-width=&quot;11&quot;/><circle cx=&quot;32&quot; cy=&quot;32&quot; r=&quot;11&quot; fill=&quot;#fff&quot;/></svg>
+                </div>
+                <p class=&quot;tile__l&quot;><b>OKRs</b></p>
+              </button>
+              <button class=&quot;tile&quot; data-open=&quot;kp&quot;>
+                <div class=&quot;tile__th&quot; aria-hidden=&quot;true&quot;>
+                  <svg width=&quot;110&quot; height=&quot;60&quot; viewBox=&quot;0 0 110 60&quot; fill=&quot;none&quot;><rect x=&quot;5&quot; y=&quot;33&quot; width=&quot;19&quot; height=&quot;24&quot; rx=&quot;3&quot; fill=&quot;#a62ef2&quot; opacity=&quot;.5&quot;/><rect x=&quot;30&quot; y=&quot;19&quot; width=&quot;19&quot; height=&quot;38&quot; rx=&quot;3&quot; fill=&quot;#a62ef2&quot; opacity=&quot;.72&quot;/><rect x=&quot;55&quot; y=&quot;9&quot; width=&quot;19&quot; height=&quot;48&quot; rx=&quot;3&quot; fill=&quot;#a62ef2&quot;/><rect x=&quot;80&quot; y=&quot;25&quot; width=&quot;19&quot; height=&quot;32&quot; rx=&quot;3&quot; fill=&quot;#a62ef2&quot; opacity=&quot;.38&quot;/></svg>
+                </div>
+                <p class=&quot;tile__l&quot;><b>KPIs</b> - Comité de Gerencia</p>
+              </button>
+              <button class=&quot;tile&quot; data-open=&quot;rp&quot;>
+                <div class=&quot;tile__th&quot; aria-hidden=&quot;true&quot;>
+                  <svg width=&quot;122&quot; height=&quot;58&quot; viewBox=&quot;0 0 122 58&quot; fill=&quot;none&quot; stroke=&quot;#a62ef2&quot; stroke-width=&quot;3.4&quot;><rect x=&quot;5&quot; y=&quot;5&quot; width=&quot;46&quot; height=&quot;46&quot; rx=&quot;10&quot;/><rect x=&quot;69&quot; y=&quot;5&quot; width=&quot;46&quot; height=&quot;46&quot; rx=&quot;10&quot;/><text x=&quot;28&quot; y=&quot;40&quot; text-anchor=&quot;middle&quot; font-family=&quot;Heebo, sans-serif&quot; font-size=&quot;29&quot; font-weight=&quot;600&quot; fill=&quot;#a62ef2&quot; stroke=&quot;none&quot;>2</text><text x=&quot;92&quot; y=&quot;40&quot; text-anchor=&quot;middle&quot; font-family=&quot;Heebo, sans-serif&quot; font-size=&quot;29&quot; font-weight=&quot;600&quot; fill=&quot;#a62ef2&quot; stroke=&quot;none&quot;>5</text></svg>
+                </div>
+                <p class=&quot;tile__l&quot;><b>Reportes</b> - Comité de Gerencia</p>
+              </button>
+              <button class=&quot;tile&quot; data-open=&quot;pl&quot;>
+                <div class=&quot;tile__th&quot; aria-hidden=&quot;true&quot;>
+                  <svg width=&quot;112&quot; height=&quot;62&quot; viewBox=&quot;0 0 112 62&quot; fill=&quot;none&quot;><rect x=&quot;6&quot; y=&quot;8&quot; width=&quot;100&quot; height=&quot;12&quot; rx=&quot;4&quot; fill=&quot;#a62ef2&quot;/><rect x=&quot;6&quot; y=&quot;26&quot; width=&quot;46&quot; height=&quot;28&quot; rx=&quot;4&quot; fill=&quot;#a62ef2&quot; opacity=&quot;.4&quot;/><rect x=&quot;60&quot; y=&quot;26&quot; width=&quot;46&quot; height=&quot;28&quot; rx=&quot;4&quot; fill=&quot;#a62ef2&quot; opacity=&quot;.4&quot;/></svg>
+                </div>
+                <p class=&quot;tile__l&quot;><b>Planeamiento</b> - Comité de Gerencia</p>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- aprendizaje -->
+        <section class=&quot;hsec&quot; data-hsec>
+          <button class=&quot;hsec__t&quot; data-hshut aria-expanded=&quot;true&quot;>
+            <span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span>Aprende a sacar el máximo valor de ACELERA
+          </button>
+          <div class=&quot;hsec__b&quot;>
+            <div class=&quot;strip&quot; id=&quot;lessons&quot;></div>
+          </div>
+        </section>
+
+        <!-- novedades -->
+        <section class=&quot;hsec&quot; data-hsec>
+          <button class=&quot;hsec__t&quot; data-hshut aria-expanded=&quot;true&quot;>
+            <span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span>Descubre las novedades de ACELERA
+          </button>
+          <div class=&quot;hsec__b&quot;>
+            <div class=&quot;strip&quot;>
+              <button class=&quot;news news--a&quot;>
+                <span class=&quot;news__tag&quot;>Nuevo</span>
+                <p class=&quot;news__t&quot;>Report Panel</p>
+                <p class=&quot;news__f&quot;>Arma reportes ejecutivos sin salir del tablero</p>
+              </button>
+              <button class=&quot;news news--b&quot;>
+                <span class=&quot;news__tag&quot;>Nuevo</span>
+                <p class=&quot;news__t&quot;>Conecta <em>indicadores</em>, KPIs y proyectos dentro del Planeamiento Estratégico</p>
+                <p class=&quot;news__f&quot;>Disponible para todos los espacios de trabajo</p>
+              </button>
+              <button class=&quot;news news--c&quot;>
+                <span class=&quot;news__tag&quot;>Mejora</span>
+                <p class=&quot;news__t&quot;>Recordatorios de compromisos</p>
+                <p class=&quot;news__f&quot;>Elige el día y la hora en que ACELERA te avisa</p>
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <aside class=&quot;home__aside&quot; aria-label=&quot;Compromisos y sugerencias&quot;>
+        <section class=&quot;hpanel hpanel--cmt&quot;>
+          <div class=&quot;hpanel__h&quot;><span>Compromisos</span><span>Venc.</span></div>
+          <div>
+            <div class=&quot;cmt&quot;><input type=&quot;checkbox&quot; class=&quot;cmt__box&quot; id=&quot;k1&quot;><label class=&quot;cmt__n&quot; for=&quot;k1&quot;>Levantar los requerimientos de la migración de CRM</label><span class=&quot;cmt__d&quot;>28-04-26</span></div>
+            <div class=&quot;cmt&quot;><input type=&quot;checkbox&quot; class=&quot;cmt__box&quot; id=&quot;k2&quot;><label class=&quot;cmt__n&quot; for=&quot;k2&quot;>Validar la fuente de datos del KPI de ventas</label><span class=&quot;cmt__d&quot;>28-04-26</span></div>
+            <div class=&quot;cmt&quot;><input type=&quot;checkbox&quot; class=&quot;cmt__box&quot; id=&quot;k3&quot;><label class=&quot;cmt__n&quot; for=&quot;k3&quot;>Revisar el tablero antes del comité</label><span class=&quot;cmt__d&quot;>30-04-26</span></div>
+            <div class=&quot;cmt&quot;><input type=&quot;checkbox&quot; class=&quot;cmt__box&quot; id=&quot;k4&quot;><label class=&quot;cmt__n&quot; for=&quot;k4&quot;>algiot</label><span class=&quot;cmt__d&quot;>16-07-26</span></div>
+            <p class=&quot;cmt cmt--g&quot;>Junio 2025</p>
+            <div class=&quot;cmt&quot;><input type=&quot;checkbox&quot; class=&quot;cmt__box&quot; id=&quot;k5&quot;><label class=&quot;cmt__n&quot; for=&quot;k5&quot;>Implementar nueva estrategia de captación de clientes para ver impacto en julio 2025</label><span class=&quot;cmt__d late&quot;>19-12-25</span></div>
+          </div>
+        </section>
+
+        <section class=&quot;hpanel hpanel--check&quot; id=&quot;platCheck&quot;>
+          <div class=&quot;hpanel__h&quot; style=&quot;grid-template-columns:1fr&quot;><span>Explora tu plataforma completa</span></div>
+          <p class=&quot;pcheck__sub&quot;>3 pasos para conocer todo lo que ACELERA puede hacer por tu equipo.</p>
+          <ul class=&quot;pcheck__list&quot;>
+            <li class=&quot;pcheck__item&quot; data-open=&quot;kp&quot;>
+              <button class=&quot;pcheck__chk&quot; aria-label=&quot;Marcar Crear un KPI como completado&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>radio_button_unchecked</span></button>
+              <span class=&quot;pcheck__t&quot;>Crear un KPI</span>
+              <span class=&quot;ico pcheck__go&quot; aria-hidden=&quot;true&quot;>chevron_right</span>
+            </li>
+            <li class=&quot;pcheck__item&quot; data-open=&quot;bl&quot;>
+              <button class=&quot;pcheck__chk&quot; aria-label=&quot;Marcar Agregar algo al Backlog como completado&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>radio_button_unchecked</span></button>
+              <span class=&quot;pcheck__t&quot;>Agregar algo al Backlog</span>
+              <span class=&quot;ico pcheck__go&quot; aria-hidden=&quot;true&quot;>chevron_right</span>
+            </li>
+            <li class=&quot;pcheck__item&quot; data-open=&quot;rd&quot;>
+              <button class=&quot;pcheck__chk&quot; aria-label=&quot;Marcar Ver el Roadmap como completado&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>radio_button_unchecked</span></button>
+              <span class=&quot;pcheck__t&quot;>Ver el Roadmap</span>
+              <span class=&quot;ico pcheck__go&quot; aria-hidden=&quot;true&quot;>chevron_right</span>
+            </li>
+          </ul>
+          <div class=&quot;meter pcheck__meter&quot;>
+            <div class=&quot;meter__row&quot;><span class=&quot;meter__l&quot;>Progreso</span><span class=&quot;meter__c&quot; id=&quot;pcheckCount&quot;>0 / 3</span></div>
+            <div class=&quot;meter__track&quot;><div class=&quot;meter__fill&quot; id=&quot;pcheckFill&quot; style=&quot;width:0%&quot;></div></div>
+          </div>
+        </section>
+
+        <section class=&quot;hpanel hpanel--idea&quot;>
+          <h2 class=&quot;hpanel__t&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>feedback</span>Registrar una idea</h2>
+          <p class=&quot;hpanel__b&quot;>Haznos saber cómo podemos mejorar. Vota sobre las ideas existentes o sugiere otras nuevas.</p>
+          <button class=&quot;btn-go&quot;>Ir a Sugerencias</button>
+        </section>
+      </aside>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- ══ Modal: Alineado a ══════════════════════════════════ -->
+<div class=&quot;modal-overlay&quot; id=&quot;alignModal&quot; aria-hidden=&quot;true&quot;>
+  <div class=&quot;modal-card&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;alignModalTitle&quot;>
+    <h3 id=&quot;alignModalTitle&quot;>Alineado a:</h3>
+
+    <div class=&quot;modal-empty&quot; id=&quot;alignEmpty&quot;>No tiene alineación</div>
+    <div class=&quot;modal-current&quot; id=&quot;alignCurrent&quot; hidden></div>
+
+    <div class=&quot;modal-align-row&quot;>
+      <b>Alinear con:</b>
+      <span>Equipo: <select><option>Comité de Gerencia</option></select></span>
+      <span>Dashboard:
+        <select id=&quot;alignDashboard&quot;>
+          <option value=&quot;kp&quot;>KPIs</option>
+          <option value=&quot;rd&quot;>Roadmap</option>
+        </select>
+      </span>
+      <span>Periodo: <select><option>Plan OKRs 2025 Q4</option></select></span>
+    </div>
+
+    <div class=&quot;modal-hint&quot; id=&quot;alignHint&quot; hidden></div>
+
+    <div class=&quot;modal-search&quot;>
+      <span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>search</span>
+      <input type=&quot;text&quot; id=&quot;alignSearch&quot; placeholder=&quot;Buscar:&quot;>
+    </div>
+    <div class=&quot;modal-list&quot; id=&quot;alignList&quot;></div>
+
+    <div class=&quot;modal-foot&quot;>
+      <button class=&quot;btn-modal-close&quot; id=&quot;alignClose&quot;>Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Modal: Selector de colaboradores ═══════════════════ -->
+<div class=&quot;modal-overlay&quot; id=&quot;collabModal&quot; aria-hidden=&quot;true&quot;>
+  <div class=&quot;modal-card&quot; role=&quot;dialog&quot; aria-modal=&quot;true&quot; aria-labelledby=&quot;collabModalTitle&quot;>
+    <h3 id=&quot;collabModalTitle&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot; style=&quot;font-size:17px;vertical-align:-3px;margin-right:4px&quot;>rocket_launch</span>Selector de colaboradores</h3>
+
+    <div class=&quot;modal-list&quot; id=&quot;collabList&quot;></div>
+
+    <p class=&quot;modal-addlabel&quot;>Añadir colaborador de otro equipo:</p>
+    <input type=&quot;text&quot; id=&quot;collabAddInput&quot; class=&quot;modal-addinput&quot; placeholder=&quot;Nombre del colaborador&quot;>
+
+    <div class=&quot;modal-foot&quot;>
+      <button class=&quot;btn-modal-close&quot; id=&quot;collabClose&quot;>Cerrar</button>
+      <button class=&quot;btn-modal-save&quot; id=&quot;collabSave&quot;>Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Onboarding: recorrido guiado del Roadmap Estratégico ══ -->
+<div class=&quot;tour-spot&quot; id=&quot;tourSpot&quot; hidden></div>
+<div class=&quot;tour-tip&quot; id=&quot;tourTip&quot; hidden role=&quot;dialog&quot; aria-live=&quot;polite&quot; aria-labelledby=&quot;tourTitle&quot;>
+  <div class=&quot;tour-tip__step&quot; id=&quot;tourStepCount&quot;></div>
+  <div class=&quot;tour-tip__title&quot; id=&quot;tourTitle&quot;></div>
+  <div class=&quot;tour-tip__desc&quot; id=&quot;tourDesc&quot;></div>
+  <div class=&quot;tour-tip__foot&quot;>
+    <button class=&quot;tour-skip&quot; id=&quot;tourSkip&quot;>Omitir</button>
+    <button class=&quot;tour-next&quot; id=&quot;tourNext&quot;>Siguiente</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  &quot;use strict&quot;;
+
+  var ini = function (n) { return n.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase(); };
+  var esc = function (s) { return String(s).replace(/[&amp;<>]/g, function (c) { return { '&amp;': '&amp;amp;', '<': '&amp;lt;', '>': '&amp;gt;' }[c]; }); };
+
+  /* ── Barras de herramientas por tablero ─────────────── */
+  var TOOLS = {
+    pl: [],
+    rd: ['add', 'close_fullscreen', 'visibility', 'restore', 'file_download', 'filter_alt'],
+    ok: ['IA', 'add', 'close_fullscreen', 'restore', 'mail', 'check_box', 'comment', 'trending_up', 'file_download', 'lock', 'filter_alt'],
+    kp: ['add', 'close_fullscreen', 'restore', 'file_download', 'filter_alt'],
+    bl: [], rp: []
+  };
+  function paintTools(key) {
+    var host = document.getElementById('tools');
+    host.innerHTML = TOOLS[key].map(function (t) {
+      if (t === 'IA') return '<span class=&quot;tool tool--ia&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot; style=&quot;color:#31c42c&quot;>auto_awesome</span>IA<span class=&quot;switch&quot;></span></span>';
+      return '<button class=&quot;tool&quot; aria-label=&quot;' + t + '&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>' + t + '</span></button>';
+    }).join('');
+  }
+
+  /* ── Datos: Roadmap (reales del tablero) ────────────── */
+  var ROAD = [
+    { id: 'PRO 1', t: 'PILAR DE INNOVA, PROYECTOS DEL EQUIPO COMERCIAL O DE TI', pct: 68, tag: 'account_tree', rows: [
+      { c: 'PRO 1.1', n: 'Lograr menos de 5 incidencias críticas en el lanzamiento de la nueva planta', who: 'Lenna P', team: ['AV','JD'], v: 'Sucursales: 38.50', lim: 'Inicio: 0 | Objetivo: 50', pct: 77, st: 'ok',
+        al: ['KPI 1.6 EBITDA'], bar: [0, 26, 18], metas: [['check_box','5'],['format_list_bulleted','1 (0%)'],['account_tree','1']] },
+      { c: 'PRO 1.2', n: 'Migración de CRM validando el incremento en 15% en promociones con nueva estrategia', who: 'Lenna P', team: ['MR','AV','+1'], v: '2.65', lim: 'Inicio: 0 | Objetivo: 5', pct: 53, st: 'bad',
+        al: ['KR 3.4 Establecer y comunic…','KR 2.1 Investigar y seleccion…'], bar: [17, 66, 36], metas: [['account_tree','2']] },
+      { c: 'PRO 1.3', n: 'Rediseño del portal de autoservicio del cliente', who: 'Art V', team: ['SL','JD'], v: '74', lim: 'Inicio: 0 | Objetivo: 100', pct: 74, st: 'bad',
+        al: ['PRO 2.2 Hacer proyectos grat…','PRO 1.2 Migración de CRM v…'], bar: [1, 85, 30], metas: [['account_tree','2']] }
+    ]},
+    { id: 'PRO 2', t: 'LINEAMIENTO DE INTERNACIONALIZACIÓN', pct: 38, tag: 'PRO no alineado', rows: [
+      { c: 'PRO 2.1', n: 'Generar prospecto de clientes en México', who: 'Lisha C', team: ['AV','LP'], v: 'Leads: 52.50', lim: 'Inicio: 0 | Objetivo: 150', pct: 35, st: 'bad',
+        al: ['KPI 2.2 % de LEADs Ganados','KPI 2.1 Pipeline Total Acumul…'], bar: [8, 54, 20], metas: [['account_tree','2']] },
+      { c: 'PRO 2.2', n: 'Hacer proyectos gratuitos en México', who: 'Josephine D', team: ['LC','AV','+1'], v: 'Proyectos: 20', lim: 'Inicio: 0 | Objetivo: 50', pct: 40, st: 'bad',
+        al: ['KPI 1.2 Venta facturada Acum…','KPI 2.2 % de LEADs Ganados'], bar: [30, 60, 24], metas: [['format_list_bulleted','1 (0%)'],['account_tree','2']] }
+    ]},
+    { id: 'PRO 3', t: 'FOCO EN EXPERIENCIA DEL CLIENTE WORLD-CLASS', pct: 75, tag: 'PRO no alineado', rows: [
+      { c: 'PRO 3.1', n: 'Proyecto Journey omnicanal con cero fricciones en el OFFLINE', who: null, team: null, v: '73', lim: 'Inicio: 0 | Objetivo: 100', pct: 73, st: 'bad',
+        al: [], bar: [12, 70, 44], metas: [] },
+      { c: 'PRO 3.2', n: 'DataLake de cliente integrado al 100%', who: null, team: null, v: '76', lim: 'Inicio: 0 | Objetivo: 100', pct: 76, st: 'bad',
+        al: [], bar: [22, 78, 46], metas: [] }
+    ]},
+    { id: 'PRO 4', t: 'HABILITADORES DE TALENTO Y CULTURA', pct: 41, tag: 'PRO no alineado', rows: [
+      { c: 'PRO 4.1', n: 'Programa de liderazgo transformacional para mandos medios', who: 'Art V', team: ['JD'], v: '48', lim: 'Inicio: 0 | Objetivo: 100', pct: 48, st: 'bad',
+        al: ['KR 4.1 Elevar el eNPS de 32 a 50'], bar: [25, 80, 28], metas: [['account_tree','1']] },
+      { c: 'PRO 4.2', n: 'Plan de retención del talento técnico crítico', who: 'Lisha C', team: ['MR','LP'], v: '34', lim: 'Inicio: 0 | Objetivo: 100', pct: 34, st: 'bad',
+        al: ['KR 4.2 Reducir la rotación vol…'], bar: [40, 96, 18], metas: [['check_box','3'],['account_tree','1']] }
+    ]}
+  ];
+
+  /* ── Datos: OKRs (demo, derivados de los focos reales) ─ */
+  var OKRS = [
+    { id: 'OKR 1', t: 'Consolidar el crecimiento en los mercados de Latam', pct: 62, foco: 'Escalamiento de Negocio', rows: [
+      { c: 'KR 1.1', n: 'Alcanzar USD 25M de venta facturada acumulada', who: 'Art V', team: ['LP','JD'], v: '17.2', lim: 'Inicio: 0 | Objetivo: 25', pct: 68, st: 'ok', al: ['KPI 1.1 Ventas'], metas: [['check_box','7'],['comment','1'],['format_list_bulleted','2 (61%)']] },
+      { c: 'KR 1.2', n: 'Cerrar la entrada a 3 mercados emergentes priorizados', who: 'Lisha C', team: ['AV'], v: '1.35', lim: 'Inicio: 0 | Objetivo: 3', pct: 45, st: 'bad', al: ['PRO 2.1 Generar prospecto de…'], metas: [['check_box','4']] },
+      { c: 'KR 1.3', n: 'Elevar el pipeline total acumulado a USD 40M', who: 'Lenna P', team: ['MR','AV'], v: '28.8', lim: 'Inicio: 0 | Objetivo: 40', pct: 72, st: 'ok', al: ['KPI 2.1 Pipeline Total Acumul…'], metas: [['account_tree','2']] }
+    ]},
+    { id: 'OKR 2', t: 'Entregar una experiencia de cliente de clase mundial', pct: 71, foco: 'Customer Centricity', rows: [
+      { c: 'KR 2.1', n: 'Subir el NPS de 48 a 60 puntos', who: 'Josephine D', team: ['SL','LC'], v: '54.6', lim: 'Inicio: 48 | Objetivo: 60', pct: 55, st: 'bad', al: ['KPI 1.3 Satisfacción'], metas: [['check_box','5'],['account_tree','3']] },
+      { c: 'KR 2.2', n: 'Reducir el tiempo de onboarding de 21 a 7 días', who: 'Art V', team: ['JD'], v: '9.4', lim: 'Inicio: 21 | Objetivo: 7', pct: 83, st: 'ok', al: ['PRO 3.1 Journey omnicanal…'], metas: [['check_box','2']] },
+      { c: 'KR 2.3', n: 'Integrar el DataLake de cliente al 100%', who: 'Lenna P', team: ['AV','MR'], v: '76', lim: 'Inicio: 0 | Objetivo: 100', pct: 76, st: 'ok', al: ['PRO 3.2 DataLake de cliente…'], metas: [['account_tree','1']] }
+    ]},
+    { id: 'OKR 3', t: 'Escalar con márgenes sanos y operación ágil', pct: 53, foco: 'Eficiencia y Modelo Operativo Ágil', rows: [
+      { c: 'KR 3.1', n: 'Llevar el margen operativo de 62% a 70%', who: 'Lisha C', team: ['LP'], v: '69.3', lim: 'Inicio: 62 | Objetivo: 70', pct: 91, st: 'ok', al: ['KPI 1.6 EBITDA'], metas: [['check_box','6']] },
+      { c: 'KR 3.2', n: 'Reducir las incidencias críticas de 12 a menos de 5', who: 'Lenna P', team: ['JD','AV'], v: '9.2', lim: 'Inicio: 12 | Objetivo: 5', pct: 40, st: 'bad', al: ['PRO 1.1 Lograr menos de 5 in…'], metas: [['format_list_bulleted','3 (44%)']] },
+      { c: 'KR 3.3', n: 'Automatizar el 80% de los procesos comerciales', who: 'Art V', team: ['MR'], v: '22.4', lim: 'Inicio: 0 | Objetivo: 80', pct: 28, st: 'bad', al: ['PRO 1.2 Migración de CRM…'], metas: [['check_box','2'],['account_tree','1']] }
+    ]},
+    { id: 'OKR 4', t: 'Ser el lugar de trabajo preferido del talento tech en Latam', pct: 49, foco: 'Talento transformacional', rows: [
+      { c: 'KR 4.1', n: 'Elevar el eNPS de 32 a 50', who: 'Josephine D', team: ['LC','SL'], v: '43.2', lim: 'Inicio: 32 | Objetivo: 50', pct: 62, st: 'ok', al: ['PRO 4.1 Programa de liderazgo…'], metas: [['check_box','3']] },
+      { c: 'KR 4.2', n: 'Reducir la rotación voluntaria de 18% a 10%', who: 'Lisha C', team: ['LP','MR'], v: '15.2', lim: 'Inicio: 18 | Objetivo: 10', pct: 35, st: 'bad', al: ['PRO 4.2 Plan de retención…'], metas: [['comment','2']] }
+    ]},
+    { id: 'OKR 5', t: 'Lanzar dos nuevos servicios digitales rentables', pct: 18, foco: 'Nuevos Servicios', rows: [
+      { c: 'KR 5.1', n: 'Lanzar el primer servicio digital al mercado', who: 'Lisha C', team: ['AV'], v: '1', lim: 'Inicio: 0 | Objetivo: 2', pct: 18, st: 'bad', al: ['KPI 2.2 Nuevos Servicios'], metas: [['check_box','2']] },
+      { c: 'KR 5.2', n: 'Validar el modelo de precios del segundo servicio', who: null, team: null, v: '0', lim: 'Inicio: 0 | Objetivo: 1', pct: 0, st: 'bad', al: [], metas: [] }
+    ] }
+  ];
+
+  /* ── Condiciones de disparo de las alertas (demo) ──────
+     Ambas quedan en `true`: en producción reflejarían si todos
+     los usuarios ya tienen al menos un OKR completado / todos
+     sus OKR completos, respectivamente. */
+  var ALL_USERS_OKR_COMPLETE = true; // OKRs
+
+  function okrTieneIniciativa(okr) {
+    return okr.rows.some(function (r) { return (r.al || []).some(function (a) { return a.indexOf('PRO') === 0; }); });
+  }
+  /* OKRs · alerta 1: OKR ya con KRs, pero ninguno conectado a una iniciativa */
+  function okrsSinIniciativa() {
+    if (!ALL_USERS_OKR_COMPLETE) return [];
+    return OKRS.filter(function (g) { return g.rows.length > 0 &amp;&amp; !okrTieneIniciativa(g); });
+  }
+  /* OKRs · alerta 2: piezas puntuales que faltan para explicar el avance */
+  function okrsSinKR() {
+    if (!ALL_USERS_OKR_COMPLETE) return [];
+    return OKRS.filter(function (g) { return g.rows.length === 0; });
+  }
+  function krsSinResponsable() {
+    if (!ALL_USERS_OKR_COMPLETE) return [];
+    var out = [];
+    OKRS.forEach(function (g) { g.rows.forEach(function (r) { if (!r.who) out.push({ okr: g, kr: r }); }); });
+    return out;
+  }
+  function krsSinEquipo() {
+    if (!ALL_USERS_OKR_COMPLETE) return [];
+    var out = [];
+    OKRS.forEach(function (g) { g.rows.forEach(function (r) { if (!r.team || !r.team.length) out.push({ okr: g, kr: r }); }); });
+    return out;
+  }
+
+  /* ── Datos: KPIs (reales del tablero) ───────────────── */
+  var KPIS = [
+    { id: 'KPI 1', t: 'Crecimiento Sostenible', rows: [
+      { c: 'KPI 1.1', n: 'Ventas', who: 'Art V', team: ['SL','LC'], goal: '≥ USD 25',
+        al: ['KR 1.3 Identificar y analizar tr…','KPI 1.4 Crecimiento de Marg…','KR 2.1 Investigar y seleccion…'],
+        metas: [['check_box','7'],['comment','1'],['format_list_bulleted','2 (61%)'],['account_tree','3']] },
+      { c: 'KPI 1.2', n: 'Adopción', who: 'Art V', team: ['SL','LC'], goal: '≥ 50 %',
+        al: ['KPI 1.6 EBITDA','KPI 1.3 Satisfacción','KPI 1.1 Ventas'],
+        metas: [['check_box','4'],['account_tree','3']] },
+      { c: 'KPI 1.3', n: 'Satisfacción', who: 'Art V', team: ['MR','SL','LC'], goal: '≥ 65 Ptos',
+        al: ['KR 1.3 Identificar y analizar tr…','KPI 1.4 Crecimiento de Marg…','KR 2.1 Investigar y seleccion…'],
+        metas: [['check_box','1'],['account_tree','3']] }
+    ]},
+    { id: 'KPI 2', t: 'Mejorar la eficiencia operativa y excelencia operacional', rows: [
+      { c: 'KPI 2.1', n: 'Costo de servir por cliente', who: 'Lenna P', team: ['AV'], goal: '≤ USD 120',
+        al: ['KR 3.3 Automatizar el 80% de…'], metas: [['check_box','2']] },
+      { c: 'KPI 2.2', n: '% de LEADs Ganados', who: 'Lisha C', team: ['JD','AV'], goal: '≥ 100',
+        al: ['PRO 2.1 Generar prospecto…','PRO 2.2 Hacer proyectos grat…'], metas: [['account_tree','2']] }
+    ]},
+    { id: 'KPI 3', t: 'KPIs NPS', rows: [
+      { c: 'KPI 3.1', n: 'NPS transaccional post-soporte', who: 'Josephine D', team: ['LC'], goal: '≥ 60',
+        al: ['KR 2.1 Subir el NPS de 48 a 60'], metas: [['check_box','3']] }
+    ]},
+    { id: 'KPI 5', t: 'KPI de Repensar', rows: [
+      { c: 'KPI 5.1', n: 'KPI Repensar', who: 'Josephine D', team: ['JD'], goal: '≥ 4 Ptos', al: [], metas: [] }
+    ]}
+  ];
+
+  /* ── Datos: Backlog (reales del tablero) ────────────── */
+  var BACKLOG = [
+    { h: 'Pendientes', done: false, cards: [
+      { al: ['KR4.1'], t: 'Definir la meta de sucursales para el cierre de trimestre', who: 'LP', due: 'Venció hace 79 días' },
+      { al: ['KR4.1'], t: 'Revisar el tablero de seguimiento con el equipo comercial', who: 'AV', due: 'Venció hace 79 días' },
+      { al: ['KR1.1'], t: 'Consolidar la proyección de ventas de noviembre', who: 'SL', due: 'Venció hace 94 días' },
+      { al: ['KR1.1'], t: 'Actualizar el modelo de pricing por segmento', who: 'JD', due: 'Venció hace 170 días' },
+      { al: ['KR1.5'], t: 'algiot', who: 'AV', due: 'Venció hace 43 días' },
+      { al: ['KPI1.1'], t: 'Cierre de compromisos — Junio 2025', who: 'MR', due: 'Venció hace 252 días', arrow: true },
+      { al: ['KR1.3'], t: 'Valeria: para el siguiente mes debe tener un mapeo de mercado al 100%', who: 'LC', due: 'Venció hace 862 días', arrow: true },
+      { al: ['KR3.1'], t: 'Para la próxima traigo el reporte con todos los indicadores', who: 'AV', due: 'Venció hace 924 días' },
+      { al: ['KR1.5'], t: 'Se incorporará el feedback recibido en cuanto a evitar trabajar con promedios', who: 'LP', due: 'Venció hace 901 días' },
+      { al: ['KR1.1','KPI1.2'], t: 'Preparar la revisión de medio trimestre', who: 'JD', due: 'Venció hace 35 días' }
+    ]},
+    { h: 'En curso', done: false, cards: [
+      { al: ['KR1.2'], t: 'Coordinar reuniones con clientes', who: 'SL', due: 'Venció hace 931 días' },
+      { al: ['KR1.3'], t: 'One page próxima semana, con toda la ruta del proyecto', who: 'AV', due: 'Venció hace 873 días', arrow: true },
+      { al: ['KR1.1'], t: 'Levantar los requerimientos de la migración de CRM', who: 'JD', due: 'Venció hace 122 días' },
+      { al: ['KR1.1'], t: 'Revisión mensual del OKR de crecimiento', who: 'LP', due: 'Venció hace 122 días' },
+      { al: ['KPI1.1'], t: 'Validar la fuente de datos del KPI de ventas', who: 'MR', due: 'Venció hace 122 días' },
+      { al: ['KPI1.1'], t: 'Cierre de compromisos — Junio 2025', who: 'LC', due: 'Venció hace 252 días', arrow: true },
+      { al: ['KR1.5'], t: 'Agendar una reunión con el equipo de Datos', who: 'AV', due: 'Venció hace 429 días' },
+      { al: ['KR1.1'], t: 'Preparar el comité de OKRs 2026 Q2', who: 'SL', due: 'Venció hace 120 días' },
+      { al: ['KR2.1','KPI1.2','KPI1.3'], t: 'Cruzar el pipeline con la meta de LEADs ganados', who: 'JD', due: 'Venció hace 134 días' }
+    ]},
+    { h: 'En validación', done: false, cards: [
+      { al: ['KPI1.2'], t: 'Validar el cálculo del indicador de adopción', who: 'LP', due: 'Venció hace 122 días' },
+      { al: ['KR1.1'], t: 'Piero trae 5 ejemplos para mañana', who: 'AV', due: 'Venció hace 898 días' },
+      { al: ['KPI1.2'], t: 'Revisar la serie histórica de adopción', who: 'SL', due: 'Venció hace 120 días' },
+      { al: ['KR1.1'], t: 'Confirmar responsables de los KRs sin asignar', who: 'JD', due: 'Venció hace 156 días' },
+      { al: ['KR1.1'], t: 'Ajustar la meta trimestral tras el cierre de octubre', who: 'MR', due: 'Venció hace 122 días' },
+      { al: ['KPI1.1'], t: 'Contrastar el reporte con la data de facturación', who: 'LC', due: 'Venció hace 122 días' },
+      { al: ['KPI1.1'], t: 'Revisar el tablero antes del comité', who: 'AV', due: 'Venció hace 120 días' },
+      { al: ['KPI1.1'], t: 'Depurar los KPIs duplicados del tablero', who: 'LP', due: 'Venció hace 122 días' }
+    ]},
+    { h: 'Completado', done: true, cards: [
+      { al: ['KR1.1'], t: 'El líder de finanzas debe traernos una nueva propuesta de rendimiento operacional', who: 'JD', due: null },
+      { al: ['KR5.1'], t: 'Testear en Repensar 2 veces al mes', who: 'SL', due: null },
+      { al: ['KR4.1'], t: 'Publicar el tablero de sucursales', who: 'AV', due: null },
+      { al: ['KR4.1'], t: 'Cerrar el alcance del piloto comercial', who: 'LP', due: null },
+      { al: ['PRO1.1'], t: 'Terminar el deck comercial', who: 'MR', due: null },
+      { al: ['KR1.5'], t: 'Presentar el examen de certificación del equipo', who: 'LC', due: null },
+      { al: ['PRO1.1'], t: 'Entregar el plan de lanzamiento de la nueva planta', who: 'JD', due: null }
+    ]}
+  ];
+
+  /* ── Render: filas compartidas ──────────────────────── */
+  function metasHTML(m) {
+    if (!m || !m.length) return '';
+    return '<div class=&quot;metas&quot;>' + m.map(function (x) {
+      return '<span><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>' + x[0] + '</span>' + esc(x[1]) + '</span>';
+    }).join('') + '</div>';
+  }
+  function whoHTML(w, code) {
+    if (!w) return '<button class=&quot;who who--none is-clickable&quot; data-collab=&quot;who:' + esc(code) + '&quot;>Selecciona</button>';
+    return '<button class=&quot;who is-clickable&quot; data-collab=&quot;who:' + esc(code) + '&quot;><span class=&quot;who__f&quot;>' + ini(w) + '</span>' + esc(w) + '</button>';
+  }
+  function teamHTML(t, code) {
+    if (!t) return '<button class=&quot;who who--none is-clickable&quot; data-collab=&quot;team:' + esc(code) + '&quot;>Selecciona</button>';
+    return '<button class=&quot;team is-clickable&quot; data-collab=&quot;team:' + esc(code) + '&quot;>' + t.map(function (x) {
+      return '<span' + (x[0] === '+' ? ' class=&quot;more&quot;' : '') + '>' + esc(x) + '</span>';
+    }).join('') + '</button>';
+  }
+  function gaugeHTML(r) {
+    return '<div class=&quot;gauge&quot;>' +
+      '<p class=&quot;gauge__v&quot;>' + esc(r.v) + '</p>' +
+      '<div class=&quot;gauge__bar&quot;><div class=&quot;gauge__fill&quot; style=&quot;width:' + r.pct + '%&quot;></div>' +
+      '<span class=&quot;gauge__knob&quot; style=&quot;left:' + r.pct + '%&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>chevron_right</span></span></div>' +
+      '<p class=&quot;gauge__lim&quot;>' + esc(r.lim) + '</p></div>';
+  }
+  function alignedHTML(r) {
+    var st = r.st === 'ok'
+      ? '<span class=&quot;aligned__st st-ok&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>check_circle</span></span>'
+      : '<span class=&quot;aligned__st st-bad&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>info</span></span>';
+    if (!r.al || !r.al.length) {
+      return '<div class=&quot;aligned&quot;>' + st + '<span class=&quot;tagchip tagchip--out is-clickable&quot; data-align=&quot;' + esc(r.c) + '&quot;>Sin alineación</span></div>';
+    }
+    return '<div class=&quot;aligned&quot;>' + st + r.al.map(function (a) {
+      return '<span class=&quot;tagchip&quot;>' + esc(a) + '</span>';
+    }).join('') + '</div>';
+  }
+
+  /* ── Modal: Alineado a ─────────────────────────────────
+     Se abre al hacer clic en &quot;Sin alineación&quot; y deja buscar
+     y elegir el KPI (o la iniciativa) con el que se alinea. */
+  function findRowByCode(code) {
+    var found = null;
+    OKRS.forEach(function (g) { g.rows.forEach(function (r) { if (r.c === code) found = r; }); });
+    if (!found) ROAD.forEach(function (g) { g.rows.forEach(function (r) { if (r.c === code) found = r; }); });
+    if (!found) KPIS.forEach(function (g) { g.rows.forEach(function (r) { if (r.c === code) found = r; }); });
+    return found;
+  }
+  function findParentOKR(code) {
+    var found = null;
+    OKRS.forEach(function (g) { g.rows.forEach(function (r) { if (r.c === code) found = g; }); });
+    return found;
+  }
+  function kpiOptions() {
+    var out = [];
+    KPIS.forEach(function (g) { g.rows.forEach(function (r) { out.push({ full: r.c + ' ' + r.n, label: r.c + ': ' + r.n }); }); });
+    return out;
+  }
+  function proOptions() {
+    var out = [];
+    ROAD.forEach(function (g) { g.rows.forEach(function (r) { out.push({ full: r.c + ' ' + r.n, label: r.c + ': ' + r.n }); }); });
+    return out;
+  }
+  var currentAlignRow = null;
+  function renderAlignList(dashboard, query) {
+    var opts = dashboard === 'rd' ? proOptions() : kpiOptions();
+    query = (query || '').toLowerCase();
+    var filtered = opts.filter(function (o) { return o.label.toLowerCase().indexOf(query) !== -1; });
+    var listEl = document.getElementById('alignList');
+    if (!filtered.length) { listEl.innerHTML = '<div class=&quot;modal-empty-list&quot;>Sin resultados</div>'; return; }
+    listEl.innerHTML = filtered.map(function (o) {
+      var checked = currentAlignRow &amp;&amp; (currentAlignRow.al || []).indexOf(o.full) !== -1;
+      return '<label class=&quot;modal-item&quot;><input type=&quot;checkbox&quot; data-align-value=&quot;' + esc(o.full) + '&quot;' + (checked ? ' checked' : '') + '>' + esc(o.label) + '</label>';
+    }).join('');
+  }
+  function refreshAlignModal() {
+    var al = currentAlignRow.al || [];
+    var emptyEl = document.getElementById('alignEmpty');
+    var curEl = document.getElementById('alignCurrent');
+    if (!al.length) {
+      emptyEl.hidden = false; curEl.hidden = true; curEl.innerHTML = '';
+    } else {
+      emptyEl.hidden = true; curEl.hidden = false;
+      curEl.innerHTML = al.map(function (a) { return '<span class=&quot;tagchip&quot;>' + esc(a) + '</span>'; }).join('');
+    }
+    renderAlignList(document.getElementById('alignDashboard').value, document.getElementById('alignSearch').value);
+  }
+  function openAlignModal(code) {
+    var row = findRowByCode(code);
+    if (!row) return;
+    currentAlignRow = row;
+    var parentOKR = findParentOKR(code);
+    var needsIniciativa = parentOKR &amp;&amp; okrsSinIniciativa().indexOf(parentOKR) !== -1;
+    document.getElementById('alignDashboard').value = needsIniciativa ? 'rd' : 'kp';
+    document.getElementById('alignSearch').value = '';
+    var hintEl = document.getElementById('alignHint');
+    hintEl.hidden = !needsIniciativa;
+    if (needsIniciativa) hintEl.textContent = 'Este OKR necesita una iniciativa del Roadmap (no un KPI) para resolver su alerta — por eso te mostramos el Roadmap primero.';
+    refreshAlignModal();
+    document.getElementById('alignModal').classList.add('is-on');
+    document.getElementById('alignModal').setAttribute('aria-hidden', 'false');
+  }
+  function closeAlignModal() {
+    document.getElementById('alignModal').classList.remove('is-on');
+    document.getElementById('alignModal').setAttribute('aria-hidden', 'true');
+    if (currentAlignRow) { renderOKRsBoard(); renderFocoRows(); }
+    currentAlignRow = null;
+  }
+  document.getElementById('alignDashboard').addEventListener('change', function () {
+    renderAlignList(this.value, document.getElementById('alignSearch').value);
+  });
+  document.getElementById('alignSearch').addEventListener('input', function () {
+    renderAlignList(document.getElementById('alignDashboard').value, this.value);
+  });
+  document.getElementById('alignClose').addEventListener('click', closeAlignModal);
+  document.getElementById('alignModal').addEventListener('click', function (e) {
+    if (e.target.id === 'alignModal') closeAlignModal();
+  });
+  document.getElementById('alignList').addEventListener('change', function (e) {
+    var cb = e.target.closest('input[type=checkbox]');
+    if (!cb || !currentAlignRow) return;
+    currentAlignRow.al = currentAlignRow.al || [];
+    var val = cb.dataset.alignValue;
+    var idx = currentAlignRow.al.indexOf(val);
+    if (cb.checked &amp;&amp; idx === -1) currentAlignRow.al.push(val);
+    if (!cb.checked &amp;&amp; idx !== -1) currentAlignRow.al.splice(idx, 1);
+    refreshAlignModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' &amp;&amp; document.getElementById('alignModal').classList.contains('is-on')) closeAlignModal();
+  });
+  document.addEventListener('click', function (e) {
+    var chip = e.target.closest('[data-align]');
+    if (chip) openAlignModal(chip.dataset.align);
+  });
+
+  /* ── Modal: Selector de colaboradores ──────────────────
+     Se abre al hacer clic en &quot;Selecciona&quot; (o en el responsable
+     / equipo ya asignado) para elegir quién queda a cargo. */
+  var COLABORADORES = ['Art V', 'Josephine D', 'Lisha C', 'Lenna P', 'Mara R', 'Sara L', 'James M'];
+  var collabRow = null;
+  var collabField = null;
+  var collabSelected = [];
+
+  function renderCollabList() {
+    document.getElementById('collabList').innerHTML = COLABORADORES.map(function (name) {
+      var on = collabSelected.indexOf(name) !== -1;
+      return '<div class=&quot;collab-item' + (on ? ' is-on' : '') + '&quot; data-name=&quot;' + esc(name) + '&quot;>' +
+        '<span class=&quot;collab-item__av&quot;>' + ini(name) + '</span>' + esc(name) + '</div>';
+    }).join('');
+  }
+  function openCollabModal(field, code) {
+    var row = findRowByCode(code);
+    if (!row) return;
+    collabRow = row; collabField = field;
+    if (field === 'who') {
+      collabSelected = row.who ? [row.who] : [];
+    } else {
+      var inits = (row.team || []).filter(function (x) { return x.charAt(0) !== '+'; });
+      collabSelected = COLABORADORES.filter(function (name) { return inits.indexOf(ini(name)) !== -1; });
+    }
+    document.getElementById('collabAddInput').value = '';
+    renderCollabList();
+    document.getElementById('collabModal').classList.add('is-on');
+    document.getElementById('collabModal').setAttribute('aria-hidden', 'false');
+  }
+  function closeCollabModal(applied) {
+    document.getElementById('collabModal').classList.remove('is-on');
+    document.getElementById('collabModal').setAttribute('aria-hidden', 'true');
+    if (applied &amp;&amp; collabRow) {
+      if (collabField === 'who') {
+        collabRow.who = collabSelected[0] || null;
+      } else {
+        collabRow.team = collabSelected.length ? collabSelected.map(ini) : null;
+      }
+      renderOKRsBoard(); renderFocoRows(); renderRoadmapBoard(); renderKPIsBoard();
+    }
+    collabRow = null; collabField = null;
+  }
+  document.getElementById('collabList').addEventListener('click', function (e) {
+    var item = e.target.closest('.collab-item');
+    if (!item) return;
+    var name = item.dataset.name;
+    if (collabField === 'who') {
+      collabSelected = collabSelected[0] === name ? [] : [name];
+    } else {
+      var idx = collabSelected.indexOf(name);
+      if (idx === -1) collabSelected.push(name); else collabSelected.splice(idx, 1);
+    }
+    renderCollabList();
+  });
+  document.getElementById('collabAddInput').addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    var name = this.value.trim();
+    if (!name) return;
+    if (COLABORADORES.indexOf(name) === -1) COLABORADORES.push(name);
+    if (collabField === 'who') collabSelected = [name];
+    else if (collabSelected.indexOf(name) === -1) collabSelected.push(name);
+    this.value = '';
+    renderCollabList();
+  });
+  document.getElementById('collabClose').addEventListener('click', function () { closeCollabModal(false); });
+  document.getElementById('collabSave').addEventListener('click', function () { closeCollabModal(true); });
+  document.getElementById('collabModal').addEventListener('click', function (e) {
+    if (e.target.id === 'collabModal') closeCollabModal(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' &amp;&amp; document.getElementById('collabModal').classList.contains('is-on')) closeCollabModal(false);
+  });
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-collab]');
+    if (!btn) return;
+    var parts = btn.dataset.collab.split(':');
+    openCollabModal(parts[0], parts.slice(1).join(':'));
+  });
+
+  /* ── Onboarding: recorrido guiado del Roadmap Estratégico ──
+     Resalta un elemento real de la pantalla por paso, con un
+     tooltip que explica qué se puede hacer ahí. */
+  var roadmapTourSeen = false;
+  var tourIdx = 0;
+  var TOUR_STEPS = [
+    { sel: '#rd .board__head', place: 'bottom',
+      title: 'Así se organiza tu Roadmap',
+      desc: 'Cada fila es un proyecto o iniciativa: quién lo lidera, su equipo, el nivel de logro y a qué OKR o KPI está conectado.' },
+    { sel: '#rd #rdBody .grouprow', place: 'bottom',
+      title: 'Tus pilares estratégicos',
+      desc: 'Los proyectos se agrupan por pilar. Aquí ves el nombre del grupo y su avance consolidado.' },
+    { sel: '#rd #rdBody .itemrow .aligned', place: 'left',
+      title: 'Conecta cada proyecto con tu estrategia',
+      desc: 'Vincula el proyecto a un OKR o un KPI para ver cómo su avance impacta el resto de la organización.' },
+    { sel: '#rd #rdBody .itemrow .gantt', place: 'left',
+      title: 'Visualiza el tiempo',
+      desc: 'La línea de tiempo muestra en qué trimestre se ejecuta el proyecto y cuánto llevas avanzado.' },
+    { sel: '#tools .tool[aria-label=&quot;add&quot;]', place: 'bottom',
+      title: 'Crea un nuevo proyecto',
+      desc: 'Usa este botón para agregar un proyecto nuevo al Roadmap cuando lo necesites.' }
+  ];
+
+  function tourPositionTip(rect, place) {
+    var tip = document.getElementById('tourTip');
+    var gap = 14, tw = tip.offsetWidth || 300;
+    var top, left;
+    if (place === 'left') { top = rect.top; left = rect.left - tw - gap; }
+    else if (place === 'right') { top = rect.top; left = rect.right + gap; }
+    else if (place === 'top') { top = rect.top - tip.offsetHeight - gap; left = rect.left; }
+    else { top = rect.bottom + gap; left = rect.left; }
+    if (left < 12) left = 12;
+    if (left + tw > window.innerWidth - 12) left = window.innerWidth - tw - 12;
+    if (top < 12) top = 12;
+    if (top + tip.offsetHeight > window.innerHeight - 12) top = window.innerHeight - tip.offsetHeight - 12;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+  function tourShow(i) {
+    var step = TOUR_STEPS[i];
+    var el = document.querySelector(step.sel);
+    if (!el) { i + 1 < TOUR_STEPS.length ? tourShow(i + 1) : tourEnd(); return; }
+    el.scrollIntoView({ block: 'center', inline: 'center' });
+    setTimeout(function () {
+      var r = el.getBoundingClientRect();
+      var pad = 6;
+      var spot = document.getElementById('tourSpot');
+      spot.style.top = (r.top - pad) + 'px';
+      spot.style.left = (r.left - pad) + 'px';
+      spot.style.width = (r.width + pad * 2) + 'px';
+      spot.style.height = (r.height + pad * 2) + 'px';
+      document.getElementById('tourStepCount').textContent = 'Paso ' + (i + 1) + ' de ' + TOUR_STEPS.length;
+      document.getElementById('tourTitle').textContent = step.title;
+      document.getElementById('tourDesc').textContent = step.desc;
+      document.getElementById('tourNext').textContent = (i === TOUR_STEPS.length - 1) ? 'Finalizar' : 'Siguiente';
+      tourPositionTip(r, step.place);
+    }, 220);
+  }
+  function tourStart() {
+    tourIdx = 0;
+    document.getElementById('tourSpot').hidden = false;
+    document.getElementById('tourTip').hidden = false;
+    tourShow(tourIdx);
+  }
+  function tourEnd() {
+    document.getElementById('tourSpot').hidden = true;
+    document.getElementById('tourTip').hidden = true;
+  }
+  document.getElementById('tourNext').addEventListener('click', function () {
+    if (tourIdx >= TOUR_STEPS.length - 1) { tourEnd(); return; }
+    tourIdx++; tourShow(tourIdx);
+  });
+  document.getElementById('tourSkip').addEventListener('click', tourEnd);
+  document.getElementById('tourRestartRd').addEventListener('click', function () { roadmapTourSeen = true; tourStart(); });
+
+  function groupHTML(g, cls) {
+    var tag = g.tag === 'account_tree'
+      ? '<span class=&quot;grouprow__tag&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot; style=&quot;font-size:16px&quot;>account_tree</span></span>'
+      : '<span class=&quot;grouprow__tag&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot; style=&quot;font-size:16px&quot;>account_tree</span>' + esc(g.tag || 'no alineado') + '</span>';
+    return '<div class=&quot;grouprow&quot;>' +
+      '<span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_less</span>' +
+      '<span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>radio_button_checked</span>' +
+      '<span class=&quot;grouprow__id&quot;>' + esc(g.id) + '</span>' +
+      '<span class=&quot;grouprow__t ' + (cls || '') + '&quot;>' + esc(g.t) + '</span>' +
+      '<span class=&quot;grouprow__grow&quot;></span>' + tag +
+      '<span class=&quot;grouprow__pct&quot;>' + g.pct + ' %</span></div>';
+  }
+
+  /* ── Render: Roadmap ────────────────────────────────── */
+  function renderRoadmapBoard() {
+    document.getElementById('rdBody').innerHTML = ROAD.map(function (g) {
+      return groupHTML(g) + g.rows.map(function (r) {
+        return '<div class=&quot;itemrow grid-road&quot;>' +
+          '<div class=&quot;itemrow__x&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span></div>' +
+          '<div class=&quot;itemrow__d&quot;><span class=&quot;badge-i&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>equalizer</span></span>' +
+            '<div><p class=&quot;itemrow__name&quot;>' + esc(r.n) + '</p><p class=&quot;itemrow__code&quot;>' + esc(r.c) + '</p>' + metasHTML(r.metas) + '</div></div>' +
+          whoHTML(r.who, r.c) + teamHTML(r.team, r.c) + gaugeHTML(r) +
+          '<div class=&quot;pct&quot;>' + r.pct + '%</div>' + alignedHTML(r) +
+          '<div class=&quot;gantt&quot;><div class=&quot;gantt__grid&quot;><i></i><i></i><i></i><i></i></div>' +
+            '<div class=&quot;gantt__today&quot; style=&quot;left:72%&quot;></div>' +
+            '<div class=&quot;gantt__track&quot; style=&quot;left:' + r.bar[0] + '%;width:' + (r.bar[1] - r.bar[0]) + '%&quot;>' +
+            '<div class=&quot;gantt__done&quot; style=&quot;width:' + r.bar[2] + '%&quot;></div></div></div>' +
+        '</div>';
+      }).join('');
+    }).join('');
+  }
+  renderRoadmapBoard();
+
+  /* ── Render: OKRs ──────────────────────────────────────
+     El OKR que no tenga ninguna iniciativa (proyecto del
+     Roadmap) conectada a sus KRs se resalta con un trazo de
+     advertencia, y arriba del tablero aparece una alerta que
+     explica por qué importa y permite saltar directo a él. */
+  function esc2(s) { return esc(s); }
+  function okrRowId(g) { return 'okrrow-' + g.id.replace(/\s+/g, ''); }
+  function krRowId(r) { return 'krrow-' + r.c.replace(/[\s.]+/g, ''); }
+
+  function renderOKRsBoard() {
+    var sinIniciativa = okrsSinIniciativa();
+
+    document.getElementById('okBody').innerHTML = OKRS.map(function (g) {
+      var falta = sinIniciativa.indexOf(g) !== -1;
+      return '<div class=&quot;okrgroup' + (falta ? ' okrgroup--warn' : '') + '&quot; id=&quot;' + okrRowId(g) + '&quot;>' +
+        groupHTML({ id: g.id, t: g.t, pct: g.pct, tag: g.foco }, 'grouprow__t--n') + g.rows.map(function (r) {
+          return '<div class=&quot;itemrow grid-okr&quot; id=&quot;' + krRowId(r) + '&quot;>' +
+            '<div class=&quot;itemrow__x&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span></div>' +
+            '<div class=&quot;itemrow__d&quot;><span class=&quot;badge-i&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>trending_up</span></span>' +
+              '<div><p class=&quot;itemrow__name&quot;>' + esc(r.n) + '</p><p class=&quot;itemrow__code&quot;>' + esc(r.c) + '</p>' + metasHTML(r.metas) + '</div></div>' +
+            whoHTML(r.who, r.c) + teamHTML(r.team, r.c) + gaugeHTML(r) +
+            '<div class=&quot;pct&quot;>' + r.pct + '%</div>' + alignedHTML(r) +
+            '<div class=&quot;sess&quot;><button>S 1</button><button>S 2</button></div>' +
+          '</div>';
+        }).join('') +
+      '</div>';
+    }).join('');
+
+    /* ── Alerta 1: OKR con KRs pero sin iniciativa asociada ── */
+    var alert1 = document.getElementById('okrIniciativaAlert');
+    if (!sinIniciativa.length) {
+      alert1.innerHTML = '';
+    } else {
+      alert1.innerHTML = '<div class=&quot;okrgap&quot;>' +
+        '<div class=&quot;okrgap__head&quot;>' +
+          '<div class=&quot;okrgap__icon&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>warning</span></div>' +
+          '<div class=&quot;okrgap__copy&quot;>' +
+            '<div class=&quot;okrgap__title&quot;>' + sinIniciativa.length + (sinIniciativa.length === 1 ? ' OKR no tiene' : ' OKR no tienen') + ' iniciativa asociada</div>' +
+            '<div class=&quot;okrgap__row&quot;>' +
+              '<div class=&quot;okrgap__desc&quot;>Agrégale un responsable, un equipo y un KPI o iniciativa a cada KR — sin esos datos nadie sostiene ni mide el avance del objetivo.</div>' +
+              '<div class=&quot;okrgap__list&quot;>' + sinIniciativa.map(function (g) {
+                return '<button class=&quot;okrgap__go&quot; data-scroll-to=&quot;' + okrRowId(g) + '&quot; title=&quot;' + esc2(g.id) + ' · ' + esc2(g.t) + '&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>south</span>Ver</button>';
+              }).join('') + '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    /* ── Alerta 2: piezas puntuales que faltan para explicar el avance ──
+       Solo aparece una vez resuelta la alerta 1 (ya no falta iniciativa);
+       antes de eso, esa es la única alerta que debe verse. */
+    var alert2 = document.getElementById('okrInfoAlert');
+    var sinResp = krsSinResponsable();
+    var sinEquipo = krsSinEquipo();
+    var sinKR = okrsSinKR();
+    if (sinIniciativa.length || (!sinResp.length &amp;&amp; !sinEquipo.length &amp;&amp; !sinKR.length)) {
+      alert2.innerHTML = '';
+    } else {
+      var items = [];
+      sinKR.forEach(function (g) {
+        items.push({ id: okrRowId(g), label: '<b>' + esc2(g.id) + '</b> todavía no tiene ningún KR' });
+      });
+      sinResp.forEach(function (x) {
+        items.push({ id: krRowId(x.kr), label: '<b>' + esc2(x.kr.c) + '</b> no tiene un responsable asignado' });
+      });
+      sinEquipo.forEach(function (x) {
+        items.push({ id: krRowId(x.kr), label: '<b>' + esc2(x.kr.c) + '</b> no tiene un equipo asignado' });
+      });
+      alert2.innerHTML = '<div class=&quot;okrinfo&quot;>' +
+        '<div class=&quot;okrinfo__head&quot;>' +
+          '<div class=&quot;okrinfo__icon&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>info</span></div>' +
+          '<div class=&quot;okrinfo__copy&quot;>' +
+            '<div class=&quot;okrinfo__title&quot;>Falta información para entender cómo se llega al 100%</div>' +
+            '<div class=&quot;okrinfo__desc&quot;>El avance de un OKR se explica por la suma de sus KR; cada KR necesita una iniciativa que lo mueva, un responsable y un equipo que lo sostengan. Si falta alguna de esas piezas, el porcentaje que ves no cuenta toda la historia.</div>' +
+            '<div class=&quot;okrinfo__chain&quot;>' +
+              '<b>OKR</b><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>arrow_right_alt</span>' +
+              '<b>KR</b><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>arrow_right_alt</span>' +
+              '<b>Iniciativa</b><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>arrow_right_alt</span>' +
+              '<b>Responsable</b><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>arrow_right_alt</span>' +
+              '<b>Equipo</b><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>arrow_right_alt</span> 100%' +
+            '</div>' +
+            '<div class=&quot;okrinfo__list&quot;>' + items.map(function (it) {
+              return '<div class=&quot;gaprow&quot;><span class=&quot;gaprow__text&quot;>' + it.label + '</span>' +
+                '<button class=&quot;gaprow__go&quot; data-scroll-to=&quot;' + it.id + '&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>south</span>Ver</button></div>';
+            }).join('') + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    /* ── Alerta 3: invitación a crear un proyecto en el Roadmap ──
+       Aparece solo cuando ya no falta nada (alertas 1 y 2 resueltas). */
+    var alert3 = document.getElementById('okrRoadmapInviteAlert');
+    if (sinIniciativa.length || sinResp.length || sinEquipo.length || sinKR.length) {
+      alert3.innerHTML = '';
+    } else {
+      alert3.innerHTML = '<div class=&quot;okrinvite&quot;>' +
+        '<div class=&quot;okrinvite__head&quot;>' +
+          '<div class=&quot;okrinvite__icon&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>rocket_launch</span></div>' +
+          '<div class=&quot;okrinvite__copy&quot;>' +
+            '<div class=&quot;okrinvite__title&quot;>Tus OKRs ya están completos — crea un proyecto en el Roadmap Estratégico</div>' +
+            '<div class=&quot;okrinvite__row&quot;>' +
+              '<div class=&quot;okrinvite__desc&quot;>Los proyectos son elementos estratégicos que se pueden gestionar y vincular directamente con tus OKRs, KPIs y compromisos — así visualizas mejor cómo avanza cada área de la organización.</div>' +
+              '<button class=&quot;okrinvite__go&quot; data-open=&quot;rd&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>add_circle</span>Ir a Roadmap Estratégico</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+  }
+  renderOKRsBoard();
+
+  /* ── Render: KPIs ───────────────────────────────────── */
+  function renderKPIsBoard() {
+    document.getElementById('kpBody').innerHTML = KPIS.map(function (g) {
+      return '<div class=&quot;grouprow&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_less</span>' +
+        '<span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>radio_button_checked</span>' +
+        '<span class=&quot;grouprow__id&quot;>' + esc(g.id) + '</span>' +
+        '<span class=&quot;grouprow__t grouprow__t--n&quot;>' + esc(g.t) + '</span></div>' +
+      g.rows.map(function (r) {
+        var cells = '';
+        for (var i = 0; i < 6; i++) cells += '<div><p class=&quot;r1&quot;>-</p><p class=&quot;r2&quot;>' + esc(r.goal) + '</p></div>';
+        return '<div class=&quot;itemrow grid-kpi&quot;>' +
+          '<div class=&quot;itemrow__x&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>expand_more</span></div>' +
+          '<div class=&quot;itemrow__d&quot;><span class=&quot;badge-i&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>equalizer</span></span>' +
+            '<div><p class=&quot;itemrow__name&quot;>' + esc(r.n) + '</p><p class=&quot;itemrow__code&quot;>' + esc(r.c) + '</p>' + metasHTML(r.metas) + '</div></div>' +
+          whoHTML(r.who, r.c) + teamHTML(r.team, r.c) +
+          '<div class=&quot;aligned&quot;>' + (r.al || []).map(function (a) { return '<span class=&quot;tagchip&quot;>' + esc(a) + '</span>'; }).join('') + '</div>' +
+          '<div class=&quot;kpicells&quot;>' + cells + '</div>' +
+        '</div>';
+      }).join('');
+    }).join('');
+  }
+  renderKPIsBoard();
+
+  /* ── Render: Backlog ────────────────────────────────── */
+  document.getElementById('blBody').innerHTML = BACKLOG.map(function (col) {
+    return '<div class=&quot;col' + (col.done ? ' col--done' : '') + '&quot;>' +
+      '<div class=&quot;col__h&quot;><h3>' + esc(col.h) + '</h3>' +
+        (col.done ? '<span class=&quot;ico chk&quot; aria-hidden=&quot;true&quot;>check</span>' : '') +
+        '<span class=&quot;col__grow&quot;></span><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>arrow_drop_down</span></div>' +
+      col.cards.map(function (c) {
+        return '<article class=&quot;tk&quot;>' +
+          '<div class=&quot;tk__h&quot;>Alineado a: ' + c.al.map(function (a) { return '<span class=&quot;tk__al&quot;>' + esc(a) + '</span>'; }).join('') +
+            '<span class=&quot;ico&quot; aria-hidden=&quot;true&quot; style=&quot;font-size:15px&quot;>add_circle</span></div>' +
+          '<p class=&quot;tk__t&quot;>' + (c.arrow ? '<span class=&quot;ico&quot; aria-hidden=&quot;true&quot; style=&quot;font-size:14px&quot;>arrow_right</span>' : '') + esc(c.t) + '</p>' +
+          '<div class=&quot;tk__f&quot;><span class=&quot;who__f&quot;>' + esc(c.who) + '</span>' +
+            (c.due ? '<span class=&quot;tk__due&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot;>calendar_month</span>' + esc(c.due) + '</span>' : '') +
+          '</div></article>';
+      }).join('') +
+      '<div class=&quot;col__add&quot;><span class=&quot;ico&quot; aria-hidden=&quot;true&quot; style=&quot;font-size:17px&quot;>add</span>Agregar compromiso</div>' +
+    '</div>';
+  }).join('');
+
+  /* ── Render: Plan de OKRs por foco (Planeamiento) ─────
+     Lista simple de cada OKR bajo su foco. */
+  function renderFocoRows() {
+    document.getElementById('focoRows').innerHTML = OKRS.map(function (g) {
+      return '<div class=&quot;focorow&quot;>' +
+        '<div class=&quot;focorow__tag&quot;>Foco</div>' +
+        '<div class=&quot;focorow__n&quot;>' + esc(g.foco) + '</div>' +
+        '<div class=&quot;focorow__c&quot;>' + esc(g.id) + ' · ' + esc(g.t) + ' — ' + g.pct + '%</div>' +
+      '</div>';
+    }).join('');
+  }
+  renderFocoRows();
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-scroll-to]');
+    if (!btn) return;
+    var row = document.getElementById(btn.dataset.scrollTo);
+    if (!row) return;
+    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    row.classList.add('is-pinged');
+    setTimeout(function () { row.classList.remove('is-pinged'); }, 1200);
+  });
+
+  /* ── Navegación por pestañas ────────────────────────── */
+  var NAMES = { pl: 'Planeamiento Estratégico', rd: 'Proyectos', ok: 'OKRs', kp: 'KPIs', bl: 'Backlog', rp: 'Reportes' };
+  var HEAD = {
+    pl: [], rd: ['hFaces', 'hFreq'], ok: ['hPct', 'hLock', 'hFaces', 'hPlan'],
+    kp: ['hFaces'], bl: ['hFaces'], rp: ['hPlan']
+  };
+
+  function go(key) {
+    document.querySelectorAll('.tab').forEach(function (t) {
+      var on = t.dataset.go === key;
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', String(on));
+    });
+    document.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('is-on', p.id === key); });
+    document.getElementById('secName').textContent = NAMES[key];
+    ['hPct', 'hLock', 'hFaces', 'hFreq', 'hPlan'].forEach(function (id) {
+      document.getElementById(id).hidden = HEAD[key].indexOf(id) === -1;
+    });
+    paintTools(key);
+    if (key === 'pl') renderFocoRows();
+    if (key === 'ok') renderOKRsBoard();
+    document.querySelector('.stage').scrollTop = 0;
+    if (key === 'rd' &amp;&amp; !roadmapTourSeen) { roadmapTourSeen = true; setTimeout(tourStart, 350); }
+  }
+
+  document.querySelectorAll('.tab').forEach(function (t) {
+    t.addEventListener('click', function () { go(t.dataset.go); });
+  });
+
+  document.addEventListener('click', function (e) {
+    var sw = e.target.closest('.switch');
+    if (sw) sw.classList.toggle('is-on');
+  });
+
+
+  /* ── Vistas: Inicio ⇄ tableros ──────────────────────── */
+  var vHome = document.getElementById('viewHome');
+  var vBoards = document.getElementById('viewBoards');
+  var bHome = document.getElementById('goHome');
+  var bBoards = document.getElementById('goBoards');
+
+  function showHome() {
+    vHome.hidden = false; vBoards.hidden = true;
+    bHome.classList.add('is-on'); bHome.setAttribute('aria-current', 'page');
+    bBoards.classList.remove('is-on'); bBoards.removeAttribute('aria-current');
+    vHome.querySelector('.home__main').scrollTop = 0;
+  }
+  function showBoards(key) {
+    vHome.hidden = true; vBoards.hidden = false;
+    bBoards.classList.add('is-on'); bBoards.setAttribute('aria-current', 'page');
+    bHome.classList.remove('is-on'); bHome.removeAttribute('aria-current');
+    if (key) go(key);
+  }
+  bHome.addEventListener('click', function () { showHome(); });
+  bBoards.addEventListener('click', function () { showBoards(); });
+
+  /* cualquier elemento con data-open salta al tablero indicado */
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-open]');
+    if (el) showBoards(el.dataset.open);
+  });
+
+  /* ── Tarjetas de aprendizaje ────────────────────────── */
+  var LESSONS = ['Conoce ACELERA', 'Planeamiento estratégico', 'Mapa de alineamiento'];
+  var KICKERS = ['Primeros pasos', 'Planeamiento Estratégico', 'Mapa de Alineamiento'];
+  document.getElementById('lessons').innerHTML = LESSONS.map(function (t, i) {
+    return '<button class=&quot;lesson&quot;><div class=&quot;lesson__art&quot;>' +
+      '<span class=&quot;lesson__k&quot;>' + KICKERS[i] + '</span>' +
+      '<div class=&quot;mock&quot; aria-hidden=&quot;true&quot;><div class=&quot;mock__s&quot;><div class=&quot;mock__b&quot;></div>' +
+      '<div class=&quot;mock__g&quot;><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>' +
+      '<div class=&quot;mock__r&quot;><i></i><i></i><i></i><i></i></div></div><div class=&quot;mock__base&quot;></div></div>' +
+      '</div><p class=&quot;lesson__c&quot;>' + t + '</p></button>';
+  }).join('');
+
+  /* ── Secciones plegables del Inicio ─────────────────── */
+  document.querySelectorAll('[data-hshut]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var shut = b.closest('[data-hsec]').classList.toggle('is-shut');
+      b.setAttribute('aria-expanded', String(!shut));
+    });
+  });
+
+  /* ── Checklist &quot;Explora tu plataforma completa&quot; ─────── */
+  function updatePcheck() {
+    var items = document.querySelectorAll('.pcheck__item');
+    var done = document.querySelectorAll('.pcheck__item.is-done').length;
+    document.getElementById('pcheckCount').textContent = done + ' / ' + items.length;
+    document.getElementById('pcheckFill').style.width = (done / items.length * 100) + '%';
+    document.getElementById('platCheck').classList.toggle('is-complete', done === items.length);
+  }
+  document.querySelectorAll('.pcheck__chk').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var item = btn.closest('.pcheck__item');
+      var willBeDone = !item.classList.contains('is-done');
+      item.classList.toggle('is-done', willBeDone);
+      btn.querySelector('.ico').textContent = willBeDone ? 'check_circle' : 'radio_button_unchecked';
+      if (willBeDone) {
+        item.classList.add('is-pop');
+        setTimeout(function () { item.classList.remove('is-pop'); }, 450);
+      }
+      updatePcheck();
+    });
+  });
+
+  /* la pestaña KPIs pierde su badge en cuanto se descubre */
+  var origGo = go;
+  go = function (key) {
+    origGo(key);
+    if (key === 'kp') {
+      var b = document.querySelector('.tab[data-go=&quot;kp&quot;] .tab__badge');
+      if (b) b.remove();
+    }
+  };
+
+  showBoards('ok');
+})();
+</script>
+</body>
+</html>
+"></iframe>
+    </div>
+
+    <h2 style="margin-top:52px">Métricas a impactar</h2>
+    <table>
+      <thead><tr><th>Métrica</th><th>Hoy</th><th>Meta (3 meses)</th></tr></thead>
+      <tbody>
+        <tr><td>MAU no read-only</td><td>11.6% (200)</td><td><b>15% (230)</b></td></tr>
+        <tr><td>Sesiones fuera de OKRs</td><td>26.9%</td><td><b>40%</b></td></tr>
+        <tr><td>Sesiones en KPIs</td><td>5.0%</td><td><b>12%</b></td></tr>
+      </tbody>
+    </table>
+
+    <h2 style="margin-top:52px">Plan de testeo del prototipo</h2>
+    <p class="sec__lead">Antes de un despliegue completo, validamos el prototipo con un experimento controlado sobre usuarios reales — ¿con quiénes lo probaremos?</p>
+
+    <div class="grid grid--2" style="margin-top:22px">
+      <div class="card">
+        <h4 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px">Universo</h4>
+        <p style="font-size:13.5px;color:var(--gray-1);line-height:1.5">Usuarios no read-only con licencia activa — <b>1,715</b>.</p>
+      </div>
+      <div class="card">
+        <h4 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px">Muestra</h4>
+        <p style="font-size:13.5px;color:var(--gray-1);line-height:1.5">Usuarios nuevos incorporados durante el piloto — <b>≈135</b>, al ritmo actual de 45 cada 14 días.</p>
+      </div>
+    </div>
+
+    <p style="margin-top:26px;font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;color:var(--gray-2)">Dividiremos la muestra en 3 grupos</p>
+    <div class="matrix" style="grid-template-columns:repeat(3,1fr);margin-top:12px">
+      <div class="mcell mcell--low">
+        <h4>Grupo control</h4>
+        <p style="font-size:13.5px;color:var(--gray-1);line-height:1.5">Onboarding actual (Retos 1 y 2) — sin banner, sin checklist, sin Reto 3.</p>
+      </div>
+      <div class="mcell mcell--med">
+        <h4>Grupo experimental 1</h4>
+        <p style="font-size:13.5px;color:var(--gray-1);line-height:1.5">Onboarding actual + banner "¿Creamos un KPI?" y checklist "Explora tu plataforma completa" (Experimentos 1 y 2).</p>
+      </div>
+      <div class="mcell mcell--max">
+        <h4>Grupo experimental 2</h4>
+        <p style="font-size:13.5px;color:var(--gray-1);line-height:1.5">Todo lo del experimental 1 + Reto 3 de KPI incorporado al training (Experimento 3).</p>
+      </div>
+    </div>
+
+    <div class="grid grid--3" style="margin-top:16px;align-items:stretch">
+      <div class="card">
+        <h4 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px">Fechas del piloto</h4>
+        <p style="font-size:13.5px;color:var(--gray-1);line-height:1.5">Del inicio de la <b>semana 3</b> al cierre de la <b>semana 6</b> (Fase 2 del despliegue).</p>
+      </div>
+      <div class="card" style="text-align:center;display:flex;flex-direction:column;align-items:center;justify-content:center">
+        <span class="ico" style="font-size:30px;color:var(--primary-purple)">casino</span>
+        <p style="font-size:13px;color:var(--gray-2);line-height:1.5;margin-top:8px">Los 3 grupos se asignan de manera aleatoria por cohorte de ingreso.</p>
+      </div>
+      <div class="card">
+        <h4 style="font-size:13px;font-weight:700;text-transform:uppercase;letter-spacing:.03em;margin-bottom:8px">Variable dependiente (los 3 grupos)</h4>
+        <p style="font-size:13.5px;color:var(--gray-1);line-height:1.5">% de sesiones fuera de OKRs y % que crea un KPI en sus primeros 7 días.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 4 · SIGUIENTES PASOS ═══ -->
+<section id="siguientes">
+  <div class="wrap">
+    <span class="sec__eyebrow"><span class="n">4</span>Siguientes pasos</span>
+    <h2>Nuevas métricas a empezar a medir</h2>
+    <p class="sec__lead">Ninguna de estas se mide hoy — son necesarias para validar si los experimentos realmente mueven la aguja.</p>
+    <div class="metric-list">
+      <div class="ml"><span class="ico">timer</span><div><p class="ml__t">% de usuarios que crean un KPI dentro de los 7 días siguientes a su primer OKR</p><p class="ml__d">Valida el Experimento 1 — el puente justo después del primer OKR.</p></div></div>
+      <div class="ml"><span class="ico">grid_view</span><div><p class="ml__t">% de usuarios nuevos que tocan al menos 2 módulos distintos a OKRs en sus primeros 14 días</p><p class="ml__d">Valida el Experimento 2 — el checklist post-onboarding.</p></div></div>
+      <div class="ml"><span class="ico">science</span><div><p class="ml__t">% de sesiones en KPIs, cohorte con Reto 3 vs. cohorte sin Reto 3</p><p class="ml__d">Valida el Experimento 3, comparado por fecha de capacitación (A/B).</p></div></div>
+      <div class="ml"><span class="ico">group</span><div><p class="ml__t">% de compromisos del comité con estado actualizado en la semana</p><p class="ml__d">Sustenta la palanca de prueba social: "el 80% de tu equipo ya actualizó su compromiso".</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 5 · CONCLUSIONES ═══ -->
+<section id="conclusiones">
+  <div class="wrap">
+    <span class="sec__eyebrow"><span class="n">5</span>Conclusiones</span>
+    <h2>Cierre y expectativas</h2>
+    <div class="concl">
+      <div class="ccard">
+        <h4><span class="ico" style="font-size:16px">flag</span>Expectativas de cara al reto</h4>
+        <p>Cerrar la brecha entre "completar el onboarding de OKRs" y "adoptar la plataforma completa" sin depender de que el usuario lo descubra por su cuenta — reemplazando la asunción implícita de Acelera por guía explícita en el momento exacto en que hoy se pierde al usuario.</p>
+      </div>
+      <div class="ccard">
+        <h4><span class="ico" style="font-size:16px">trending_up</span>Expectativas de crecimiento</h4>
+        <p>Elevar el MAU no read-only de 11.6% a 15% y las sesiones fuera de OKRs de 26.9% a 40% al cierre del tercer mes, con KPIs como el módulo de mayor movimiento esperado por ser el más cercano al OKR ya creado.</p>
+      </div>
+      <div class="ccard" style="grid-column:1/-1">
+        <h4><span class="ico" style="font-size:16px">inventory_2</span>Backlog adicional — remanente de ideación</h4>
+        <ul class="backlog">
+          <li><span class="tag tag--med">Media</span> Onboarding guiado reutilizable con iluminación paso a paso, disponible más de una vez tras la primera visita.</li>
+          <li><span class="tag tag--low">Baja</span> Mayor orientación para entender las etiquetas de OKR.</li>
+          <li><span class="tag tag--min">Mínima</span> Sesión de acompañamiento en el primer o segundo mes para monitorear uso y fricciones, priorizada en clientes con más usuarios activos.</li>
+          <li><span class="tag tag--min">Mínima</span> Chatbot que oriente paso a paso la creación de módulos, como complemento a los tutoriales existentes.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <a class="btn-1" href="https://valeriagt.github.io/acelera-prototipo/" target="_blank" rel="noopener">
+      <span class="ico">rocket_launch</span> Abrir el prototipo interactivo
+    </a>
+    <p class="foot-note">Comité de Gerencia · Acelera — presentación final del reto de diseño</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var btn = document.getElementById('openProtoFull');
+  var frame = document.getElementById('protoFrame');
+  if (!btn || !frame) return;
+  btn.addEventListener('click', function(){
+    var html = frame.getAttribute('srcdoc');
+    var w = window.open('', '_blank');
+    if (!w) return;
+    w.document.open();
+    w.document.write(html);
+    w.document.close();
+  });
+})();
+</script>
+</body>
+</html>
