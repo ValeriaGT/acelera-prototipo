@@ -7,6 +7,10 @@ Planeamiento Estratégico, Roadmap Estratégico, OKRs, KPIs, Backlog y Reportes.
 
 👉 **[Abrir el prototipo](https://valeriagt.github.io/acelera-prototipo/)**
 
+## Presentación final
+
+👉 **[Ver la presentación](https://valeriagt.github.io/acelera-prototipo/presentacion-final.html)** — incluye el reto de negocio, la propuesta, el plan de testeo del prototipo y el prototipo embebido.
+
 ## Contenido destacado
 
 - Alertas de completitud en OKRs (iniciativa, responsable, equipo) con modales para resolverlas en el momento.
