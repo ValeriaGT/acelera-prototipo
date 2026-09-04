@@ -1,0 +1,2077 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Comité de Gerencia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700;800&family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&display=swap">
+
+<style>
+/* ═══════════════════════════════════════════════════════════════
+   ACELERA · Comité de Gerencia — prototipo de 6 tableros
+   Tokens extraídos del CSS real de app.acelera.io
+   ═══════════════════════════════════════════════════════════════ */
+
+:root{
+  /* tokens reales de la app */
+  --primary-purple:#a62ef2;
+  --primary-purple-bold:#3c1159;
+  --primary-purple-l1:rgba(166,46,242,.37);
+  --primary-purple-l2:rgba(194,169,255,.69);
+  --bg-menu:#f2edff;
+  --acelera-dark:#7d00cc;
+  --acelera-light:#f0deff;
+  --acelera-2-light:#e9c8ff;
+  --gray-1:#3a3d42;
+  --gray-2:#717273;
+  --gray-3:#aeb0b2;
+  --gray-4:#c9cbcc;
+  --gray-5:#f3f4f4;
+  --positive:#31c42c;
+  --warning:#f3cd55;
+  --negative:#f80304;
+  --sec-red:#ff7171;
+  --sec-yellow:#ffed47;
+  --sec-green:#6aff67;
+  --sec-stop:#e7e7e7;
+
+  /* derivados para el prototipo */
+  --ink:#000;
+  --line:#e2e2e2;
+  --line-soft:#efefef;
+  --fill:#f2f2f2;
+  --white:#fff;
+  --banner:linear-gradient(90deg,#a62ef2 0%,#c44ff5 55%,#d868f7 100%);
+  --r:8px;
+}
+
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{
+  margin:0;background:var(--white);color:var(--ink);
+  font-family:"Heebo",-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-size:15px;line-height:1.45;-webkit-font-smoothing:antialiased;
+}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+ul{margin:0;padding:0;list-style:none}
+h1,h2,h3,h4,p{margin:0}
+:focus-visible{outline:2px solid var(--primary-purple);outline-offset:2px}
+.ico{
+  font-family:"Material Symbols Outlined";font-weight:400;font-style:normal;
+  font-size:20px;line-height:1;letter-spacing:normal;text-transform:none;
+  display:inline-block;white-space:nowrap;direction:ltr;
+  -webkit-font-feature-settings:'liga';-webkit-font-smoothing:antialiased;
+  font-variation-settings:'FILL' 0,'wght' 400,'GRAD' 0,'opsz' 24;
+}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ── Shell ─────────────────────────────────────────────────── */
+.app{display:grid;grid-template-columns:60px minmax(0,1fr);height:100dvh;background:var(--white)}
+
+.rail{
+  border-right:1px solid var(--line);background:var(--white);
+  display:flex;flex-direction:column;align-items:center;
+  padding:12px 0 14px;gap:2px;overflow:hidden;
+}
+.rail__logo{width:38px;height:34px;display:grid;place-items:center;color:var(--primary-purple);margin-bottom:6px}
+.rail__btn{
+  width:38px;height:36px;border-radius:6px;display:grid;place-items:center;
+  color:var(--gray-2);position:relative;transition:background .13s,color .13s;
+}
+.rail__btn:hover{background:var(--gray-5);color:var(--gray-1)}
+.rail__btn.is-on{color:var(--primary-purple)}
+.rail__sep{width:32px;height:1px;background:var(--line);margin:8px 0}
+.rail__grow{flex:1}
+.rail__badge{
+  position:absolute;top:1px;right:2px;min-width:16px;height:16px;padding:0 4px;
+  border-radius:8px;background:var(--negative);color:#fff;
+  font-size:9.5px;font-weight:600;line-height:16px;text-align:center;border:1.5px solid #fff;
+}
+.rail__me{width:28px;height:28px;border-radius:50%;background:linear-gradient(150deg,#8d6bd8,#3f3160);margin-top:6px;
+  display:grid;place-items:center;color:#fff;font-size:10px;font-weight:600}
+
+.shell{display:flex;flex-direction:column;min-width:0;overflow:hidden}
+
+/* ── Encabezado ────────────────────────────────────────────── */
+.top{display:flex;align-items:center;gap:14px;padding:16px 24px 0}
+.top__team{display:flex;align-items:center;gap:5px;font-size:21px;font-weight:700;letter-spacing:-.01em}
+.top__team .ico{font-size:22px;color:var(--gray-1)}
+.top__pipe{color:var(--gray-3);font-size:21px;font-weight:300}
+.top__sec{font-size:21px;font-weight:700;letter-spacing:-.01em}
+.top__grow{flex:1}
+.pill-pct{
+  background:var(--acelera-2-light);color:var(--primary-purple-bold);
+  border-radius:99px;padding:4px 26px;font-size:14px;font-weight:700;
+}
+.pill-lock{
+  background:#fff;border:1px solid var(--sec-red);color:#c93b3b;
+  border-radius:var(--r);padding:5px 12px;font-size:13px;font-weight:500;
+}
+.faces{display:flex}
+.faces span{
+  width:26px;height:26px;border-radius:50%;border:2px solid #fff;margin-left:-8px;
+  background:linear-gradient(150deg,#b39ae0,#4b3a72);
+  display:grid;place-items:center;color:#fff;font-size:9px;font-weight:600;
+}
+.faces span:first-child{margin-left:0}
+.faces .more{background:var(--primary-purple)}
+.selectish{
+  display:inline-flex;align-items:center;gap:8px;
+  border:1px solid var(--gray-4);border-radius:var(--r);
+  padding:5px 10px;font-size:13.5px;color:var(--gray-1);background:#fff;
+}
+.planner{
+  display:inline-flex;align-items:center;gap:10px;
+  border:1px solid var(--gray-4);border-radius:99px;padding:3px 5px;background:#fff;font-size:13.5px;
+}
+.planner b{font-weight:500;padding:0 4px}
+.planner .rnd{width:22px;height:22px;border-radius:50%;border:1px solid var(--gray-4);
+  display:grid;place-items:center;color:var(--gray-2)}
+.planner .rnd .ico{font-size:15px}
+
+/* ── Pestañas ──────────────────────────────────────────────── */
+.tabs{display:flex;align-items:center;gap:4px;padding:6px 24px 0;border-bottom:1px solid var(--line)}
+.tab{
+  padding:9px 12px 11px;font-size:14.5px;color:var(--gray-2);
+  border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;
+  transition:color .13s,border-color .13s;
+}
+.tab:hover{color:var(--gray-1)}
+.tab.is-on{color:var(--ink);font-weight:500;border-bottom-color:var(--gray-1)}
+.tab__badge{margin-left:6px;background:var(--negative);color:#fff;font-size:9.5px;font-weight:700;border-radius:99px;padding:2px 7px;vertical-align:2px}
+.tabs__grow{flex:1}
+.tabs__tools{display:flex;align-items:center;gap:2px;padding-bottom:4px}
+.tool{width:32px;height:32px;border-radius:6px;display:grid;place-items:center;color:var(--gray-1);transition:background .13s}
+.tool:hover{background:var(--gray-5)}
+.tool .ico{font-size:19px}
+.tool--ia{width:auto;gap:6px;display:flex;align-items:center;padding:0 6px;font-size:13.5px}
+.switch{width:32px;height:18px;border-radius:99px;background:var(--gray-4);position:relative;transition:background .15s}
+.switch::after{content:"";position:absolute;top:2px;left:2px;width:14px;height:14px;border-radius:50%;background:#fff;transition:transform .15s}
+.switch.is-on{background:var(--primary-purple)}
+.switch.is-on::after{transform:translateX(14px)}
+
+/* ── Área de contenido ─────────────────────────────────────── */
+.stage{flex:1;overflow:auto;padding:24px}
+.panel{display:none}
+.panel.is-on{display:block}
+
+/* ═══ 1 · PLANEAMIENTO ═════════════════════════════════════ */
+.pl__head{display:flex;align-items:center;gap:14px;margin-bottom:14px}
+.pl__head h2{font-size:22px;font-weight:400}
+.btn-pdf{background:var(--primary-purple);color:#fff;border-radius:6px;padding:7px 14px;font-size:13.5px;font-weight:600}
+.edit-lock{display:flex;align-items:center;gap:7px;color:var(--gray-1);font-size:14px}
+
+.banner{
+  background:var(--banner);color:#fff;border-radius:var(--r);
+  padding:12px;text-align:center;font-size:15px;font-weight:700;margin:12px 0 10px;
+}
+.rowline{display:grid;grid-template-columns:134px 1fr;gap:8px;margin-bottom:10px;align-items:stretch}
+.rowline__k{
+  background:var(--line);border-radius:var(--r);
+  display:grid;place-items:center;text-align:center;
+  font-size:14px;color:var(--gray-1);padding:12px 10px;
+}
+.rowline__v{
+  background:var(--fill);border-radius:var(--r);
+  padding:16px 22px;text-align:center;font-size:15px;color:var(--gray-1);
+  display:grid;place-items:center;
+}
+.rowline__v--cards{background:none;padding:0;place-items:stretch}
+.cardgrid{display:grid;gap:10px;width:100%}
+.cardgrid--4{grid-template-columns:repeat(4,1fr)}
+.cardgrid--3{grid-template-columns:repeat(3,1fr)}
+.cardgrid--5{grid-template-columns:repeat(5,1fr)}
+.vcard{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:14px 15px;text-align:left;font-size:13px;color:var(--gray-1);line-height:1.5;
+}
+.vcard h4{font-size:13.5px;font-weight:500;margin-bottom:7px;display:flex;align-items:center;gap:7px}
+.vcard ul{list-style:disc;padding-left:16px}
+.vcard em{font-style:italic}
+.mcard{
+  background:#fff;border:1px solid var(--line);border-radius:var(--r);
+  padding:14px;text-align:center;
+}
+.mcard__t{font-size:14px;color:var(--gray-1);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.mcard__v{font-size:26px;font-weight:400;margin-top:4px;display:flex;align-items:center;justify-content:center;gap:8px}
+.mcard__v .dot{width:11px;height:11px;border-radius:50%;flex:none}
+.dot--ok{background:var(--positive)}
+.dot--bad{background:var(--sec-red)}
+.dot--warn{background:var(--warning)}
+.mcard__m{font-size:11px;color:var(--gray-2);margin-top:2px}
+
+.subhead{display:flex;align-items:center;gap:10px;margin:22px 0 8px}
+.subhead h3{font-size:18px;font-weight:400}
+.subhead .plan{font-size:18px;font-weight:400;color:var(--ink)}
+.chips{display:flex;flex-wrap:wrap;gap:8px;width:100%}
+.foco-chip{
+  display:inline-flex;align-items:center;gap:7px;background:#fff;
+  border:1px solid var(--line);border-radius:var(--r);padding:9px 14px;font-size:13.5px;
+}
+.planbox{border:1px solid var(--line);border-radius:var(--r);margin-top:16px;overflow:hidden}
+.planbox__h{background:var(--acelera-light);padding:12px 16px;display:flex;align-items:center;gap:10px;font-size:14.5px}
+.planbox__h b{font-weight:700;text-transform:uppercase}
+.planbox__h .tagr{margin-left:auto;background:#fff;border-radius:99px;padding:5px 12px;font-size:12.5px}
+.planbox__b{padding:14px 16px}
+.planbox__b-h{display:flex;align-items:center;margin-bottom:12px;font-size:14px}
+.btn-foco{margin-left:auto;background:var(--primary-purple);color:#fff;border-radius:6px;padding:6px 12px;font-size:12.5px;font-weight:600}
+.focorow{display:grid;grid-template-columns:38px 130px 1fr;gap:0;border:1px solid var(--line);border-radius:var(--r);overflow:hidden;margin-bottom:8px}
+.focorow__tag{background:var(--primary-purple);color:#fff;display:grid;place-items:center;font-size:12px;writing-mode:vertical-rl;transform:rotate(180deg);padding:8px 0}
+.focorow__n{background:#fff;display:grid;place-items:center;text-align:center;padding:12px 8px;font-size:13.5px;border-right:1px solid var(--line)}
+.focorow__c{background:#fff;display:grid;place-items:center;padding:16px;color:var(--gray-2);font-size:14px}
+
+/* OKR sin iniciativa (OKRs) — resaltado (solo el trazo) */
+.okrgroup{border-radius:calc(var(--r) + 1px)}
+.okrgroup--warn{border:2px solid #d99a0b;padding:2px;transition:box-shadow .3s ease;margin-bottom:2px}
+.okrgroup--warn.is-pinged{box-shadow:0 0 0 4px rgba(217,154,11,.25)}
+.itemrow{transition:background .3s ease}
+.itemrow.is-pinged{background:#faf4ff}
+
+/* Alerta superior: OKR sin iniciativa */
+.okrgap{
+  border:1px solid #f0dfae;border-radius:12px;
+  background:linear-gradient(180deg,#fffaec,#fffdf7 60%,#fff);
+  margin-bottom:16px;overflow:hidden;
+}
+.okrgap__head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px}
+.okrgap__icon{
+  width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:#fff;border:1px solid #f0dfae;color:#d99a0b;
+}
+.okrgap__copy{flex:1;min-width:0}
+.okrgap__title{font-size:15.5px;font-weight:700;color:#8a5a06}
+.okrgap__row{display:flex;align-items:center;gap:14px;margin-top:4px}
+.okrgap__desc{flex:1;min-width:0;font-size:13.5px;color:var(--gray-2);line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.okrgap__list{flex:none;display:flex;gap:8px}
+.okrgap__go{
+  flex:none;display:inline-flex;align-items:center;gap:5px;background:#fff;border:1px solid #d99a0b;
+  color:#8a5a06;border-radius:7px;padding:6px 12px;font-size:12.5px;font-weight:600;white-space:nowrap;
+}
+.okrgap__go:hover{background:#fffaec}
+.okrgap__go .ico{font-size:16px}
+
+/* Alerta informativa: qué falta para llegar al 100% (violeta) */
+.okrinfo{
+  border:1px solid #ddc0f8;border-radius:12px;
+  background:linear-gradient(180deg,#faf4ff,#fdfbff 60%,#fff);
+  margin-bottom:16px;overflow:hidden;
+}
+.okrinfo__head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px}
+.okrinfo__icon{
+  width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:#fff;border:1px solid #ddc0f8;color:var(--acelera-dark);
+}
+.okrinfo__copy{flex:1;min-width:0}
+.okrinfo__title{font-size:15.5px;font-weight:700;color:var(--acelera-dark)}
+.okrinfo__desc{font-size:13.5px;color:var(--gray-2);margin-top:4px;line-height:1.5;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.okrinfo__chain{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin-top:12px;font-size:12.5px;color:var(--gray-2)}
+.okrinfo__chain b{color:var(--gray-1);font-weight:600}
+.okrinfo__chain .ico{font-size:15px;color:var(--gray-3)}
+.okrinfo__list{display:flex;flex-direction:column;gap:8px;margin-top:12px}
+
+/* Fila compartida: texto ocupa el ancho disponible, botón compacto al lado */
+.gaprow{display:flex;align-items:center;gap:12px;background:#fff;border-radius:8px;padding:9px 10px 9px 14px}
+.gaprow__text{flex:1;min-width:0;font-size:13px;color:var(--gray-1);line-height:1.4}
+.gaprow__text b{font-weight:700}
+.gaprow__go{
+  flex:none;display:inline-flex;align-items:center;gap:5px;border-radius:7px;
+  padding:6px 11px;font-size:12.5px;font-weight:600;white-space:nowrap;background:#fff;
+}
+.gaprow__go .ico{font-size:16px}
+.okrgap .gaprow{border:1px solid #f6e5b8}
+.okrgap .gaprow__go{border:1px solid #d99a0b;color:#8a5a06}
+.okrgap .gaprow__go:hover{background:#fffaec}
+.okrinfo .gaprow{border:1px solid #ecdcfb}
+.okrinfo .gaprow__go{border:1px solid #ddc0f8;color:var(--acelera-dark)}
+.okrinfo .gaprow__go:hover{background:#faf4ff}
+
+/* Alerta de invitación: crear proyecto en Roadmap (verde) */
+.okrinvite{
+  border:1px solid #bfe6cf;border-radius:12px;
+  background:linear-gradient(180deg,#eef9f2,#fbfefc 60%,#fff);
+  margin-bottom:16px;overflow:hidden;
+}
+.okrinvite__head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px}
+.okrinvite__icon{
+  width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:#fff;border:1px solid #bfe6cf;color:var(--positive);
+}
+.okrinvite__copy{flex:1;min-width:0}
+.okrinvite__title{font-size:15.5px;font-weight:700;color:#0f6b45}
+.okrinvite__row{display:flex;align-items:center;gap:14px;margin-top:4px}
+.okrinvite__desc{flex:1;min-width:0;font-size:13.5px;color:var(--gray-2);line-height:1.5}
+.okrinvite__go{
+  flex:none;display:inline-flex;align-items:center;gap:6px;background:var(--positive);border:1px solid var(--positive);
+  color:#fff;border-radius:7px;padding:8px 14px;font-size:13px;font-weight:600;white-space:nowrap;
+}
+.okrinvite__go:hover{background:#29a825}
+.okrinvite__go .ico{font-size:16px}
+
+/* ═══ Tablas de tablero (Roadmap · OKRs · KPIs) ════════════ */
+.board{min-width:1180px}
+.board__head{
+  display:grid;align-items:end;gap:0;padding:0 0 10px;
+  font-size:14px;color:var(--gray-1);
+}
+.board__head span{text-align:center}
+.grid-road{grid-template-columns:44px 1fr 130px 120px 190px 70px 190px 400px}
+.grid-okr{grid-template-columns:44px 1fr 130px 120px 190px 70px 190px 190px}
+.grid-kpi{grid-template-columns:44px 1fr 130px 120px 190px 450px}
+
+.timehead{background:var(--banner);color:#fff;border-radius:var(--r);overflow:hidden}
+.timehead__y{display:flex;align-items:center;justify-content:center;gap:16px;padding:6px;font-size:14px;font-weight:500}
+.timehead__q{display:grid;grid-template-columns:repeat(4,1fr);font-size:13px}
+.timehead__q span{padding:5px 0;text-align:center}
+.timehead__m{display:grid;grid-template-columns:repeat(6,1fr);font-size:13px}
+.timehead__m span{padding:5px 0;text-align:center}
+.timehead--light{background:var(--acelera-light);color:var(--primary-purple-bold)}
+
+.grouprow{
+  background:var(--bg-menu);border-radius:var(--r);
+  display:flex;align-items:center;gap:10px;padding:10px 14px;margin:14px 0 4px;
+}
+.grouprow .ico{color:var(--gray-1);font-size:19px}
+.grouprow__id{font-weight:700;font-size:14px}
+.grouprow__t{font-weight:700;font-size:14px;text-transform:uppercase}
+.grouprow__t--n{text-transform:none}
+.grouprow__grow{flex:1}
+.grouprow__tag{background:#fff;border-radius:6px;padding:5px 11px;font-size:12px;display:flex;align-items:center;gap:6px}
+.grouprow__pct{font-size:17px;font-weight:500;min-width:56px;text-align:right}
+
+.itemrow{display:grid;align-items:center;border-bottom:1px solid var(--line-soft);padding:14px 0;min-height:96px}
+.itemrow:last-child{border-bottom:0}
+.itemrow__x{display:grid;place-items:center;color:var(--gray-3)}
+.itemrow__d{padding-right:16px;display:flex;gap:11px;align-items:flex-start}
+.badge-i{
+  width:28px;height:28px;border-radius:6px;background:var(--acelera-light);
+  display:grid;place-items:center;color:var(--primary-purple);flex:none;margin-top:1px;
+}
+.badge-i .ico{font-size:17px}
+.itemrow__code{font-size:11px;font-weight:700;color:var(--primary-purple);letter-spacing:.02em;margin-top:6px}
+.itemrow__name{font-size:14px;color:var(--gray-1);line-height:1.35}
+.metas{display:flex;gap:12px;margin-top:7px;color:var(--gray-2);font-size:11.5px;align-items:center}
+.metas span{display:inline-flex;align-items:center;gap:3px}
+.metas .ico{font-size:14px}
+
+.who{display:flex;flex-direction:column;align-items:center;gap:4px;font-size:12px;color:var(--gray-1)}
+.who__f{width:28px;height:28px;border-radius:50%;background:linear-gradient(150deg,#b39ae0,#4b3a72);
+  display:grid;place-items:center;color:#fff;font-size:10px;font-weight:600}
+.who--none{color:var(--gray-3);font-size:13px}
+.team{display:flex;justify-content:center}
+.team span{width:26px;height:26px;border-radius:50%;border:2px solid #fff;margin-left:-8px;
+  background:linear-gradient(150deg,#c0a8e8,#5b4780);display:grid;place-items:center;color:#fff;font-size:9px;font-weight:600}
+.team span:first-child{margin-left:0}
+.team .more{background:var(--primary-purple)}
+
+.gauge{padding:0 14px;text-align:center}
+.gauge__v{font-size:13px;color:var(--gray-1);margin-bottom:3px}
+.gauge__bar{height:4px;border-radius:99px;background:var(--gray-4);position:relative;margin:9px 0 6px}
+.gauge__fill{position:absolute;left:0;top:0;height:100%;border-radius:99px;background:var(--gray-1)}
+.gauge__knob{
+  position:absolute;top:50%;width:20px;height:20px;border-radius:50%;background:var(--primary-purple);
+  transform:translate(-50%,-50%);display:grid;place-items:center;color:#fff;
+}
+.gauge__knob .ico{font-size:13px}
+.gauge__lim{font-size:10.5px;color:var(--gray-2)}
+.pct{font-size:16px;text-align:center;font-weight:400}
+
+.aligned{display:flex;flex-direction:column;gap:4px;padding:0 12px;position:relative}
+.aligned__st{position:absolute;top:-22px;left:50%;transform:translateX(-50%)}
+.aligned__st .ico{font-size:16px}
+.st-ok{color:var(--positive)}
+.st-bad{color:var(--sec-red)}
+.tagchip{
+  background:var(--acelera-light);border-radius:4px;padding:3px 8px;font-size:11px;
+  white-space:nowrap;overflow:hidden;text-overflow:ellipsis;color:var(--gray-1);
+}
+.tagchip--out{background:#fff;border:1px solid var(--line);display:flex;align-items:center;gap:5px}
+.tagchip--out.is-clickable{cursor:pointer;transition:border-color .13s,color .13s}
+.tagchip--out.is-clickable:hover{border-color:var(--primary-purple);color:var(--primary-purple)}
+
+/* ═══ Modal: Alineado a ══════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(20,10,30,.45);display:flex;align-items:center;justify-content:center;
+  z-index:1000;opacity:0;pointer-events:none;transition:opacity .16s ease;padding:24px;
+}
+.modal-overlay.is-on{opacity:1;pointer-events:auto}
+.modal-card{
+  background:#fff;border-radius:12px;width:660px;max-width:100%;max-height:86vh;overflow:auto;
+  padding:26px 28px 22px;box-shadow:0 24px 60px rgba(30,10,50,.28);
+}
+.modal-card h3{font-size:17px;font-weight:700;padding-bottom:14px;border-bottom:1px solid var(--line);margin-bottom:16px}
+.modal-empty{background:var(--gray-5);border-radius:6px;padding:16px;text-align:center;color:var(--gray-2);font-size:14px;margin-bottom:18px}
+.modal-current{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.modal-align-row{display:flex;align-items:center;gap:16px;margin-bottom:18px;font-size:13.5px;color:var(--gray-1);flex-wrap:wrap}
+.modal-align-row b{font-weight:700}
+.modal-align-row select{border:1px solid var(--gray-4);border-radius:6px;padding:6px 10px;font-size:13px;color:var(--gray-1);background:#fff;margin-left:6px}
+.modal-hint{display:flex;align-items:flex-start;gap:8px;background:#faf4ff;border:1px solid #ddc0f8;border-radius:8px;padding:10px 12px;font-size:12.5px;color:var(--acelera-dark);margin-bottom:16px;line-height:1.4}
+.modal-search{display:flex;align-items:center;gap:10px;border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:4px}
+.modal-search .ico{color:var(--gray-3);font-size:20px}
+.modal-search input{border:0;outline:0;font-size:14px;flex:1;font-family:inherit;color:var(--gray-1)}
+.modal-list{max-height:280px;overflow:auto;margin:4px 0 20px}
+.modal-item{display:flex;align-items:center;gap:12px;padding:9px 4px;font-size:14px;color:var(--gray-1);cursor:pointer;border-radius:6px}
+.modal-item:hover{background:var(--gray-5)}
+.modal-item input[type=checkbox]{width:17px;height:17px;accent-color:var(--primary-purple)}
+.modal-empty-list{padding:14px 4px;color:var(--gray-3);font-size:13.5px;text-align:center}
+.modal-foot{display:flex;justify-content:flex-end;padding-top:6px;border-top:1px solid var(--line)}
+.btn-modal-close{background:var(--gray-5);border-radius:6px;padding:8px 18px;font-size:13.5px;font-weight:600;color:var(--gray-1)}
+.btn-modal-close:hover{background:var(--gray-4)}
+.btn-modal-save{background:var(--primary-purple);border-radius:6px;padding:8px 18px;font-size:13.5px;font-weight:600;color:#fff;margin-left:10px}
+.btn-modal-save:hover{background:#8f1fd8}
+
+/* Modal: selector de colaboradores */
+.who.is-clickable,.team.is-clickable{cursor:pointer;border-radius:6px;transition:background .13s}
+.who.is-clickable:hover,.team.is-clickable:hover{background:var(--gray-5)}
+.who--none.is-clickable:hover{color:var(--primary-purple)}
+.collab-item{
+  display:flex;align-items:center;gap:12px;padding:10px 8px;font-size:14.5px;color:var(--gray-1);
+  cursor:pointer;border-radius:8px;
+}
+.collab-item:hover{background:var(--gray-5)}
+.collab-item.is-on{background:var(--acelera-light)}
+.collab-item__av{
+  width:34px;height:34px;border-radius:50%;flex:none;background:linear-gradient(150deg,#b39ae0,#4b3a72);
+  display:grid;place-items:center;color:#fff;font-size:12px;font-weight:600;
+}
+.modal-addlabel{font-size:13px;color:var(--gray-1);margin:14px 0 6px}
+.modal-addinput{
+  width:100%;border:1px solid var(--gray-4);border-radius:6px;padding:9px 12px;font-size:13.5px;
+  font-family:inherit;color:var(--gray-1);margin-bottom:6px;
+}
+
+/* ═══ Onboarding: recorrido guiado ══════════════════════ */
+.tour-spot{
+  position:fixed;border-radius:10px;z-index:1195;pointer-events:auto;
+  box-shadow:0 0 0 9999px rgba(15,10,26,.62);
+  transition:top .25s ease,left .25s ease,width .25s ease,height .25s ease;
+}
+.tour-tip{
+  position:fixed;z-index:1197;background:#fff;border-radius:12px;width:300px;
+  padding:16px 18px;box-shadow:0 16px 40px rgba(20,10,35,.3);
+  transition:top .25s ease,left .25s ease;
+}
+.tour-tip__step{font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--primary-purple)}
+.tour-tip__title{font-size:15.5px;font-weight:700;color:var(--gray-1);margin-top:5px;line-height:1.3}
+.tour-tip__desc{font-size:13px;color:var(--gray-2);margin-top:6px;line-height:1.5}
+.tour-tip__foot{display:flex;align-items:center;justify-content:space-between;margin-top:14px}
+.tour-skip{font-size:12.5px;color:var(--gray-3);font-weight:600}
+.tour-skip:hover{color:var(--gray-1)}
+.tour-next{background:var(--primary-purple);color:#fff;border-radius:7px;padding:8px 16px;font-size:13px;font-weight:600}
+.tour-next:hover{background:#8f1fd8}
+
+.rd-tourbar{display:flex;justify-content:flex-end;margin-bottom:10px}
+.tour-restart{
+  display:inline-flex;align-items:center;gap:6px;border:1px solid var(--line);border-radius:8px;
+  padding:6px 12px;font-size:13px;color:var(--gray-1);background:#fff;
+}
+.tour-restart:hover{border-color:var(--primary-purple);color:var(--primary-purple)}
+.tour-restart .ico{font-size:17px}
+
+/* Gantt */
+.gantt{position:relative;height:60px;border-left:1px solid var(--line)}
+.gantt__grid{position:absolute;inset:0;display:grid;grid-template-columns:repeat(4,1fr)}
+.gantt__grid i{border-right:1px dashed var(--gray-4)}
+.gantt__today{position:absolute;top:0;bottom:0;width:0;border-left:1.5px dashed var(--sec-red)}
+.gantt__track{position:absolute;top:50%;transform:translateY(-50%);height:20px;border-radius:3px;background:var(--acelera-light)}
+.gantt__done{position:absolute;left:0;top:0;bottom:0;border-radius:3px;background:var(--acelera-dark)}
+
+/* Sesiones OKR */
+.sess{display:flex;justify-content:center;gap:8px;border-left:1px solid var(--line);height:100%;align-items:center}
+.sess button{
+  width:34px;height:34px;border-radius:50%;border:1px solid var(--line);
+  font-size:12px;color:var(--gray-1);background:#fff;transition:border-color .13s,color .13s;
+}
+.sess button:hover{border-color:var(--primary-purple);color:var(--primary-purple)}
+
+/* Celdas de meta KPI */
+.kpicells{display:grid;grid-template-columns:repeat(6,1fr);border-left:1px solid var(--line)}
+.kpicells div{border-right:1px solid var(--line);text-align:center;font-size:13px;color:var(--gray-1)}
+.kpicells .r1{padding:8px 0;border-bottom:1px solid var(--line);color:var(--gray-3)}
+.kpicells .r2{padding:8px 0}
+
+/* ═══ 5 · BACKLOG ══════════════════════════════════════════ */
+.bl__bar{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.bl__bar .grow{flex:1}
+.chip-late{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line);border-radius:var(--r);padding:6px 12px;font-size:13.5px}
+.chip-late i{width:11px;height:11px;border-radius:50%;background:var(--sec-red);display:block}
+.datebox{border:1px solid var(--line);border-radius:var(--r);padding:6px 12px;font-size:12px;color:var(--gray-1);line-height:1.25;text-align:center}
+
+.kanban{display:grid;grid-template-columns:repeat(4,minmax(240px,1fr));gap:16px;align-items:start}
+.col{background:var(--gray-5);border-radius:10px;padding:14px 12px 10px;min-height:200px}
+.col--done{background:var(--acelera-light)}
+.col__h{display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.col__h h3{font-size:19px;font-weight:400}
+.col__h .ico{color:var(--gray-2)}
+.col__h .chk{color:var(--primary-purple)}
+.col__grow{flex:1}
+.tk{background:#fff;border-radius:var(--r);padding:10px 12px 11px;margin-bottom:10px;box-shadow:0 1px 2px rgba(0,0,0,.05)}
+.tk__h{display:flex;align-items:center;gap:6px;font-size:11.5px;color:var(--gray-2);
+  padding-bottom:7px;border-bottom:1px solid var(--line-soft);margin-bottom:9px}
+.tk__al{background:var(--acelera-light);border-radius:4px;padding:2px 7px;color:var(--gray-1);font-weight:500}
+.tk__t{font-size:13.5px;color:var(--gray-1);line-height:1.35}
+.tk__f{display:flex;align-items:center;gap:8px;margin-top:9px}
+.tk__f .who__f{width:22px;height:22px;font-size:8.5px}
+.tk__due{margin-left:auto;font-size:11.5px;color:var(--sec-red);display:inline-flex;align-items:center;gap:4px}
+.tk__due .ico{font-size:14px}
+.tk__due--ok{color:var(--gray-3)}
+.col__add{display:flex;align-items:center;gap:7px;color:var(--gray-2);font-size:13.5px;padding:4px 2px}
+
+/* ═══ 6 · REPORTES ═════════════════════════════════════════ */
+.rp__top{display:grid;grid-template-columns:1.5fr 1fr 1.1fr;gap:18px;margin-bottom:18px}
+.rcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px}
+.rcard h3{font-size:17px;font-weight:400;text-align:center;margin-bottom:14px}
+.rcard__note{font-size:12.5px;color:var(--gray-1);text-align:center;margin-top:12px;line-height:1.4}
+.donut{display:grid;place-items:center;padding:6px 0}
+.legend{border-radius:6px;overflow:hidden}
+.legend__h{background:var(--acelera-light);text-align:center;padding:6px;font-size:13.5px;color:var(--primary-purple-bold)}
+.legend__r{display:flex;align-items:center;gap:9px;padding:8px 6px;border-bottom:1px solid var(--line-soft);font-size:13px}
+.legend__r:last-child{border-bottom:0}
+.legend__r i{width:13px;height:13px;border-radius:50%;flex:none}
+.legend__r b{margin-left:auto;font-weight:400;font-variant-numeric:tabular-nums;color:var(--gray-1)}
+.rp__grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin-bottom:18px}
+.kcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 16px;text-align:center}
+.kcard h4{font-size:16px;font-weight:400;margin-bottom:10px}
+.kcard__n{font-size:46px;font-weight:400;line-height:1.05}
+.kcard__d{font-size:12.5px;color:var(--gray-1);margin-top:10px;line-height:1.4}
+.n-ok{color:var(--positive)}.n-bad{color:var(--sec-red)}.n-warn{color:#f0c800}.n-mid{color:var(--primary-purple)}
+
+
+/* ═══ 0 · INICIO ═══════════════════════════════════════════ */
+.view{display:flex;flex-direction:column;flex:1;min-height:0}
+.home{display:grid;grid-template-columns:minmax(0,1fr) 460px;flex:1;min-height:0}
+.home__main{overflow-y:auto;padding:32px 36px 64px}
+.home__aside{
+  border-left:1px solid var(--line);background:var(--gray-5);
+  padding:22px 20px 28px;overflow-y:auto;display:flex;flex-direction:column;gap:16px;
+}
+
+.hello{display:flex;align-items:flex-start;gap:18px}
+.hello__avatar{
+  width:70px;height:70px;border-radius:50%;flex:none;
+  background:linear-gradient(155deg,#b98ff0,#3c1159);
+  display:grid;place-items:center;color:#fff;font-size:21px;font-weight:600;
+  box-shadow:0 0 0 3px #fff,0 0 0 4px var(--line);
+}
+.hello h1{font-size:30px;font-weight:700;letter-spacing:-.02em;line-height:1.15}
+.hello__sub{color:var(--gray-2);font-size:15px;margin-top:4px}
+
+/* alerta personalizada */
+.focus{
+  margin-top:20px;border:1px solid #f0dfae;border-radius:12px;
+  background:linear-gradient(180deg,#fffaec,#fffdf7 58%,#fff);
+  overflow:hidden;transition:opacity .22s ease,transform .22s ease;
+}
+.focus.is-leaving{opacity:0;transform:translateY(-6px)}
+.focus.is-clear{border-color:#bfe6cf;background:linear-gradient(180deg,#eef9f2,#fbfefc 60%,#fff)}
+.focus__head{display:flex;align-items:flex-start;gap:12px;padding:16px 18px 14px}
+.focus__icon{
+  width:34px;height:34px;flex:none;border-radius:9px;display:grid;place-items:center;
+  background:#fff;border:1px solid #f0dfae;color:#d99a0b;
+}
+.focus.is-clear .focus__icon{border-color:#bfe6cf;color:var(--positive)}
+.focus__copy{flex:1;min-width:0}
+.focus__title{font-size:16px;font-weight:700;letter-spacing:-.01em}
+.focus__title b{color:#8a5a06;font-weight:700}
+.focus.is-clear .focus__title b{color:#0f6b45}
+.focus__desc{font-size:13.5px;color:var(--gray-2);margin-top:3px;max-width:68ch}
+.focus__close{width:28px;height:28px;flex:none;border-radius:7px;color:var(--gray-3);display:grid;place-items:center}
+.focus__close:hover{background:rgba(0,0,0,.06);color:var(--gray-1)}
+.focus__list{background:#fff;border-top:1px solid #f0dfae;border-bottom:1px solid var(--line)}
+.focus.is-clear .focus__list{border-top-color:#bfe6cf}
+
+.focus__foot{display:flex;align-items:center;gap:16px;padding:12px 18px 14px}
+.meter{flex:1;min-width:0}
+.meter__row{display:flex;justify-content:space-between;align-items:baseline;gap:12px}
+.meter__l{font-size:12.5px;color:var(--gray-2)}
+.meter__c{font-size:12.5px;font-weight:600;font-variant-numeric:tabular-nums}
+.meter__track{height:6px;border-radius:99px;background:var(--line);margin-top:7px;overflow:hidden}
+.meter__fill{height:100%;border-radius:99px;background:var(--primary-purple);transition:width .35s cubic-bezier(.2,.7,.3,1)}
+.focus.is-clear .meter__fill{background:var(--positive)}
+.btn-go{flex:none;height:36px;padding:0 16px;border-radius:6px;background:var(--primary-purple);color:#fff;font-size:13.5px;font-weight:600}
+.btn-go:hover{background:#8f1fd8}
+
+/* secciones del inicio */
+.hsec{margin-top:34px}
+.hsec__t{display:flex;align-items:center;gap:8px;font-size:19px;font-weight:700;letter-spacing:-.015em;margin-bottom:14px}
+.hsec__t .ico{color:var(--gray-2);transition:transform .18s}
+.hsec.is-shut .hsec__t .ico{transform:rotate(-90deg)}
+.hsec.is-shut .hsec__b{display:none}
+.strip{display:flex;gap:20px;overflow-x:auto;padding-bottom:6px}
+.strip::-webkit-scrollbar{height:8px}
+.strip::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px}
+
+.tile{
+  flex:none;width:258px;border:1px solid var(--line);border-radius:10px;background:#fff;padding:13px;
+  text-align:left;transition:box-shadow .16s,transform .16s;
+}
+.tile:hover{box-shadow:0 8px 22px -8px rgba(60,17,89,.22);transform:translateY(-2px)}
+.tile__th{height:128px;border-radius:6px;background:var(--acelera-light);display:grid;place-items:center;color:var(--primary-purple)}
+.tile__l{margin-top:12px;font-size:14.5px;color:var(--gray-2)}
+.tile__l b{color:var(--gray-1);font-weight:700}
+
+.lesson{flex:none;width:322px;border:1px solid var(--line);border-radius:10px;background:#fff;overflow:hidden;text-align:left;transition:box-shadow .16s,transform .16s}
+.lesson:hover{box-shadow:0 8px 22px -8px rgba(60,17,89,.22);transform:translateY(-2px)}
+.lesson__art{height:190px;padding:20px 18px 0;background:linear-gradient(125deg,#fbf4fd,#f2e7fe 55%,#efe4fb);display:flex;gap:14px}
+.lesson__k{font-size:18px;font-weight:600;letter-spacing:-.02em;line-height:1.15;border-left:2.5px solid var(--gray-1);padding-left:10px;flex:none;width:114px}
+.mock{flex:1;min-width:0;align-self:flex-end}
+.mock__s{border:3px solid #3a3d42;border-radius:6px 6px 2px 2px;background:#fff;padding:5px;height:114px;overflow:hidden}
+.mock__b{height:7px;border-radius:2px;background:var(--primary-purple);opacity:.85;margin-bottom:4px}
+.mock__g{display:grid;grid-template-columns:repeat(4,1fr);gap:3px}
+.mock__g i{display:block;height:9px;border-radius:1.5px;background:#f0e6fd}
+.mock__g i:nth-child(4n+1){background:var(--acelera-light)}
+.mock__r{margin-top:4px;display:grid;gap:3px}
+.mock__r i{display:block;height:6px;border-radius:1.5px;background:#f1f0f4}
+.mock__r i:nth-child(2){width:78%}
+.mock__r i:nth-child(3){width:62%}
+.mock__base{height:7px;border-radius:0 0 5px 5px;background:linear-gradient(180deg,#d3d4dc,#b9bac5);margin:0 -14px;position:relative}
+.mock__base::after{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);width:26px;height:2px;border-radius:0 0 3px 3px;background:#a6a7b4}
+.lesson__c{padding:14px 16px 16px;font-size:14.5px;color:var(--gray-2);text-align:center}
+
+.news{
+  flex:none;width:322px;height:206px;border-radius:10px;border:1px solid var(--line);
+  display:flex;flex-direction:column;justify-content:space-between;padding:18px;text-align:left;
+  transition:box-shadow .16s,transform .16s;
+}
+.news:hover{box-shadow:0 8px 22px -8px rgba(60,17,89,.22);transform:translateY(-2px)}
+.news--a{background:linear-gradient(150deg,#f7f0fe,#eee0fd)}
+.news--b{background:linear-gradient(150deg,#ebdcfe,#dbc4fb)}
+.news--c{background:linear-gradient(150deg,#f4eefe,#e7f0fb)}
+.news__tag{align-self:flex-start;font-size:11px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--acelera-dark)}
+.news__t{font-size:19px;font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.news__t em{font-style:normal;color:var(--primary-purple)}
+.news__f{font-size:12.5px;color:var(--gray-2)}
+
+/* panel derecho del inicio */
+.hpanel{background:#fff;border:1px solid var(--line);border-radius:12px}
+.hpanel--cmt{flex:1;min-height:320px;display:flex;flex-direction:column}
+.hpanel__h{display:grid;grid-template-columns:1fr auto;padding:15px 18px 12px;font-size:15px;font-weight:700;color:var(--primary-purple)}
+.cmt{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:12px;padding:11px 18px;border-top:1px solid var(--line-soft)}
+.cmt:hover{background:#fcfaff}
+.cmt__box{
+  appearance:none;-webkit-appearance:none;width:17px;height:17px;border-radius:4px;
+  border:1.5px solid var(--gray-4);background:#fff;display:grid;place-items:center;cursor:pointer;
+}
+.cmt__box:checked{background:var(--primary-purple);border-color:var(--primary-purple)}
+.cmt__box:checked::after{content:"";width:9px;height:5px;border-left:2px solid #fff;border-bottom:2px solid #fff;transform:rotate(-45deg) translateY(-1px)}
+.cmt__n{font-size:13.5px;cursor:pointer}
+.cmt__box:checked + .cmt__n{color:var(--gray-3);text-decoration:line-through}
+.cmt__d{font-size:12.5px;color:var(--gray-2);font-variant-numeric:tabular-nums;white-space:nowrap}
+.cmt__d.late{color:#b3271e;font-weight:600}
+.cmt--g{display:block;padding:13px 18px 7px;border-top:1px solid var(--line-soft);font-size:12.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase}
+.hpanel--idea{padding:17px 18px 19px}
+.hpanel__t{display:flex;align-items:center;gap:8px;font-size:16px;font-weight:700}
+.hpanel__t .ico{color:var(--primary-purple)}
+.hpanel__b{font-size:13.5px;color:var(--gray-2);margin-top:7px}
+.hpanel--idea .btn-go{margin-top:14px}
+
+/* checklist "Explora tu plataforma completa" */
+.hpanel--check{transition:background .3s ease}
+.hpanel--check.is-complete{background:linear-gradient(180deg,#eef9f2,#fff 65%)}
+.pcheck__sub{font-size:12.5px;color:var(--gray-2);padding:0 18px 12px;margin-top:-4px}
+.pcheck__list{border-top:1px solid var(--line-soft)}
+.pcheck__item{display:flex;align-items:center;gap:10px;padding:11px 18px;border-bottom:1px solid var(--line-soft);cursor:pointer;transition:background .14s}
+.pcheck__item:hover{background:#fcfaff}
+.pcheck__chk{color:var(--gray-4);display:grid;place-items:center;flex:none;transition:color .14s}
+.pcheck__chk:hover{color:var(--primary-purple)}
+.pcheck__t{flex:1;font-size:13.5px;color:var(--gray-1)}
+.pcheck__go{color:var(--gray-3);font-size:18px;flex:none}
+.pcheck__item.is-done .pcheck__chk{color:var(--positive)}
+.pcheck__item.is-done .pcheck__t{color:var(--gray-3);text-decoration:line-through}
+.pcheck__item.is-pop .pcheck__chk{animation:pcheckPop .45s ease}
+@keyframes pcheckPop{0%{transform:scale(1)}40%{transform:scale(1.4) rotate(-8deg)}100%{transform:scale(1)}}
+.pcheck__meter{padding:14px 18px 17px}
+
+/* tooltip informativo en encabezados de tabla */
+.info-tip{font-size:14px;color:var(--gray-3);vertical-align:-2px;cursor:help;margin-left:3px}
+.info-tip:hover{color:var(--primary-purple)}
+
+@media (max-width:1080px){
+  .home{grid-template-columns:1fr}
+  .home__aside{border-left:0;border-top:1px solid var(--line)}
+}
+
+@media (max-width:1000px){
+  .rp__top{grid-template-columns:1fr}
+  .rp__grid{grid-template-columns:repeat(2,1fr)}
+  .kanban{grid-template-columns:repeat(2,minmax(220px,1fr))}
+  .cardgrid--4,.cardgrid--5{grid-template-columns:repeat(2,1fr)}
+  .cardgrid--3{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){*{transition-duration:.01ms!important}}
+</style>
+</head>
+<body>
+<div class="app">
+
+  <!-- ══ Riel ══════════════════════════════════════════════ -->
+  <nav class="rail" aria-label="Navegación principal">
+    <div class="rail__logo" aria-label="Acelera">
+      <svg width="30" height="26" viewBox="0 0 30 26" fill="currentColor" aria-hidden="true">
+        <path d="M0 25 9.4 1h4L6.4 17.6h5.9L7.8 25H3.9l4.2-7.8H3.4L0 25Z"/>
+        <path d="M15.6 25 25.6 1h4.2L19.7 25Z" opacity=".5"/>
+      </svg>
+    </div>
+    <button class="rail__btn" aria-label="Expandir menú"><span class="ico" aria-hidden="true">keyboard_double_arrow_right</span></button>
+    <button class="rail__btn" aria-label="Administrar usuarios"><span class="ico" aria-hidden="true">manage_accounts</span></button>
+    <button class="rail__btn" aria-label="Configuración"><span class="ico" aria-hidden="true">settings</span></button>
+    <div class="rail__sep"></div>
+    <button class="rail__btn" id="goHome" aria-label="Inicio"><span class="ico" aria-hidden="true">home</span></button>
+    <button class="rail__btn is-on" id="goBoards" aria-label="Estrategia organizacional" aria-current="page"><span class="ico" aria-hidden="true">account_tree</span></button>
+    <button class="rail__btn" aria-label="Tableros"><span class="ico" aria-hidden="true">space_dashboard</span></button>
+    <div class="rail__sep"></div>
+    <button class="rail__btn" aria-label="Organización"><span class="ico" aria-hidden="true">location_city</span></button>
+    <button class="rail__btn" aria-label="Equipos"><span class="ico" aria-hidden="true">groups</span></button>
+    <button class="rail__btn" aria-label="Mi perfil"><span class="ico" aria-hidden="true">person_outline</span></button>
+    <div class="rail__grow"></div>
+    <button class="rail__btn" aria-label="Mis compromisos"><span class="ico" aria-hidden="true">check_box</span></button>
+    <button class="rail__btn" aria-label="Notificaciones: 13 sin leer">
+      <span class="ico" aria-hidden="true">notifications</span><span class="rail__badge">13</span>
+    </button>
+    <button class="rail__btn" aria-label="Soporte"><span class="ico" aria-hidden="true">headset_mic</span></button>
+    <div class="rail__me" aria-hidden="true">JM</div>
+  </nav>
+
+  <div class="shell">
+  <div class="view" id="viewBoards">
+
+    <!-- ══ Encabezado ═════════════════════════════════════ -->
+    <header class="top">
+      <span class="top__team">Comité de Gerencia <span class="ico" aria-hidden="true">expand_more</span></span>
+      <span class="top__pipe">|</span>
+      <span class="top__sec" id="secName">Planeamiento Estratégico</span>
+
+      <span class="pill-pct" id="hPct" hidden>62%</span>
+      <span class="pill-lock" id="hLock" hidden>La edición está bloqueada para este tablero</span>
+
+      <span class="top__grow"></span>
+
+      <div class="faces" id="hFaces" hidden aria-label="Miembros del equipo">
+        <span>LP</span><span>AV</span><span>JD</span><span>LC</span><span>MR</span><span class="more">+5</span>
+      </div>
+      <span class="selectish" id="hFreq" hidden>Trimestral <span class="ico" aria-hidden="true">expand_more</span></span>
+      <span class="planner" id="hPlan" hidden>
+        <span class="rnd"><span class="ico" aria-hidden="true">chevron_left</span></span>
+        <b>Plan OKRs 2025 Q4</b>
+        <span class="rnd"><span class="ico" aria-hidden="true">chevron_right</span></span>
+      </span>
+    </header>
+
+    <!-- ══ Pestañas ═══════════════════════════════════════ -->
+    <nav class="tabs" role="tablist" aria-label="Tableros del comité">
+      <button class="tab is-on" role="tab" aria-selected="true" data-go="pl">Planejamento Estratégico</button>
+      <button class="tab" role="tab" aria-selected="false" data-go="rd">Roadmap Estratégicoo</button>
+      <button class="tab" role="tab" aria-selected="false" data-go="ok">OKRs</button>
+      <button class="tab" role="tab" aria-selected="false" data-go="kp">KPIs<span class="tab__badge">1 nuevo</span></button>
+      <button class="tab" role="tab" aria-selected="false" data-go="bl">Backlog</button>
+      <button class="tab" role="tab" aria-selected="false" data-go="rp">Reportes</button>
+      <span class="tabs__grow"></span>
+      <div class="tabs__tools" id="tools"></div>
+    </nav>
+
+    <!-- ══ Contenido ══════════════════════════════════════ -->
+    <div class="stage">
+
+      <!-- ─── 1 · PLANEAMIENTO ESTRATÉGICO ─────────────── -->
+      <section class="panel is-on" id="pl" role="tabpanel" aria-label="Planeamiento Estratégico">
+        <div class="pl__head">
+          <h2>Planeamiento Estratégico</h2>
+          <span class="top__grow"></span>
+          <span class="edit-lock"><span class="ico" aria-hidden="true">lock</span>Editar <span class="switch"></span></span>
+          <button class="btn-pdf">Descargar PDF</button>
+        </div>
+
+        <div class="banner">Propósito</div>
+        <div class="rowline">
+          <div class="rowline__k">Propósito</div>
+          <div class="rowline__v">Creemos que la tecnología potencia al ser humano a construir un mejor futuro para todos.</div>
+        </div>
+
+        <div class="banner">Nuestra Cultura</div>
+        <div class="rowline">
+          <div class="rowline__k">Misión</div>
+          <div class="rowline__v">Crear productos y servicios innovadores, de alta calidad y fáciles de usar que mejoren la vida de las personas y les permitan conectarse, comunicarse y trabajar de manera más eficiente</div>
+        </div>
+        <div class="rowline">
+          <div class="rowline__k">Visión</div>
+          <div class="rowline__v">Ser líder en la industria de la tecnología y la innovación a nivel mundial.</div>
+        </div>
+        <div class="rowline">
+          <div class="rowline__k">Valores</div>
+          <div class="rowline__v rowline__v--cards">
+            <div class="cardgrid cardgrid--4">
+              <div class="vcard">
+                <h4>🏅 Simplicidad</h4>
+                <p>"La simplicidad es la máxima sofisticación". Leonardo Da Vinci. Se pone un gran énfasis en la calidad, la atención al detalle y la experiencia del usuario, desde el diseño de hardware hasta la interfaz de software.</p>
+              </div>
+              <div class="vcard">
+                <h4>💡 Innovación</h4>
+                <ul>
+                  <li><em>Valoramos la innovación en el diseño de nuestros productos y servicios.</em></li>
+                  <li>Buscamos constantemente crear dispositivos y soluciones tecnológicas que sean revolucionarios y disruptivos en el mercado.</li>
+                </ul>
+              </div>
+              <div class="vcard">
+                <h4>💙 Adaptabilidad</h4>
+                <p>Por encima de cualquier plan está el resultado. Nuestra adaptabilidad es extrema, ágil y llena de ingenio para lograr siempre, no importan los obstáculo o barreras, el logro esperado.</p>
+              </div>
+              <div class="vcard">
+                <h4>👥 Privacidad y seguridad</h4>
+                <p>Nos esforzamos por garantizar que nuestros productos y servicios protejan la información personal de sus clientes y les permitan controlar cómo se utiliza y comparte su información.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rowline">
+          <div class="rowline__k">Indicadores<br>(Conectados)</div>
+          <div class="rowline__v rowline__v--cards">
+            <div class="cardgrid cardgrid--4">
+              <div class="mcard"><p class="mcard__t">Venta facturada Acumulada</p><p class="mcard__v"><i class="dot dot--ok"></i>$ 2.43B</p><p class="mcard__m">Meta: ≥ $ 2M</p></div>
+              <div class="mcard"><p class="mcard__t">EBITDA</p><p class="mcard__v"><i class="dot dot--ok"></i>30 %</p><p class="mcard__m">Meta: ≥ 30 %</p></div>
+              <div class="mcard"><p class="mcard__t">Margen Operativo</p><p class="mcard__v"><i class="dot dot--ok"></i>70 %</p><p class="mcard__m">Meta: ≥ 60 %</p></div>
+              <div class="mcard"><p class="mcard__t">% de LEADs Ganados</p><p class="mcard__v"><i class="dot dot--bad"></i>0</p><p class="mcard__m">Meta: ≥ 100</p></div>
+            </div>
+          </div>
+        </div>
+        <div class="rowline">
+          <div class="rowline__k"></div>
+          <div class="rowline__v rowline__v--cards">
+            <div class="mcard"><p class="mcard__t">Emisiones de carbono</p><p class="mcard__v"><i class="dot dot--ok"></i>- 2 MMTN</p><p class="mcard__m">Meta: ≤ - 3 MMTN</p></div>
+          </div>
+        </div>
+
+        <div class="subhead">
+          <h3>Objetivos estratégicos</h3>
+          <span class="plan">Planeamiento 2026 / 2030 <span class="ico" aria-hidden="true">expand_more</span></span>
+          <span class="ico" aria-hidden="true" style="color:var(--gray-2)">settings</span>
+        </div>
+
+        <div class="banner">Aspiración ganadora</div>
+        <div class="rowline">
+          <div class="rowline__k"></div>
+          <div class="rowline__v">Ser los referentes en el sector tecnológico de América Latina</div>
+        </div>
+
+        <div class="banner">Where to play</div>
+        <div class="rowline">
+          <div class="rowline__k"></div>
+          <div class="rowline__v"><span><b>América Latina</b>, con enfoque inicial en los mercados con mayor tamaño y potencial de adopción tecnológica (Chile, Brasil, Colombia, México).</span></div>
+        </div>
+
+        <div class="banner">How to Wins</div>
+        <div class="rowline">
+          <div class="rowline__k"></div>
+          <div class="rowline__v rowline__v--cards">
+            <div class="cardgrid cardgrid--3">
+              <div class="vcard">
+                <h4>💡 Activando Eficiencia y Modelo Operativo Ágil</h4>
+                <p>Enfocarse en la excelencia operativa y la entrega de valor rápida. Esto implica adoptar metodologías Lean/Agile en toda la organización, simplificar la toma de decisiones y construir un modelo de negocio que pueda replicarse con bajos costos marginales en los diferentes países de Latam.</p>
+              </div>
+              <div class="vcard">
+                <h4>💡 Activando Customer Centricity</h4>
+                <p>No solo tener productos fáciles de usar, sino también ofrecer una experiencia de cliente integral (CX) de clase mundial, desde la incorporación (onboarding) hasta el soporte continuo. Esto significa usar los propios datos para anticipar las necesidades del cliente y ofrecer personalización a escala.</p>
+              </div>
+              <div class="vcard">
+                <h4>💡 Activando Talento Transformacional</h4>
+                <p>Ser el lugar de trabajo preferido para el talento tecnológico y de negocio en América Latina. Esto implica no solo atraer a los mejores ingenieros, sino también a líderes con mentalidad de crecimiento, ofreciendo desarrollo constante y una cultura que abrace la innovación, el riesgo calculado y el foco en el propósito.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="banner">Focos estratégicos</div>
+        <div class="rowline">
+          <div class="rowline__k"></div>
+          <div class="rowline__v rowline__v--cards">
+            <div class="chips">
+              <span class="foco-chip">💡 Escalamiento de Negocio</span>
+              <span class="foco-chip">💡 Eficiencia y Modelo Operativo Ágil</span>
+              <span class="foco-chip">💡 Customer Centricity</span>
+              <span class="foco-chip">💡 Nuevos Servicios</span>
+              <span class="foco-chip">💡 Talento transformacional</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="subhead">
+          <h3>Objetivos estratégicos</h3>
+          <span class="plan">Plan OKRs 2026 <span class="ico" aria-hidden="true">expand_more</span></span>
+        </div>
+        <div class="banner">Planeamiento Estratégico 2026</div>
+        <div class="rowline">
+          <div class="rowline__k">Éxito del año</div>
+          <div class="rowline__v">Retomar el camino del liderazgo y consolidar nuestra capacidad de estrategia y ejecución</div>
+        </div>
+        <div class="rowline">
+          <div class="rowline__k">Metas<br>Organizacionales</div>
+          <div class="rowline__v rowline__v--cards">
+            <div class="cardgrid cardgrid--4">
+              <div class="mcard"><p class="mcard__t">Ingresos Recurrentes Anuales</p><p class="mcard__v">30%</p></div>
+              <div class="mcard"><p class="mcard__t">NPS</p><p class="mcard__v">+60</p></div>
+              <div class="mcard"><p class="mcard__t">Margen Bruto</p><p class="mcard__v">75%</p></div>
+              <div class="mcard"><p class="mcard__t">eNPS</p><p class="mcard__v">+50</p></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="planbox">
+          <div class="planbox__h">
+            <span><b>Plan OKRs 2025 Q4</b> | Comité de Gerencia | Líder: Lisha Centini</span>
+            <span class="tagr">Plan OKRs 2025 Q4</span>
+          </div>
+          <div class="planbox__b">
+            <div class="planbox__b-h">Plan de OKRs por foco <button class="btn-foco">Gestionar foco</button></div>
+            <div id="focoRows"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ─── 2 · ROADMAP ESTRATÉGICO ──────────────────── -->
+      <section class="panel" id="rd" role="tabpanel" aria-label="Roadmap Estratégico">
+        <div class="rd-tourbar">
+          <button class="tour-restart" id="tourRestartRd"><span class="ico" aria-hidden="true">school</span>Ver recorrido</button>
+        </div>
+        <div class="board">
+          <div class="board__head grid-road">
+            <span></span><span>Descripción</span><span>Responsable</span><span>Equipo</span><span>Nivel de logro<span class="ico info-tip" aria-hidden="true" title="Compara el valor actual con el rango entre el punto de inicio y la meta. El punto morado marca dónde estás hoy en ese rango.">help</span></span><span></span><span>Alineado a</span>
+            <div class="timehead">
+              <div class="timehead__y"><span class="ico" aria-hidden="true">chevron_left</span>2026<span class="ico" aria-hidden="true">chevron_right</span></div>
+              <div class="timehead__q"><span>Q1</span><span>Q2</span><span>Q3</span><span>Q4</span></div>
+            </div>
+          </div>
+          <div id="rdBody"></div>
+        </div>
+      </section>
+
+      <!-- ─── 3 · OKRs ─────────────────────────────────── -->
+      <section class="panel" id="ok" role="tabpanel" aria-label="OKRs">
+        <div id="okrIniciativaAlert"></div>
+        <div id="okrInfoAlert"></div>
+        <div id="okrRoadmapInviteAlert"></div>
+        <div class="board">
+          <div class="board__head grid-okr">
+            <span></span><span>Descripción</span><span>Responsable</span><span>Equipo</span><span>Nivel de logro<span class="ico info-tip" aria-hidden="true" title="Compara el valor actual con el rango entre el punto de inicio y la meta. El punto morado marca dónde estás hoy en ese rango.">help</span></span><span></span><span>Alineado a</span>
+            <div class="timehead timehead--light">
+              <div class="timehead__y"><span class="ico" aria-hidden="true">chevron_left</span>2025 - Dic<span class="ico" aria-hidden="true">chevron_right</span></div>
+              <div class="timehead__q" style="grid-template-columns:repeat(2,1fr)"><span>S 1</span><span>S 2</span></div>
+            </div>
+          </div>
+          <div id="okBody"></div>
+        </div>
+      </section>
+
+      <!-- ─── 4 · KPIs ─────────────────────────────────── -->
+      <section class="panel" id="kp" role="tabpanel" aria-label="KPIs">
+        <div class="board">
+          <div class="board__head grid-kpi">
+            <span></span><span></span><span>Responsable</span><span>Equipo</span><span>Alineado a</span>
+            <div class="timehead">
+              <div class="timehead__y"><span class="ico" aria-hidden="true">chevron_left</span>2026<span class="ico" aria-hidden="true">chevron_right</span></div>
+              <div class="timehead__m"><span>Jul</span><span>Ago</span><span>Sep</span><span>Oct</span><span>Nov</span><span>Dic</span></div>
+            </div>
+          </div>
+          <div id="kpBody"></div>
+        </div>
+      </section>
+
+      <!-- ─── 5 · BACKLOG ──────────────────────────────── -->
+      <section class="panel" id="bl" role="tabpanel" aria-label="Backlog">
+        <div class="bl__bar">
+          <span class="top__grow grow"></span>
+          <span class="chip-late"><span class="ico" aria-hidden="true" style="font-size:17px">filter_alt</span>Filtrar</span>
+          <span class="chip-late"><i></i>Atrasado</span>
+          <span class="datebox">Creado desde -<br>hasta -</span>
+          <button class="tool" aria-label="Historial"><span class="ico" aria-hidden="true">restore</span></button>
+          <button class="tool" aria-label="Descargar"><span class="ico" aria-hidden="true">file_download</span></button>
+        </div>
+        <div class="kanban" id="blBody"></div>
+      </section>
+
+      <!-- ─── 6 · REPORTES ─────────────────────────────── -->
+      <section class="panel" id="rp" role="tabpanel" aria-label="Reportes">
+        <div class="rp__top">
+          <div class="rcard">
+            <h3>Nivel de logro</h3>
+            <svg viewBox="0 0 620 250" width="100%" height="230" role="img" aria-label="Avance real frente a la línea esperada, de octubre S1 a diciembre S2">
+              <line x1="60" y1="40"  x2="600" y2="40"  stroke="#e2e2e2"/>
+              <line x1="60" y1="105" x2="600" y2="105" stroke="#e2e2e2"/>
+              <line x1="60" y1="170" x2="600" y2="170" stroke="#e2e2e2"/>
+              <text x="48" y="45"  text-anchor="end" font-size="13" fill="#717273">100%</text>
+              <text x="48" y="110" text-anchor="end" font-size="13" fill="#717273">50%</text>
+              <text x="48" y="175" text-anchor="end" font-size="13" fill="#717273">0%</text>
+              <line x1="82" y1="163" x2="578" y2="40" stroke="#aeb0b2" stroke-width="1.5" stroke-dasharray="4 4"/>
+              <polyline points="82,159 181,151 280,135 379,118 478,102 578,92"
+                        fill="none" stroke="#a62ef2" stroke-width="2.5"/>
+              <g fill="#a62ef2">
+                <circle cx="82"  cy="159" r="4"/><circle cx="181" cy="151" r="4"/>
+                <circle cx="280" cy="135" r="4"/><circle cx="379" cy="118" r="4"/>
+                <circle cx="478" cy="102" r="4"/><circle cx="578" cy="92"  r="4"/>
+              </g>
+              <g font-size="13" fill="#3a3d42" text-anchor="middle">
+                <text x="82"  y="200">Oct S1</text><text x="181" y="200">Oct S2</text>
+                <text x="280" y="200">Nov S1</text><text x="379" y="200">Nov S2</text>
+                <text x="478" y="200">Dic S1</text><text x="578" y="200">Dic S2</text>
+              </g>
+            </svg>
+          </div>
+
+          <div class="rcard">
+            <h3>Nivel de logro</h3>
+            <div class="donut">
+              <svg width="180" height="180" viewBox="0 0 180 180" role="img" aria-label="Nivel de logro promedio: 60 por ciento">
+                <circle cx="90" cy="90" r="68" fill="none" stroke="#e9c8ff" stroke-width="26"/>
+                <circle cx="90" cy="90" r="68" fill="none" stroke="#a62ef2" stroke-width="26"
+                        stroke-dasharray="256 171" stroke-linecap="butt" transform="rotate(-90 90 90)"/>
+                <text x="90" y="99" text-anchor="middle" font-size="30" font-family="Heebo, sans-serif" fill="#3a3d42">60%</text>
+              </svg>
+            </div>
+            <p class="rcard__note">En promedio de todos los OKRs habiendo pasado el 62% del tiempo</p>
+          </div>
+
+          <div class="rcard">
+            <h3>Estado de KRs según confiabilidad</h3>
+            <div class="legend">
+              <div class="legend__h">Estado</div>
+              <div class="legend__r"><i style="background:#ff7171"></i>Crítico <b>01</b></div>
+              <div class="legend__r"><i style="background:#ffed47"></i>Con riesgo <b>03</b></div>
+              <div class="legend__r"><i style="background:#6aff67"></i>Por lograr <b>05</b></div>
+              <div class="legend__r"><i style="background:#3a3d42"></i>Logrados <b>02</b></div>
+              <div class="legend__r"><i style="background:#c9cbcc"></i>El KR aún no tiene plan o no ha comenzado su ejecución (en cero). <b>00</b></div>
+              <div class="legend__r"><i style="background:#5a5a5a"></i>Sin datos <b>00</b></div>
+            </div>
+          </div>
+        </div>
+
+        <div class="rp__grid">
+          <div class="kcard"><h4>KRs logrados</h4><p class="kcard__n n-ok">2</p><p class="kcard__d">Total de KRs logrados a la fecha. ¡Felicitaciones!</p></div>
+          <div class="kcard"><h4>KRs desactualizados</h4><p class="kcard__n n-bad">1</p><p class="kcard__d">KRs con resultados atrasados según la frecuencia comprometida</p></div>
+          <div class="kcard"><h4>Días para la fecha fin</h4><p class="kcard__n n-warn">34</p><p class="kcard__d">La fecha fin del plan es el 31 de Diciembre del 2025</p></div>
+          <div class="kcard"><h4>KRs en riesgo</h4><p class="kcard__n n-bad">3</p><p class="kcard__d">Total de KRs con alto riesgo de fracaso según índice de éxito</p></div>
+        </div>
+        <div class="rp__grid">
+          <div class="kcard"><h4>Compromisos registrados</h4><p class="kcard__n n-ok">31</p><p class="kcard__d">Total de compromisos generados por el equipo</p></div>
+          <div class="kcard"><h4>Compromisos pendientes</h4><p class="kcard__n n-mid">12</p><p class="kcard__d">Total de compromisos pendientes aún no vencidos</p></div>
+          <div class="kcard"><h4>Compromisos atrasados</h4><p class="kcard__n n-bad">8</p><p class="kcard__d">Total de compromisos pendientes con fecha vencida</p></div>
+          <div class="kcard"><h4>Compromisos completados</h4><p class="kcard__n n-ok">11</p><p class="kcard__d">Total de compromisos completados a la fecha ¡Felicitaciones!</p></div>
+        </div>
+      </section>
+
+    </div>
+
+  </div><!-- /viewBoards -->
+
+  <!-- ══ Vista Inicio ═══════════════════════════════════════ -->
+  <div class="view" id="viewHome" hidden>
+    <div class="home">
+      <main class="home__main">
+
+        <header class="hello">
+          <div class="hello__avatar" aria-hidden="true">JM</div>
+          <div>
+            <h1>¡Hola James!</h1>
+            <p class="hello__sub">Accede rápidamente a tus tableros recientes, el buzón y los espacios de trabajo</p>
+          </div>
+        </header>
+
+        <!-- visitados recientemente -->
+        <section class="hsec" data-hsec>
+          <button class="hsec__t" data-hshut aria-expanded="true">
+            <span class="ico" aria-hidden="true">expand_more</span>Visitados recientemente
+          </button>
+          <div class="hsec__b">
+            <div class="strip">
+              <button class="tile" data-open="rd">
+                <div class="tile__th" aria-hidden="true">
+                  <svg width="118" height="64" viewBox="0 0 118 64" fill="none"><rect x="9" y="13" width="100" height="15" rx="4" fill="#a62ef2"/><rect x="9" y="36" width="26" height="15" rx="4" fill="#a62ef2"/><rect x="37" y="36" width="72" height="15" rx="4" fill="#fff"/></svg>
+                </div>
+                <p class="tile__l"><b>Roadmap</b> - Comité de Gerencia</p>
+              </button>
+              <button class="tile" data-open="ok">
+                <div class="tile__th" aria-hidden="true">
+                  <svg width="64" height="64" viewBox="0 0 64 64" fill="none"><circle cx="32" cy="32" r="24" stroke="#a62ef2" stroke-width="11"/><circle cx="32" cy="32" r="11" fill="#fff"/></svg>
+                </div>
+                <p class="tile__l"><b>OKRs</b></p>
+              </button>
+              <button class="tile" data-open="kp">
+                <div class="tile__th" aria-hidden="true">
+                  <svg width="110" height="60" viewBox="0 0 110 60" fill="none"><rect x="5" y="33" width="19" height="24" rx="3" fill="#a62ef2" opacity=".5"/><rect x="30" y="19" width="19" height="38" rx="3" fill="#a62ef2" opacity=".72"/><rect x="55" y="9" width="19" height="48" rx="3" fill="#a62ef2"/><rect x="80" y="25" width="19" height="32" rx="3" fill="#a62ef2" opacity=".38"/></svg>
+                </div>
+                <p class="tile__l"><b>KPIs</b> - Comité de Gerencia</p>
+              </button>
+              <button class="tile" data-open="rp">
+                <div class="tile__th" aria-hidden="true">
+                  <svg width="122" height="58" viewBox="0 0 122 58" fill="none" stroke="#a62ef2" stroke-width="3.4"><rect x="5" y="5" width="46" height="46" rx="10"/><rect x="69" y="5" width="46" height="46" rx="10"/><text x="28" y="40" text-anchor="middle" font-family="Heebo, sans-serif" font-size="29" font-weight="600" fill="#a62ef2" stroke="none">2</text><text x="92" y="40" text-anchor="middle" font-family="Heebo, sans-serif" font-size="29" font-weight="600" fill="#a62ef2" stroke="none">5</text></svg>
+                </div>
+                <p class="tile__l"><b>Reportes</b> - Comité de Gerencia</p>
+              </button>
+              <button class="tile" data-open="pl">
+                <div class="tile__th" aria-hidden="true">
+                  <svg width="112" height="62" viewBox="0 0 112 62" fill="none"><rect x="6" y="8" width="100" height="12" rx="4" fill="#a62ef2"/><rect x="6" y="26" width="46" height="28" rx="4" fill="#a62ef2" opacity=".4"/><rect x="60" y="26" width="46" height="28" rx="4" fill="#a62ef2" opacity=".4"/></svg>
+                </div>
+                <p class="tile__l"><b>Planeamiento</b> - Comité de Gerencia</p>
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!-- aprendizaje -->
+        <section class="hsec" data-hsec>
+          <button class="hsec__t" data-hshut aria-expanded="true">
+            <span class="ico" aria-hidden="true">expand_more</span>Aprende a sacar el máximo valor de ACELERA
+          </button>
+          <div class="hsec__b">
+            <div class="strip" id="lessons"></div>
+          </div>
+        </section>
+
+        <!-- novedades -->
+        <section class="hsec" data-hsec>
+          <button class="hsec__t" data-hshut aria-expanded="true">
+            <span class="ico" aria-hidden="true">expand_more</span>Descubre las novedades de ACELERA
+          </button>
+          <div class="hsec__b">
+            <div class="strip">
+              <button class="news news--a">
+                <span class="news__tag">Nuevo</span>
+                <p class="news__t">Report Panel</p>
+                <p class="news__f">Arma reportes ejecutivos sin salir del tablero</p>
+              </button>
+              <button class="news news--b">
+                <span class="news__tag">Nuevo</span>
+                <p class="news__t">Conecta <em>indicadores</em>, KPIs y proyectos dentro del Planeamiento Estratégico</p>
+                <p class="news__f">Disponible para todos los espacios de trabajo</p>
+              </button>
+              <button class="news news--c">
+                <span class="news__tag">Mejora</span>
+                <p class="news__t">Recordatorios de compromisos</p>
+                <p class="news__f">Elige el día y la hora en que ACELERA te avisa</p>
+              </button>
+            </div>
+          </div>
+        </section>
+
+      </main>
+
+      <aside class="home__aside" aria-label="Compromisos y sugerencias">
+        <section class="hpanel hpanel--cmt">
+          <div class="hpanel__h"><span>Compromisos</span><span>Venc.</span></div>
+          <div>
+            <div class="cmt"><input type="checkbox" class="cmt__box" id="k1"><label class="cmt__n" for="k1">Levantar los requerimientos de la migración de CRM</label><span class="cmt__d">28-04-26</span></div>
+            <div class="cmt"><input type="checkbox" class="cmt__box" id="k2"><label class="cmt__n" for="k2">Validar la fuente de datos del KPI de ventas</label><span class="cmt__d">28-04-26</span></div>
+            <div class="cmt"><input type="checkbox" class="cmt__box" id="k3"><label class="cmt__n" for="k3">Revisar el tablero antes del comité</label><span class="cmt__d">30-04-26</span></div>
+            <div class="cmt"><input type="checkbox" class="cmt__box" id="k4"><label class="cmt__n" for="k4">algiot</label><span class="cmt__d">16-07-26</span></div>
+            <p class="cmt cmt--g">Junio 2025</p>
+            <div class="cmt"><input type="checkbox" class="cmt__box" id="k5"><label class="cmt__n" for="k5">Implementar nueva estrategia de captación de clientes para ver impacto en julio 2025</label><span class="cmt__d late">19-12-25</span></div>
+          </div>
+        </section>
+
+        <section class="hpanel hpanel--check" id="platCheck">
+          <div class="hpanel__h" style="grid-template-columns:1fr"><span>Explora tu plataforma completa</span></div>
+          <p class="pcheck__sub">3 pasos para conocer todo lo que ACELERA puede hacer por tu equipo.</p>
+          <ul class="pcheck__list">
+            <li class="pcheck__item" data-open="kp">
+              <button class="pcheck__chk" aria-label="Marcar Crear un KPI como completado"><span class="ico" aria-hidden="true">radio_button_unchecked</span></button>
+              <span class="pcheck__t">Crear un KPI</span>
+              <span class="ico pcheck__go" aria-hidden="true">chevron_right</span>
+            </li>
+            <li class="pcheck__item" data-open="bl">
+              <button class="pcheck__chk" aria-label="Marcar Agregar algo al Backlog como completado"><span class="ico" aria-hidden="true">radio_button_unchecked</span></button>
+              <span class="pcheck__t">Agregar algo al Backlog</span>
+              <span class="ico pcheck__go" aria-hidden="true">chevron_right</span>
+            </li>
+            <li class="pcheck__item" data-open="rd">
+              <button class="pcheck__chk" aria-label="Marcar Ver el Roadmap como completado"><span class="ico" aria-hidden="true">radio_button_unchecked</span></button>
+              <span class="pcheck__t">Ver el Roadmap</span>
+              <span class="ico pcheck__go" aria-hidden="true">chevron_right</span>
+            </li>
+          </ul>
+          <div class="meter pcheck__meter">
+            <div class="meter__row"><span class="meter__l">Progreso</span><span class="meter__c" id="pcheckCount">0 / 3</span></div>
+            <div class="meter__track"><div class="meter__fill" id="pcheckFill" style="width:0%"></div></div>
+          </div>
+        </section>
+
+        <section class="hpanel hpanel--idea">
+          <h2 class="hpanel__t"><span class="ico" aria-hidden="true">feedback</span>Registrar una idea</h2>
+          <p class="hpanel__b">Haznos saber cómo podemos mejorar. Vota sobre las ideas existentes o sugiere otras nuevas.</p>
+          <button class="btn-go">Ir a Sugerencias</button>
+        </section>
+      </aside>
+    </div>
+  </div>
+  </div>
+</div>
+
+<!-- ══ Modal: Alineado a ══════════════════════════════════ -->
+<div class="modal-overlay" id="alignModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="alignModalTitle">
+    <h3 id="alignModalTitle">Alineado a:</h3>
+
+    <div class="modal-empty" id="alignEmpty">No tiene alineación</div>
+    <div class="modal-current" id="alignCurrent" hidden></div>
+
+    <div class="modal-align-row">
+      <b>Alinear con:</b>
+      <span>Equipo: <select><option>Comité de Gerencia</option></select></span>
+      <span>Dashboard:
+        <select id="alignDashboard">
+          <option value="kp">KPIs</option>
+          <option value="rd">Roadmap</option>
+        </select>
+      </span>
+      <span>Periodo: <select><option>Plan OKRs 2025 Q4</option></select></span>
+    </div>
+
+    <div class="modal-hint" id="alignHint" hidden></div>
+
+    <div class="modal-search">
+      <span class="ico" aria-hidden="true">search</span>
+      <input type="text" id="alignSearch" placeholder="Buscar:">
+    </div>
+    <div class="modal-list" id="alignList"></div>
+
+    <div class="modal-foot">
+      <button class="btn-modal-close" id="alignClose">Cerrar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Modal: Selector de colaboradores ═══════════════════ -->
+<div class="modal-overlay" id="collabModal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="collabModalTitle">
+    <h3 id="collabModalTitle"><span class="ico" aria-hidden="true" style="font-size:17px;vertical-align:-3px;margin-right:4px">rocket_launch</span>Selector de colaboradores</h3>
+
+    <div class="modal-list" id="collabList"></div>
+
+    <p class="modal-addlabel">Añadir colaborador de otro equipo:</p>
+    <input type="text" id="collabAddInput" class="modal-addinput" placeholder="Nombre del colaborador">
+
+    <div class="modal-foot">
+      <button class="btn-modal-close" id="collabClose">Cerrar</button>
+      <button class="btn-modal-save" id="collabSave">Guardar</button>
+    </div>
+  </div>
+</div>
+
+<!-- ══ Onboarding: recorrido guiado del Roadmap Estratégico ══ -->
+<div class="tour-spot" id="tourSpot" hidden></div>
+<div class="tour-tip" id="tourTip" hidden role="dialog" aria-live="polite" aria-labelledby="tourTitle">
+  <div class="tour-tip__step" id="tourStepCount"></div>
+  <div class="tour-tip__title" id="tourTitle"></div>
+  <div class="tour-tip__desc" id="tourDesc"></div>
+  <div class="tour-tip__foot">
+    <button class="tour-skip" id="tourSkip">Omitir</button>
+    <button class="tour-next" id="tourNext">Siguiente</button>
+  </div>
+</div>
+
+<script>
+(function () {
+  "use strict";
+
+  var ini = function (n) { return n.split(' ').map(function (w) { return w[0]; }).join('').slice(0, 2).toUpperCase(); };
+  var esc = function (s) { return String(s).replace(/[&<>]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;' }[c]; }); };
+
+  /* ── Barras de herramientas por tablero ─────────────── */
+  var TOOLS = {
+    pl: [],
+    rd: ['add', 'close_fullscreen', 'visibility', 'restore', 'file_download', 'filter_alt'],
+    ok: ['IA', 'add', 'close_fullscreen', 'restore', 'mail', 'check_box', 'comment', 'trending_up', 'file_download', 'lock', 'filter_alt'],
+    kp: ['add', 'close_fullscreen', 'restore', 'file_download', 'filter_alt'],
+    bl: [], rp: []
+  };
+  function paintTools(key) {
+    var host = document.getElementById('tools');
+    host.innerHTML = TOOLS[key].map(function (t) {
+      if (t === 'IA') return '<span class="tool tool--ia"><span class="ico" aria-hidden="true" style="color:#31c42c">auto_awesome</span>IA<span class="switch"></span></span>';
+      return '<button class="tool" aria-label="' + t + '"><span class="ico" aria-hidden="true">' + t + '</span></button>';
+    }).join('');
+  }
+
+  /* ── Datos: Roadmap (reales del tablero) ────────────── */
+  var ROAD = [
+    { id: 'PRO 1', t: 'PILAR DE INNOVA, PROYECTOS DEL EQUIPO COMERCIAL O DE TI', pct: 68, tag: 'account_tree', rows: [
+      { c: 'PRO 1.1', n: 'Lograr menos de 5 incidencias críticas en el lanzamiento de la nueva planta', who: 'Lenna P', team: ['AV','JD'], v: 'Sucursales: 38.50', lim: 'Inicio: 0 | Objetivo: 50', pct: 77, st: 'ok',
+        al: ['KPI 1.6 EBITDA'], bar: [0, 26, 18], metas: [['check_box','5'],['format_list_bulleted','1 (0%)'],['account_tree','1']] },
+      { c: 'PRO 1.2', n: 'Migración de CRM validando el incremento en 15% en promociones con nueva estrategia', who: 'Lenna P', team: ['MR','AV','+1'], v: '2.65', lim: 'Inicio: 0 | Objetivo: 5', pct: 53, st: 'bad',
+        al: ['KR 3.4 Establecer y comunic…','KR 2.1 Investigar y seleccion…'], bar: [17, 66, 36], metas: [['account_tree','2']] },
+      { c: 'PRO 1.3', n: 'Rediseño del portal de autoservicio del cliente', who: 'Art V', team: ['SL','JD'], v: '74', lim: 'Inicio: 0 | Objetivo: 100', pct: 74, st: 'bad',
+        al: ['PRO 2.2 Hacer proyectos grat…','PRO 1.2 Migración de CRM v…'], bar: [1, 85, 30], metas: [['account_tree','2']] }
+    ]},
+    { id: 'PRO 2', t: 'LINEAMIENTO DE INTERNACIONALIZACIÓN', pct: 38, tag: 'PRO no alineado', rows: [
+      { c: 'PRO 2.1', n: 'Generar prospecto de clientes en México', who: 'Lisha C', team: ['AV','LP'], v: 'Leads: 52.50', lim: 'Inicio: 0 | Objetivo: 150', pct: 35, st: 'bad',
+        al: ['KPI 2.2 % de LEADs Ganados','KPI 2.1 Pipeline Total Acumul…'], bar: [8, 54, 20], metas: [['account_tree','2']] },
+      { c: 'PRO 2.2', n: 'Hacer proyectos gratuitos en México', who: 'Josephine D', team: ['LC','AV','+1'], v: 'Proyectos: 20', lim: 'Inicio: 0 | Objetivo: 50', pct: 40, st: 'bad',
+        al: ['KPI 1.2 Venta facturada Acum…','KPI 2.2 % de LEADs Ganados'], bar: [30, 60, 24], metas: [['format_list_bulleted','1 (0%)'],['account_tree','2']] }
+    ]},
+    { id: 'PRO 3', t: 'FOCO EN EXPERIENCIA DEL CLIENTE WORLD-CLASS', pct: 75, tag: 'PRO no alineado', rows: [
+      { c: 'PRO 3.1', n: 'Proyecto Journey omnicanal con cero fricciones en el OFFLINE', who: null, team: null, v: '73', lim: 'Inicio: 0 | Objetivo: 100', pct: 73, st: 'bad',
+        al: [], bar: [12, 70, 44], metas: [] },
+      { c: 'PRO 3.2', n: 'DataLake de cliente integrado al 100%', who: null, team: null, v: '76', lim: 'Inicio: 0 | Objetivo: 100', pct: 76, st: 'bad',
+        al: [], bar: [22, 78, 46], metas: [] }
+    ]},
+    { id: 'PRO 4', t: 'HABILITADORES DE TALENTO Y CULTURA', pct: 41, tag: 'PRO no alineado', rows: [
+      { c: 'PRO 4.1', n: 'Programa de liderazgo transformacional para mandos medios', who: 'Art V', team: ['JD'], v: '48', lim: 'Inicio: 0 | Objetivo: 100', pct: 48, st: 'bad',
+        al: ['KR 4.1 Elevar el eNPS de 32 a 50'], bar: [25, 80, 28], metas: [['account_tree','1']] },
+      { c: 'PRO 4.2', n: 'Plan de retención del talento técnico crítico', who: 'Lisha C', team: ['MR','LP'], v: '34', lim: 'Inicio: 0 | Objetivo: 100', pct: 34, st: 'bad',
+        al: ['KR 4.2 Reducir la rotación vol…'], bar: [40, 96, 18], metas: [['check_box','3'],['account_tree','1']] }
+    ]}
+  ];
+
+  /* ── Datos: OKRs (demo, derivados de los focos reales) ─ */
+  var OKRS = [
+    { id: 'OKR 1', t: 'Consolidar el crecimiento en los mercados de Latam', pct: 62, foco: 'Escalamiento de Negocio', rows: [
+      { c: 'KR 1.1', n: 'Alcanzar USD 25M de venta facturada acumulada', who: 'Art V', team: ['LP','JD'], v: '17.2', lim: 'Inicio: 0 | Objetivo: 25', pct: 68, st: 'ok', al: ['KPI 1.1 Ventas'], metas: [['check_box','7'],['comment','1'],['format_list_bulleted','2 (61%)']] },
+      { c: 'KR 1.2', n: 'Cerrar la entrada a 3 mercados emergentes priorizados', who: 'Lisha C', team: ['AV'], v: '1.35', lim: 'Inicio: 0 | Objetivo: 3', pct: 45, st: 'bad', al: ['PRO 2.1 Generar prospecto de…'], metas: [['check_box','4']] },
+      { c: 'KR 1.3', n: 'Elevar el pipeline total acumulado a USD 40M', who: 'Lenna P', team: ['MR','AV'], v: '28.8', lim: 'Inicio: 0 | Objetivo: 40', pct: 72, st: 'ok', al: ['KPI 2.1 Pipeline Total Acumul…'], metas: [['account_tree','2']] }
+    ]},
+    { id: 'OKR 2', t: 'Entregar una experiencia de cliente de clase mundial', pct: 71, foco: 'Customer Centricity', rows: [
+      { c: 'KR 2.1', n: 'Subir el NPS de 48 a 60 puntos', who: 'Josephine D', team: ['SL','LC'], v: '54.6', lim: 'Inicio: 48 | Objetivo: 60', pct: 55, st: 'bad', al: ['KPI 1.3 Satisfacción'], metas: [['check_box','5'],['account_tree','3']] },
+      { c: 'KR 2.2', n: 'Reducir el tiempo de onboarding de 21 a 7 días', who: 'Art V', team: ['JD'], v: '9.4', lim: 'Inicio: 21 | Objetivo: 7', pct: 83, st: 'ok', al: ['PRO 3.1 Journey omnicanal…'], metas: [['check_box','2']] },
+      { c: 'KR 2.3', n: 'Integrar el DataLake de cliente al 100%', who: 'Lenna P', team: ['AV','MR'], v: '76', lim: 'Inicio: 0 | Objetivo: 100', pct: 76, st: 'ok', al: ['PRO 3.2 DataLake de cliente…'], metas: [['account_tree','1']] }
+    ]},
+    { id: 'OKR 3', t: 'Escalar con márgenes sanos y operación ágil', pct: 53, foco: 'Eficiencia y Modelo Operativo Ágil', rows: [
+      { c: 'KR 3.1', n: 'Llevar el margen operativo de 62% a 70%', who: 'Lisha C', team: ['LP'], v: '69.3', lim: 'Inicio: 62 | Objetivo: 70', pct: 91, st: 'ok', al: ['KPI 1.6 EBITDA'], metas: [['check_box','6']] },
+      { c: 'KR 3.2', n: 'Reducir las incidencias críticas de 12 a menos de 5', who: 'Lenna P', team: ['JD','AV'], v: '9.2', lim: 'Inicio: 12 | Objetivo: 5', pct: 40, st: 'bad', al: ['PRO 1.1 Lograr menos de 5 in…'], metas: [['format_list_bulleted','3 (44%)']] },
+      { c: 'KR 3.3', n: 'Automatizar el 80% de los procesos comerciales', who: 'Art V', team: ['MR'], v: '22.4', lim: 'Inicio: 0 | Objetivo: 80', pct: 28, st: 'bad', al: ['PRO 1.2 Migración de CRM…'], metas: [['check_box','2'],['account_tree','1']] }
+    ]},
+    { id: 'OKR 4', t: 'Ser el lugar de trabajo preferido del talento tech en Latam', pct: 49, foco: 'Talento transformacional', rows: [
+      { c: 'KR 4.1', n: 'Elevar el eNPS de 32 a 50', who: 'Josephine D', team: ['LC','SL'], v: '43.2', lim: 'Inicio: 32 | Objetivo: 50', pct: 62, st: 'ok', al: ['PRO 4.1 Programa de liderazgo…'], metas: [['check_box','3']] },
+      { c: 'KR 4.2', n: 'Reducir la rotación voluntaria de 18% a 10%', who: 'Lisha C', team: ['LP','MR'], v: '15.2', lim: 'Inicio: 18 | Objetivo: 10', pct: 35, st: 'bad', al: ['PRO 4.2 Plan de retención…'], metas: [['comment','2']] }
+    ]},
+    { id: 'OKR 5', t: 'Lanzar dos nuevos servicios digitales rentables', pct: 18, foco: 'Nuevos Servicios', rows: [
+      { c: 'KR 5.1', n: 'Lanzar el primer servicio digital al mercado', who: 'Lisha C', team: ['AV'], v: '1', lim: 'Inicio: 0 | Objetivo: 2', pct: 18, st: 'bad', al: ['KPI 2.2 Nuevos Servicios'], metas: [['check_box','2']] },
+      { c: 'KR 5.2', n: 'Validar el modelo de precios del segundo servicio', who: null, team: null, v: '0', lim: 'Inicio: 0 | Objetivo: 1', pct: 0, st: 'bad', al: [], metas: [] }
+    ] }
+  ];
+
+  /* ── Condiciones de disparo de las alertas (demo) ──────
+     Ambas quedan en `true`: en producción reflejarían si todos
+     los usuarios ya tienen al menos un OKR completado / todos
+     sus OKR completos, respectivamente. */
+  var ALL_USERS_OKR_COMPLETE = true; // OKRs
+
+  function okrTieneIniciativa(okr) {
+    return okr.rows.some(function (r) { return (r.al || []).some(function (a) { return a.indexOf('PRO') === 0; }); });
+  }
+  /* OKRs · alerta 1: OKR ya con KRs, pero ninguno conectado a una iniciativa */
+  function okrsSinIniciativa() {
+    if (!ALL_USERS_OKR_COMPLETE) return [];
+    return OKRS.filter(function (g) { return g.rows.length > 0 && !okrTieneIniciativa(g); });
+  }
+  /* OKRs · alerta 2: piezas puntuales que faltan para explicar el avance */
+  function okrsSinKR() {
+    if (!ALL_USERS_OKR_COMPLETE) return [];
+    return OKRS.filter(function (g) { return g.rows.length === 0; });
+  }
+  function krsSinResponsable() {
+    if (!ALL_USERS_OKR_COMPLETE) return [];
+    var out = [];
+    OKRS.forEach(function (g) { g.rows.forEach(function (r) { if (!r.who) out.push({ okr: g, kr: r }); }); });
+    return out;
+  }
+  function krsSinEquipo() {
+    if (!ALL_USERS_OKR_COMPLETE) return [];
+    var out = [];
+    OKRS.forEach(function (g) { g.rows.forEach(function (r) { if (!r.team || !r.team.length) out.push({ okr: g, kr: r }); }); });
+    return out;
+  }
+
+  /* ── Datos: KPIs (reales del tablero) ───────────────── */
+  var KPIS = [
+    { id: 'KPI 1', t: 'Crecimiento Sostenible', rows: [
+      { c: 'KPI 1.1', n: 'Ventas', who: 'Art V', team: ['SL','LC'], goal: '≥ USD 25',
+        al: ['KR 1.3 Identificar y analizar tr…','KPI 1.4 Crecimiento de Marg…','KR 2.1 Investigar y seleccion…'],
+        metas: [['check_box','7'],['comment','1'],['format_list_bulleted','2 (61%)'],['account_tree','3']] },
+      { c: 'KPI 1.2', n: 'Adopción', who: 'Art V', team: ['SL','LC'], goal: '≥ 50 %',
+        al: ['KPI 1.6 EBITDA','KPI 1.3 Satisfacción','KPI 1.1 Ventas'],
+        metas: [['check_box','4'],['account_tree','3']] },
+      { c: 'KPI 1.3', n: 'Satisfacción', who: 'Art V', team: ['MR','SL','LC'], goal: '≥ 65 Ptos',
+        al: ['KR 1.3 Identificar y analizar tr…','KPI 1.4 Crecimiento de Marg…','KR 2.1 Investigar y seleccion…'],
+        metas: [['check_box','1'],['account_tree','3']] }
+    ]},
+    { id: 'KPI 2', t: 'Mejorar la eficiencia operativa y excelencia operacional', rows: [
+      { c: 'KPI 2.1', n: 'Costo de servir por cliente', who: 'Lenna P', team: ['AV'], goal: '≤ USD 120',
+        al: ['KR 3.3 Automatizar el 80% de…'], metas: [['check_box','2']] },
+      { c: 'KPI 2.2', n: '% de LEADs Ganados', who: 'Lisha C', team: ['JD','AV'], goal: '≥ 100',
+        al: ['PRO 2.1 Generar prospecto…','PRO 2.2 Hacer proyectos grat…'], metas: [['account_tree','2']] }
+    ]},
+    { id: 'KPI 3', t: 'KPIs NPS', rows: [
+      { c: 'KPI 3.1', n: 'NPS transaccional post-soporte', who: 'Josephine D', team: ['LC'], goal: '≥ 60',
+        al: ['KR 2.1 Subir el NPS de 48 a 60'], metas: [['check_box','3']] }
+    ]},
+    { id: 'KPI 5', t: 'KPI de Repensar', rows: [
+      { c: 'KPI 5.1', n: 'KPI Repensar', who: 'Josephine D', team: ['JD'], goal: '≥ 4 Ptos', al: [], metas: [] }
+    ]}
+  ];
+
+  /* ── Datos: Backlog (reales del tablero) ────────────── */
+  var BACKLOG = [
+    { h: 'Pendientes', done: false, cards: [
+      { al: ['KR4.1'], t: 'Definir la meta de sucursales para el cierre de trimestre', who: 'LP', due: 'Venció hace 79 días' },
+      { al: ['KR4.1'], t: 'Revisar el tablero de seguimiento con el equipo comercial', who: 'AV', due: 'Venció hace 79 días' },
+      { al: ['KR1.1'], t: 'Consolidar la proyección de ventas de noviembre', who: 'SL', due: 'Venció hace 94 días' },
+      { al: ['KR1.1'], t: 'Actualizar el modelo de pricing por segmento', who: 'JD', due: 'Venció hace 170 días' },
+      { al: ['KR1.5'], t: 'algiot', who: 'AV', due: 'Venció hace 43 días' },
+      { al: ['KPI1.1'], t: 'Cierre de compromisos — Junio 2025', who: 'MR', due: 'Venció hace 252 días', arrow: true },
+      { al: ['KR1.3'], t: 'Valeria: para el siguiente mes debe tener un mapeo de mercado al 100%', who: 'LC', due: 'Venció hace 862 días', arrow: true },
+      { al: ['KR3.1'], t: 'Para la próxima traigo el reporte con todos los indicadores', who: 'AV', due: 'Venció hace 924 días' },
+      { al: ['KR1.5'], t: 'Se incorporará el feedback recibido en cuanto a evitar trabajar con promedios', who: 'LP', due: 'Venció hace 901 días' },
+      { al: ['KR1.1','KPI1.2'], t: 'Preparar la revisión de medio trimestre', who: 'JD', due: 'Venció hace 35 días' }
+    ]},
+    { h: 'En curso', done: false, cards: [
+      { al: ['KR1.2'], t: 'Coordinar reuniones con clientes', who: 'SL', due: 'Venció hace 931 días' },
+      { al: ['KR1.3'], t: 'One page próxima semana, con toda la ruta del proyecto', who: 'AV', due: 'Venció hace 873 días', arrow: true },
+      { al: ['KR1.1'], t: 'Levantar los requerimientos de la migración de CRM', who: 'JD', due: 'Venció hace 122 días' },
+      { al: ['KR1.1'], t: 'Revisión mensual del OKR de crecimiento', who: 'LP', due: 'Venció hace 122 días' },
+      { al: ['KPI1.1'], t: 'Validar la fuente de datos del KPI de ventas', who: 'MR', due: 'Venció hace 122 días' },
+      { al: ['KPI1.1'], t: 'Cierre de compromisos — Junio 2025', who: 'LC', due: 'Venció hace 252 días', arrow: true },
+      { al: ['KR1.5'], t: 'Agendar una reunión con el equipo de Datos', who: 'AV', due: 'Venció hace 429 días' },
+      { al: ['KR1.1'], t: 'Preparar el comité de OKRs 2026 Q2', who: 'SL', due: 'Venció hace 120 días' },
+      { al: ['KR2.1','KPI1.2','KPI1.3'], t: 'Cruzar el pipeline con la meta de LEADs ganados', who: 'JD', due: 'Venció hace 134 días' }
+    ]},
+    { h: 'En validación', done: false, cards: [
+      { al: ['KPI1.2'], t: 'Validar el cálculo del indicador de adopción', who: 'LP', due: 'Venció hace 122 días' },
+      { al: ['KR1.1'], t: 'Piero trae 5 ejemplos para mañana', who: 'AV', due: 'Venció hace 898 días' },
+      { al: ['KPI1.2'], t: 'Revisar la serie histórica de adopción', who: 'SL', due: 'Venció hace 120 días' },
+      { al: ['KR1.1'], t: 'Confirmar responsables de los KRs sin asignar', who: 'JD', due: 'Venció hace 156 días' },
+      { al: ['KR1.1'], t: 'Ajustar la meta trimestral tras el cierre de octubre', who: 'MR', due: 'Venció hace 122 días' },
+      { al: ['KPI1.1'], t: 'Contrastar el reporte con la data de facturación', who: 'LC', due: 'Venció hace 122 días' },
+      { al: ['KPI1.1'], t: 'Revisar el tablero antes del comité', who: 'AV', due: 'Venció hace 120 días' },
+      { al: ['KPI1.1'], t: 'Depurar los KPIs duplicados del tablero', who: 'LP', due: 'Venció hace 122 días' }
+    ]},
+    { h: 'Completado', done: true, cards: [
+      { al: ['KR1.1'], t: 'El líder de finanzas debe traernos una nueva propuesta de rendimiento operacional', who: 'JD', due: null },
+      { al: ['KR5.1'], t: 'Testear en Repensar 2 veces al mes', who: 'SL', due: null },
+      { al: ['KR4.1'], t: 'Publicar el tablero de sucursales', who: 'AV', due: null },
+      { al: ['KR4.1'], t: 'Cerrar el alcance del piloto comercial', who: 'LP', due: null },
+      { al: ['PRO1.1'], t: 'Terminar el deck comercial', who: 'MR', due: null },
+      { al: ['KR1.5'], t: 'Presentar el examen de certificación del equipo', who: 'LC', due: null },
+      { al: ['PRO1.1'], t: 'Entregar el plan de lanzamiento de la nueva planta', who: 'JD', due: null }
+    ]}
+  ];
+
+  /* ── Render: filas compartidas ──────────────────────── */
+  function metasHTML(m) {
+    if (!m || !m.length) return '';
+    return '<div class="metas">' + m.map(function (x) {
+      return '<span><span class="ico" aria-hidden="true">' + x[0] + '</span>' + esc(x[1]) + '</span>';
+    }).join('') + '</div>';
+  }
+  function whoHTML(w, code) {
+    if (!w) return '<button class="who who--none is-clickable" data-collab="who:' + esc(code) + '">Selecciona</button>';
+    return '<button class="who is-clickable" data-collab="who:' + esc(code) + '"><span class="who__f">' + ini(w) + '</span>' + esc(w) + '</button>';
+  }
+  function teamHTML(t, code) {
+    if (!t) return '<button class="who who--none is-clickable" data-collab="team:' + esc(code) + '">Selecciona</button>';
+    return '<button class="team is-clickable" data-collab="team:' + esc(code) + '">' + t.map(function (x) {
+      return '<span' + (x[0] === '+' ? ' class="more"' : '') + '>' + esc(x) + '</span>';
+    }).join('') + '</button>';
+  }
+  function gaugeHTML(r) {
+    return '<div class="gauge">' +
+      '<p class="gauge__v">' + esc(r.v) + '</p>' +
+      '<div class="gauge__bar"><div class="gauge__fill" style="width:' + r.pct + '%"></div>' +
+      '<span class="gauge__knob" style="left:' + r.pct + '%"><span class="ico" aria-hidden="true">chevron_right</span></span></div>' +
+      '<p class="gauge__lim">' + esc(r.lim) + '</p></div>';
+  }
+  function alignedHTML(r) {
+    var st = r.st === 'ok'
+      ? '<span class="aligned__st st-ok"><span class="ico" aria-hidden="true">check_circle</span></span>'
+      : '<span class="aligned__st st-bad"><span class="ico" aria-hidden="true">info</span></span>';
+    if (!r.al || !r.al.length) {
+      return '<div class="aligned">' + st + '<span class="tagchip tagchip--out is-clickable" data-align="' + esc(r.c) + '">Sin alineación</span></div>';
+    }
+    return '<div class="aligned">' + st + r.al.map(function (a) {
+      return '<span class="tagchip">' + esc(a) + '</span>';
+    }).join('') + '</div>';
+  }
+
+  /* ── Modal: Alineado a ─────────────────────────────────
+     Se abre al hacer clic en "Sin alineación" y deja buscar
+     y elegir el KPI (o la iniciativa) con el que se alinea. */
+  function findRowByCode(code) {
+    var found = null;
+    OKRS.forEach(function (g) { g.rows.forEach(function (r) { if (r.c === code) found = r; }); });
+    if (!found) ROAD.forEach(function (g) { g.rows.forEach(function (r) { if (r.c === code) found = r; }); });
+    if (!found) KPIS.forEach(function (g) { g.rows.forEach(function (r) { if (r.c === code) found = r; }); });
+    return found;
+  }
+  function findParentOKR(code) {
+    var found = null;
+    OKRS.forEach(function (g) { g.rows.forEach(function (r) { if (r.c === code) found = g; }); });
+    return found;
+  }
+  function kpiOptions() {
+    var out = [];
+    KPIS.forEach(function (g) { g.rows.forEach(function (r) { out.push({ full: r.c + ' ' + r.n, label: r.c + ': ' + r.n }); }); });
+    return out;
+  }
+  function proOptions() {
+    var out = [];
+    ROAD.forEach(function (g) { g.rows.forEach(function (r) { out.push({ full: r.c + ' ' + r.n, label: r.c + ': ' + r.n }); }); });
+    return out;
+  }
+  var currentAlignRow = null;
+  function renderAlignList(dashboard, query) {
+    var opts = dashboard === 'rd' ? proOptions() : kpiOptions();
+    query = (query || '').toLowerCase();
+    var filtered = opts.filter(function (o) { return o.label.toLowerCase().indexOf(query) !== -1; });
+    var listEl = document.getElementById('alignList');
+    if (!filtered.length) { listEl.innerHTML = '<div class="modal-empty-list">Sin resultados</div>'; return; }
+    listEl.innerHTML = filtered.map(function (o) {
+      var checked = currentAlignRow && (currentAlignRow.al || []).indexOf(o.full) !== -1;
+      return '<label class="modal-item"><input type="checkbox" data-align-value="' + esc(o.full) + '"' + (checked ? ' checked' : '') + '>' + esc(o.label) + '</label>';
+    }).join('');
+  }
+  function refreshAlignModal() {
+    var al = currentAlignRow.al || [];
+    var emptyEl = document.getElementById('alignEmpty');
+    var curEl = document.getElementById('alignCurrent');
+    if (!al.length) {
+      emptyEl.hidden = false; curEl.hidden = true; curEl.innerHTML = '';
+    } else {
+      emptyEl.hidden = true; curEl.hidden = false;
+      curEl.innerHTML = al.map(function (a) { return '<span class="tagchip">' + esc(a) + '</span>'; }).join('');
+    }
+    renderAlignList(document.getElementById('alignDashboard').value, document.getElementById('alignSearch').value);
+  }
+  function openAlignModal(code) {
+    var row = findRowByCode(code);
+    if (!row) return;
+    currentAlignRow = row;
+    var parentOKR = findParentOKR(code);
+    var needsIniciativa = parentOKR && okrsSinIniciativa().indexOf(parentOKR) !== -1;
+    document.getElementById('alignDashboard').value = needsIniciativa ? 'rd' : 'kp';
+    document.getElementById('alignSearch').value = '';
+    var hintEl = document.getElementById('alignHint');
+    hintEl.hidden = !needsIniciativa;
+    if (needsIniciativa) hintEl.textContent = 'Este OKR necesita una iniciativa del Roadmap (no un KPI) para resolver su alerta — por eso te mostramos el Roadmap primero.';
+    refreshAlignModal();
+    document.getElementById('alignModal').classList.add('is-on');
+    document.getElementById('alignModal').setAttribute('aria-hidden', 'false');
+  }
+  function closeAlignModal() {
+    document.getElementById('alignModal').classList.remove('is-on');
+    document.getElementById('alignModal').setAttribute('aria-hidden', 'true');
+    if (currentAlignRow) { renderOKRsBoard(); renderFocoRows(); }
+    currentAlignRow = null;
+  }
+  document.getElementById('alignDashboard').addEventListener('change', function () {
+    renderAlignList(this.value, document.getElementById('alignSearch').value);
+  });
+  document.getElementById('alignSearch').addEventListener('input', function () {
+    renderAlignList(document.getElementById('alignDashboard').value, this.value);
+  });
+  document.getElementById('alignClose').addEventListener('click', closeAlignModal);
+  document.getElementById('alignModal').addEventListener('click', function (e) {
+    if (e.target.id === 'alignModal') closeAlignModal();
+  });
+  document.getElementById('alignList').addEventListener('change', function (e) {
+    var cb = e.target.closest('input[type=checkbox]');
+    if (!cb || !currentAlignRow) return;
+    currentAlignRow.al = currentAlignRow.al || [];
+    var val = cb.dataset.alignValue;
+    var idx = currentAlignRow.al.indexOf(val);
+    if (cb.checked && idx === -1) currentAlignRow.al.push(val);
+    if (!cb.checked && idx !== -1) currentAlignRow.al.splice(idx, 1);
+    refreshAlignModal();
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.getElementById('alignModal').classList.contains('is-on')) closeAlignModal();
+  });
+  document.addEventListener('click', function (e) {
+    var chip = e.target.closest('[data-align]');
+    if (chip) openAlignModal(chip.dataset.align);
+  });
+
+  /* ── Modal: Selector de colaboradores ──────────────────
+     Se abre al hacer clic en "Selecciona" (o en el responsable
+     / equipo ya asignado) para elegir quién queda a cargo. */
+  var COLABORADORES = ['Art V', 'Josephine D', 'Lisha C', 'Lenna P', 'Mara R', 'Sara L', 'James M'];
+  var collabRow = null;
+  var collabField = null;
+  var collabSelected = [];
+
+  function renderCollabList() {
+    document.getElementById('collabList').innerHTML = COLABORADORES.map(function (name) {
+      var on = collabSelected.indexOf(name) !== -1;
+      return '<div class="collab-item' + (on ? ' is-on' : '') + '" data-name="' + esc(name) + '">' +
+        '<span class="collab-item__av">' + ini(name) + '</span>' + esc(name) + '</div>';
+    }).join('');
+  }
+  function openCollabModal(field, code) {
+    var row = findRowByCode(code);
+    if (!row) return;
+    collabRow = row; collabField = field;
+    if (field === 'who') {
+      collabSelected = row.who ? [row.who] : [];
+    } else {
+      var inits = (row.team || []).filter(function (x) { return x.charAt(0) !== '+'; });
+      collabSelected = COLABORADORES.filter(function (name) { return inits.indexOf(ini(name)) !== -1; });
+    }
+    document.getElementById('collabAddInput').value = '';
+    renderCollabList();
+    document.getElementById('collabModal').classList.add('is-on');
+    document.getElementById('collabModal').setAttribute('aria-hidden', 'false');
+  }
+  function closeCollabModal(applied) {
+    document.getElementById('collabModal').classList.remove('is-on');
+    document.getElementById('collabModal').setAttribute('aria-hidden', 'true');
+    if (applied && collabRow) {
+      if (collabField === 'who') {
+        collabRow.who = collabSelected[0] || null;
+      } else {
+        collabRow.team = collabSelected.length ? collabSelected.map(ini) : null;
+      }
+      renderOKRsBoard(); renderFocoRows(); renderRoadmapBoard(); renderKPIsBoard();
+    }
+    collabRow = null; collabField = null;
+  }
+  document.getElementById('collabList').addEventListener('click', function (e) {
+    var item = e.target.closest('.collab-item');
+    if (!item) return;
+    var name = item.dataset.name;
+    if (collabField === 'who') {
+      collabSelected = collabSelected[0] === name ? [] : [name];
+    } else {
+      var idx = collabSelected.indexOf(name);
+      if (idx === -1) collabSelected.push(name); else collabSelected.splice(idx, 1);
+    }
+    renderCollabList();
+  });
+  document.getElementById('collabAddInput').addEventListener('keydown', function (e) {
+    if (e.key !== 'Enter') return;
+    e.preventDefault();
+    var name = this.value.trim();
+    if (!name) return;
+    if (COLABORADORES.indexOf(name) === -1) COLABORADORES.push(name);
+    if (collabField === 'who') collabSelected = [name];
+    else if (collabSelected.indexOf(name) === -1) collabSelected.push(name);
+    this.value = '';
+    renderCollabList();
+  });
+  document.getElementById('collabClose').addEventListener('click', function () { closeCollabModal(false); });
+  document.getElementById('collabSave').addEventListener('click', function () { closeCollabModal(true); });
+  document.getElementById('collabModal').addEventListener('click', function (e) {
+    if (e.target.id === 'collabModal') closeCollabModal(false);
+  });
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'Escape' && document.getElementById('collabModal').classList.contains('is-on')) closeCollabModal(false);
+  });
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-collab]');
+    if (!btn) return;
+    var parts = btn.dataset.collab.split(':');
+    openCollabModal(parts[0], parts.slice(1).join(':'));
+  });
+
+  /* ── Onboarding: recorrido guiado del Roadmap Estratégico ──
+     Resalta un elemento real de la pantalla por paso, con un
+     tooltip que explica qué se puede hacer ahí. */
+  var roadmapTourSeen = false;
+  var tourIdx = 0;
+  var TOUR_STEPS = [
+    { sel: '#rd .board__head', place: 'bottom',
+      title: 'Así se organiza tu Roadmap',
+      desc: 'Cada fila es un proyecto o iniciativa: quién lo lidera, su equipo, el nivel de logro y a qué OKR o KPI está conectado.' },
+    { sel: '#rd #rdBody .grouprow', place: 'bottom',
+      title: 'Tus pilares estratégicos',
+      desc: 'Los proyectos se agrupan por pilar. Aquí ves el nombre del grupo y su avance consolidado.' },
+    { sel: '#rd #rdBody .itemrow .aligned', place: 'left',
+      title: 'Conecta cada proyecto con tu estrategia',
+      desc: 'Vincula el proyecto a un OKR o un KPI para ver cómo su avance impacta el resto de la organización.' },
+    { sel: '#rd #rdBody .itemrow .gantt', place: 'left',
+      title: 'Visualiza el tiempo',
+      desc: 'La línea de tiempo muestra en qué trimestre se ejecuta el proyecto y cuánto llevas avanzado.' },
+    { sel: '#tools .tool[aria-label="add"]', place: 'bottom',
+      title: 'Crea un nuevo proyecto',
+      desc: 'Usa este botón para agregar un proyecto nuevo al Roadmap cuando lo necesites.' }
+  ];
+
+  function tourPositionTip(rect, place) {
+    var tip = document.getElementById('tourTip');
+    var gap = 14, tw = tip.offsetWidth || 300;
+    var top, left;
+    if (place === 'left') { top = rect.top; left = rect.left - tw - gap; }
+    else if (place === 'right') { top = rect.top; left = rect.right + gap; }
+    else if (place === 'top') { top = rect.top - tip.offsetHeight - gap; left = rect.left; }
+    else { top = rect.bottom + gap; left = rect.left; }
+    if (left < 12) left = 12;
+    if (left + tw > window.innerWidth - 12) left = window.innerWidth - tw - 12;
+    if (top < 12) top = 12;
+    if (top + tip.offsetHeight > window.innerHeight - 12) top = window.innerHeight - tip.offsetHeight - 12;
+    tip.style.left = left + 'px';
+    tip.style.top = top + 'px';
+  }
+  function tourShow(i) {
+    var step = TOUR_STEPS[i];
+    var el = document.querySelector(step.sel);
+    if (!el) { i + 1 < TOUR_STEPS.length ? tourShow(i + 1) : tourEnd(); return; }
+    el.scrollIntoView({ block: 'center', inline: 'center' });
+    setTimeout(function () {
+      var r = el.getBoundingClientRect();
+      var pad = 6;
+      var spot = document.getElementById('tourSpot');
+      spot.style.top = (r.top - pad) + 'px';
+      spot.style.left = (r.left - pad) + 'px';
+      spot.style.width = (r.width + pad * 2) + 'px';
+      spot.style.height = (r.height + pad * 2) + 'px';
+      document.getElementById('tourStepCount').textContent = 'Paso ' + (i + 1) + ' de ' + TOUR_STEPS.length;
+      document.getElementById('tourTitle').textContent = step.title;
+      document.getElementById('tourDesc').textContent = step.desc;
+      document.getElementById('tourNext').textContent = (i === TOUR_STEPS.length - 1) ? 'Finalizar' : 'Siguiente';
+      tourPositionTip(r, step.place);
+    }, 220);
+  }
+  function tourStart() {
+    tourIdx = 0;
+    document.getElementById('tourSpot').hidden = false;
+    document.getElementById('tourTip').hidden = false;
+    tourShow(tourIdx);
+  }
+  function tourEnd() {
+    document.getElementById('tourSpot').hidden = true;
+    document.getElementById('tourTip').hidden = true;
+  }
+  document.getElementById('tourNext').addEventListener('click', function () {
+    if (tourIdx >= TOUR_STEPS.length - 1) { tourEnd(); return; }
+    tourIdx++; tourShow(tourIdx);
+  });
+  document.getElementById('tourSkip').addEventListener('click', tourEnd);
+  document.getElementById('tourRestartRd').addEventListener('click', function () { roadmapTourSeen = true; tourStart(); });
+
+  function groupHTML(g, cls) {
+    var tag = g.tag === 'account_tree'
+      ? '<span class="grouprow__tag"><span class="ico" aria-hidden="true" style="font-size:16px">account_tree</span></span>'
+      : '<span class="grouprow__tag"><span class="ico" aria-hidden="true" style="font-size:16px">account_tree</span>' + esc(g.tag || 'no alineado') + '</span>';
+    return '<div class="grouprow">' +
+      '<span class="ico" aria-hidden="true">expand_less</span>' +
+      '<span class="ico" aria-hidden="true">radio_button_checked</span>' +
+      '<span class="grouprow__id">' + esc(g.id) + '</span>' +
+      '<span class="grouprow__t ' + (cls || '') + '">' + esc(g.t) + '</span>' +
+      '<span class="grouprow__grow"></span>' + tag +
+      '<span class="grouprow__pct">' + g.pct + ' %</span></div>';
+  }
+
+  /* ── Render: Roadmap ────────────────────────────────── */
+  function renderRoadmapBoard() {
+    document.getElementById('rdBody').innerHTML = ROAD.map(function (g) {
+      return groupHTML(g) + g.rows.map(function (r) {
+        return '<div class="itemrow grid-road">' +
+          '<div class="itemrow__x"><span class="ico" aria-hidden="true">expand_more</span></div>' +
+          '<div class="itemrow__d"><span class="badge-i"><span class="ico" aria-hidden="true">equalizer</span></span>' +
+            '<div><p class="itemrow__name">' + esc(r.n) + '</p><p class="itemrow__code">' + esc(r.c) + '</p>' + metasHTML(r.metas) + '</div></div>' +
+          whoHTML(r.who, r.c) + teamHTML(r.team, r.c) + gaugeHTML(r) +
+          '<div class="pct">' + r.pct + '%</div>' + alignedHTML(r) +
+          '<div class="gantt"><div class="gantt__grid"><i></i><i></i><i></i><i></i></div>' +
+            '<div class="gantt__today" style="left:72%"></div>' +
+            '<div class="gantt__track" style="left:' + r.bar[0] + '%;width:' + (r.bar[1] - r.bar[0]) + '%">' +
+            '<div class="gantt__done" style="width:' + r.bar[2] + '%"></div></div></div>' +
+        '</div>';
+      }).join('');
+    }).join('');
+  }
+  renderRoadmapBoard();
+
+  /* ── Render: OKRs ──────────────────────────────────────
+     El OKR que no tenga ninguna iniciativa (proyecto del
+     Roadmap) conectada a sus KRs se resalta con un trazo de
+     advertencia, y arriba del tablero aparece una alerta que
+     explica por qué importa y permite saltar directo a él. */
+  function esc2(s) { return esc(s); }
+  function okrRowId(g) { return 'okrrow-' + g.id.replace(/\s+/g, ''); }
+  function krRowId(r) { return 'krrow-' + r.c.replace(/[\s.]+/g, ''); }
+
+  function renderOKRsBoard() {
+    var sinIniciativa = okrsSinIniciativa();
+
+    document.getElementById('okBody').innerHTML = OKRS.map(function (g) {
+      var falta = sinIniciativa.indexOf(g) !== -1;
+      return '<div class="okrgroup' + (falta ? ' okrgroup--warn' : '') + '" id="' + okrRowId(g) + '">' +
+        groupHTML({ id: g.id, t: g.t, pct: g.pct, tag: g.foco }, 'grouprow__t--n') + g.rows.map(function (r) {
+          return '<div class="itemrow grid-okr" id="' + krRowId(r) + '">' +
+            '<div class="itemrow__x"><span class="ico" aria-hidden="true">expand_more</span></div>' +
+            '<div class="itemrow__d"><span class="badge-i"><span class="ico" aria-hidden="true">trending_up</span></span>' +
+              '<div><p class="itemrow__name">' + esc(r.n) + '</p><p class="itemrow__code">' + esc(r.c) + '</p>' + metasHTML(r.metas) + '</div></div>' +
+            whoHTML(r.who, r.c) + teamHTML(r.team, r.c) + gaugeHTML(r) +
+            '<div class="pct">' + r.pct + '%</div>' + alignedHTML(r) +
+            '<div class="sess"><button>S 1</button><button>S 2</button></div>' +
+          '</div>';
+        }).join('') +
+      '</div>';
+    }).join('');
+
+    /* ── Alerta 1: OKR con KRs pero sin iniciativa asociada ── */
+    var alert1 = document.getElementById('okrIniciativaAlert');
+    if (!sinIniciativa.length) {
+      alert1.innerHTML = '';
+    } else {
+      alert1.innerHTML = '<div class="okrgap">' +
+        '<div class="okrgap__head">' +
+          '<div class="okrgap__icon"><span class="ico" aria-hidden="true">warning</span></div>' +
+          '<div class="okrgap__copy">' +
+            '<div class="okrgap__title">' + sinIniciativa.length + (sinIniciativa.length === 1 ? ' OKR no tiene' : ' OKR no tienen') + ' iniciativa asociada</div>' +
+            '<div class="okrgap__row">' +
+              '<div class="okrgap__desc">Agrégale un responsable, un equipo y un KPI o iniciativa a cada KR — sin esos datos nadie sostiene ni mide el avance del objetivo.</div>' +
+              '<div class="okrgap__list">' + sinIniciativa.map(function (g) {
+                return '<button class="okrgap__go" data-scroll-to="' + okrRowId(g) + '" title="' + esc2(g.id) + ' · ' + esc2(g.t) + '"><span class="ico" aria-hidden="true">south</span>Ver</button>';
+              }).join('') + '</div>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    /* ── Alerta 2: piezas puntuales que faltan para explicar el avance ──
+       Solo aparece una vez resuelta la alerta 1 (ya no falta iniciativa);
+       antes de eso, esa es la única alerta que debe verse. */
+    var alert2 = document.getElementById('okrInfoAlert');
+    var sinResp = krsSinResponsable();
+    var sinEquipo = krsSinEquipo();
+    var sinKR = okrsSinKR();
+    if (sinIniciativa.length || (!sinResp.length && !sinEquipo.length && !sinKR.length)) {
+      alert2.innerHTML = '';
+    } else {
+      var items = [];
+      sinKR.forEach(function (g) {
+        items.push({ id: okrRowId(g), label: '<b>' + esc2(g.id) + '</b> todavía no tiene ningún KR' });
+      });
+      sinResp.forEach(function (x) {
+        items.push({ id: krRowId(x.kr), label: '<b>' + esc2(x.kr.c) + '</b> no tiene un responsable asignado' });
+      });
+      sinEquipo.forEach(function (x) {
+        items.push({ id: krRowId(x.kr), label: '<b>' + esc2(x.kr.c) + '</b> no tiene un equipo asignado' });
+      });
+      alert2.innerHTML = '<div class="okrinfo">' +
+        '<div class="okrinfo__head">' +
+          '<div class="okrinfo__icon"><span class="ico" aria-hidden="true">info</span></div>' +
+          '<div class="okrinfo__copy">' +
+            '<div class="okrinfo__title">Falta información para entender cómo se llega al 100%</div>' +
+            '<div class="okrinfo__desc">El avance de un OKR se explica por la suma de sus KR; cada KR necesita una iniciativa que lo mueva, un responsable y un equipo que lo sostengan. Si falta alguna de esas piezas, el porcentaje que ves no cuenta toda la historia.</div>' +
+            '<div class="okrinfo__chain">' +
+              '<b>OKR</b><span class="ico" aria-hidden="true">arrow_right_alt</span>' +
+              '<b>KR</b><span class="ico" aria-hidden="true">arrow_right_alt</span>' +
+              '<b>Iniciativa</b><span class="ico" aria-hidden="true">arrow_right_alt</span>' +
+              '<b>Responsable</b><span class="ico" aria-hidden="true">arrow_right_alt</span>' +
+              '<b>Equipo</b><span class="ico" aria-hidden="true">arrow_right_alt</span> 100%' +
+            '</div>' +
+            '<div class="okrinfo__list">' + items.map(function (it) {
+              return '<div class="gaprow"><span class="gaprow__text">' + it.label + '</span>' +
+                '<button class="gaprow__go" data-scroll-to="' + it.id + '"><span class="ico" aria-hidden="true">south</span>Ver</button></div>';
+            }).join('') + '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+
+    /* ── Alerta 3: invitación a crear un proyecto en el Roadmap ──
+       Aparece solo cuando ya no falta nada (alertas 1 y 2 resueltas). */
+    var alert3 = document.getElementById('okrRoadmapInviteAlert');
+    if (sinIniciativa.length || sinResp.length || sinEquipo.length || sinKR.length) {
+      alert3.innerHTML = '';
+    } else {
+      alert3.innerHTML = '<div class="okrinvite">' +
+        '<div class="okrinvite__head">' +
+          '<div class="okrinvite__icon"><span class="ico" aria-hidden="true">rocket_launch</span></div>' +
+          '<div class="okrinvite__copy">' +
+            '<div class="okrinvite__title">Tus OKRs ya están completos — crea un proyecto en el Roadmap Estratégico</div>' +
+            '<div class="okrinvite__row">' +
+              '<div class="okrinvite__desc">Los proyectos son elementos estratégicos que se pueden gestionar y vincular directamente con tus OKRs, KPIs y compromisos — así visualizas mejor cómo avanza cada área de la organización.</div>' +
+              '<button class="okrinvite__go" data-open="rd"><span class="ico" aria-hidden="true">add_circle</span>Ir a Roadmap Estratégico</button>' +
+            '</div>' +
+          '</div>' +
+        '</div>' +
+      '</div>';
+    }
+  }
+  renderOKRsBoard();
+
+  /* ── Render: KPIs ───────────────────────────────────── */
+  function renderKPIsBoard() {
+    document.getElementById('kpBody').innerHTML = KPIS.map(function (g) {
+      return '<div class="grouprow"><span class="ico" aria-hidden="true">expand_less</span>' +
+        '<span class="ico" aria-hidden="true">radio_button_checked</span>' +
+        '<span class="grouprow__id">' + esc(g.id) + '</span>' +
+        '<span class="grouprow__t grouprow__t--n">' + esc(g.t) + '</span></div>' +
+      g.rows.map(function (r) {
+        var cells = '';
+        for (var i = 0; i < 6; i++) cells += '<div><p class="r1">-</p><p class="r2">' + esc(r.goal) + '</p></div>';
+        return '<div class="itemrow grid-kpi">' +
+          '<div class="itemrow__x"><span class="ico" aria-hidden="true">expand_more</span></div>' +
+          '<div class="itemrow__d"><span class="badge-i"><span class="ico" aria-hidden="true">equalizer</span></span>' +
+            '<div><p class="itemrow__name">' + esc(r.n) + '</p><p class="itemrow__code">' + esc(r.c) + '</p>' + metasHTML(r.metas) + '</div></div>' +
+          whoHTML(r.who, r.c) + teamHTML(r.team, r.c) +
+          '<div class="aligned">' + (r.al || []).map(function (a) { return '<span class="tagchip">' + esc(a) + '</span>'; }).join('') + '</div>' +
+          '<div class="kpicells">' + cells + '</div>' +
+        '</div>';
+      }).join('');
+    }).join('');
+  }
+  renderKPIsBoard();
+
+  /* ── Render: Backlog ────────────────────────────────── */
+  document.getElementById('blBody').innerHTML = BACKLOG.map(function (col) {
+    return '<div class="col' + (col.done ? ' col--done' : '') + '">' +
+      '<div class="col__h"><h3>' + esc(col.h) + '</h3>' +
+        (col.done ? '<span class="ico chk" aria-hidden="true">check</span>' : '') +
+        '<span class="col__grow"></span><span class="ico" aria-hidden="true">arrow_drop_down</span></div>' +
+      col.cards.map(function (c) {
+        return '<article class="tk">' +
+          '<div class="tk__h">Alineado a: ' + c.al.map(function (a) { return '<span class="tk__al">' + esc(a) + '</span>'; }).join('') +
+            '<span class="ico" aria-hidden="true" style="font-size:15px">add_circle</span></div>' +
+          '<p class="tk__t">' + (c.arrow ? '<span class="ico" aria-hidden="true" style="font-size:14px">arrow_right</span>' : '') + esc(c.t) + '</p>' +
+          '<div class="tk__f"><span class="who__f">' + esc(c.who) + '</span>' +
+            (c.due ? '<span class="tk__due"><span class="ico" aria-hidden="true">calendar_month</span>' + esc(c.due) + '</span>' : '') +
+          '</div></article>';
+      }).join('') +
+      '<div class="col__add"><span class="ico" aria-hidden="true" style="font-size:17px">add</span>Agregar compromiso</div>' +
+    '</div>';
+  }).join('');
+
+  /* ── Render: Plan de OKRs por foco (Planeamiento) ─────
+     Lista simple de cada OKR bajo su foco. */
+  function renderFocoRows() {
+    document.getElementById('focoRows').innerHTML = OKRS.map(function (g) {
+      return '<div class="focorow">' +
+        '<div class="focorow__tag">Foco</div>' +
+        '<div class="focorow__n">' + esc(g.foco) + '</div>' +
+        '<div class="focorow__c">' + esc(g.id) + ' · ' + esc(g.t) + ' — ' + g.pct + '%</div>' +
+      '</div>';
+    }).join('');
+  }
+  renderFocoRows();
+
+  document.addEventListener('click', function (e) {
+    var btn = e.target.closest('[data-scroll-to]');
+    if (!btn) return;
+    var row = document.getElementById(btn.dataset.scrollTo);
+    if (!row) return;
+    row.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    row.classList.add('is-pinged');
+    setTimeout(function () { row.classList.remove('is-pinged'); }, 1200);
+  });
+
+  /* ── Navegación por pestañas ────────────────────────── */
+  var NAMES = { pl: 'Planeamiento Estratégico', rd: 'Proyectos', ok: 'OKRs', kp: 'KPIs', bl: 'Backlog', rp: 'Reportes' };
+  var HEAD = {
+    pl: [], rd: ['hFaces', 'hFreq'], ok: ['hPct', 'hLock', 'hFaces', 'hPlan'],
+    kp: ['hFaces'], bl: ['hFaces'], rp: ['hPlan']
+  };
+
+  function go(key) {
+    document.querySelectorAll('.tab').forEach(function (t) {
+      var on = t.dataset.go === key;
+      t.classList.toggle('is-on', on);
+      t.setAttribute('aria-selected', String(on));
+    });
+    document.querySelectorAll('.panel').forEach(function (p) { p.classList.toggle('is-on', p.id === key); });
+    document.getElementById('secName').textContent = NAMES[key];
+    ['hPct', 'hLock', 'hFaces', 'hFreq', 'hPlan'].forEach(function (id) {
+      document.getElementById(id).hidden = HEAD[key].indexOf(id) === -1;
+    });
+    paintTools(key);
+    if (key === 'pl') renderFocoRows();
+    if (key === 'ok') renderOKRsBoard();
+    document.querySelector('.stage').scrollTop = 0;
+    if (key === 'rd' && !roadmapTourSeen) { roadmapTourSeen = true; setTimeout(tourStart, 350); }
+  }
+
+  document.querySelectorAll('.tab').forEach(function (t) {
+    t.addEventListener('click', function () { go(t.dataset.go); });
+  });
+
+  document.addEventListener('click', function (e) {
+    var sw = e.target.closest('.switch');
+    if (sw) sw.classList.toggle('is-on');
+  });
+
+
+  /* ── Vistas: Inicio ⇄ tableros ──────────────────────── */
+  var vHome = document.getElementById('viewHome');
+  var vBoards = document.getElementById('viewBoards');
+  var bHome = document.getElementById('goHome');
+  var bBoards = document.getElementById('goBoards');
+
+  function showHome() {
+    vHome.hidden = false; vBoards.hidden = true;
+    bHome.classList.add('is-on'); bHome.setAttribute('aria-current', 'page');
+    bBoards.classList.remove('is-on'); bBoards.removeAttribute('aria-current');
+    vHome.querySelector('.home__main').scrollTop = 0;
+  }
+  function showBoards(key) {
+    vHome.hidden = true; vBoards.hidden = false;
+    bBoards.classList.add('is-on'); bBoards.setAttribute('aria-current', 'page');
+    bHome.classList.remove('is-on'); bHome.removeAttribute('aria-current');
+    if (key) go(key);
+  }
+  bHome.addEventListener('click', function () { showHome(); });
+  bBoards.addEventListener('click', function () { showBoards(); });
+
+  /* cualquier elemento con data-open salta al tablero indicado */
+  document.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-open]');
+    if (el) showBoards(el.dataset.open);
+  });
+
+  /* ── Tarjetas de aprendizaje ────────────────────────── */
+  var LESSONS = ['Conoce ACELERA', 'Planeamiento estratégico', 'Mapa de alineamiento'];
+  var KICKERS = ['Primeros pasos', 'Planeamiento Estratégico', 'Mapa de Alineamiento'];
+  document.getElementById('lessons').innerHTML = LESSONS.map(function (t, i) {
+    return '<button class="lesson"><div class="lesson__art">' +
+      '<span class="lesson__k">' + KICKERS[i] + '</span>' +
+      '<div class="mock" aria-hidden="true"><div class="mock__s"><div class="mock__b"></div>' +
+      '<div class="mock__g"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>' +
+      '<div class="mock__r"><i></i><i></i><i></i><i></i></div></div><div class="mock__base"></div></div>' +
+      '</div><p class="lesson__c">' + t + '</p></button>';
+  }).join('');
+
+  /* ── Secciones plegables del Inicio ─────────────────── */
+  document.querySelectorAll('[data-hshut]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var shut = b.closest('[data-hsec]').classList.toggle('is-shut');
+      b.setAttribute('aria-expanded', String(!shut));
+    });
+  });
+
+  /* ── Checklist "Explora tu plataforma completa" ─────── */
+  function updatePcheck() {
+    var items = document.querySelectorAll('.pcheck__item');
+    var done = document.querySelectorAll('.pcheck__item.is-done').length;
+    document.getElementById('pcheckCount').textContent = done + ' / ' + items.length;
+    document.getElementById('pcheckFill').style.width = (done / items.length * 100) + '%';
+    document.getElementById('platCheck').classList.toggle('is-complete', done === items.length);
+  }
+  document.querySelectorAll('.pcheck__chk').forEach(function (btn) {
+    btn.addEventListener('click', function (e) {
+      e.stopPropagation();
+      var item = btn.closest('.pcheck__item');
+      var willBeDone = !item.classList.contains('is-done');
+      item.classList.toggle('is-done', willBeDone);
+      btn.querySelector('.ico').textContent = willBeDone ? 'check_circle' : 'radio_button_unchecked';
+      if (willBeDone) {
+        item.classList.add('is-pop');
+        setTimeout(function () { item.classList.remove('is-pop'); }, 450);
+      }
+      updatePcheck();
+    });
+  });
+
+  /* la pestaña KPIs pierde su badge en cuanto se descubre */
+  var origGo = go;
+  go = function (key) {
+    origGo(key);
+    if (key === 'kp') {
+      var b = document.querySelector('.tab[data-go="kp"] .tab__badge');
+      if (b) b.remove();
+    }
+  };
+
+  go('pl');
+  showHome();
+})();
+</script>
+</body>
+</html>
